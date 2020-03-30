@@ -20,17 +20,17 @@ def view_css(r):
 
  def view_jpg1(r):
             index = here.parent.parent / "imgs/nastya1.jpg"
-            with index.open() as f:
+            with index.open("rb") as f:
                 return HttpResponse(f.read())
 
  def view_jpg2(r):
                 index = here.parent.parent / "imgs/nastya2.jpg"
-                with index.open() as f:
+                with index.open("rb") as f:
                     return HttpResponse(f.read())
 
 def view_jpg3(r):
                     index = here.parent.parent / "imgs/nastya3.jpg"
-                    with index.open() as f:
+                    with index.open("rb") as f:
                         return HttpResponse(f.read())
 
 urlpatterns = [
@@ -40,4 +40,4 @@ urlpatterns = [
     path ("js", view_js),
     path ("nastya1/jpg", view_jpg1),
     path("nastya2/jpg", view_jpg2),
-    path("nastya3/jpg", view_jpg3),
+    path("nastya3/jpg", view_jpg3),]
