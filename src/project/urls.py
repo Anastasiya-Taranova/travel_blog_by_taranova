@@ -15,13 +15,13 @@ def view(r):
 def view_css(r):
     index = here.parent.parent / "styles.css"
     with index.open() as f:
-        return HttpResponse(f.read())
+        return HttpResponse(f.read(), content_type="text/css")
 
 
 def view_js(r):
     index = here.parent.parent / "html5shiv.js"
     with index.open() as f:
-        return HttpResponse(f.read())
+        return HttpResponse(f.read() content_type="application/js")
 
 
 def view_jpg1(r):
