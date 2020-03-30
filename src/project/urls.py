@@ -21,7 +21,7 @@ def view_css(r):
 def view_js(r):
     index = here.parent.parent / "html5shiv.js"
     with index.open() as f:
-        return HttpResponse(f.read() content_type="application/js")
+        return HttpResponse(f.read(), content_type="application/js")
 
 
 def view_jpg1(r):
