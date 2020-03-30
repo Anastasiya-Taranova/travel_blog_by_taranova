@@ -36,6 +36,6 @@ def view_jpg1(r):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', view),
-    path("css", view_css),
-    path("js", view_js),
-    path("nastya1/jpg", view_jpg1), ]
+    path("styles.css", view_css),
+    path("html5shiv.js", view_js),
+    path("imgs/nastya1.jpg", view_jpg1), ]
