@@ -27,7 +27,7 @@ def view_jpg1(request: HttpRequest) -> HttpResponse:
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', view),
-    path("styles.css", view_css),
-    path("html5shiv.js", view_js),
-    path("imgs/nastya1.jpg", view_jpg1),
+    # path("styles.css", view_css),
+    # path("html5shiv.js", view_js),
+    # path("imgs/nastya1.jpg", view_jpg1),
 ]
