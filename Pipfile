@@ -5,8 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 black = "==19.10b0"
-whitenoise = "*"
+
 [packages]
+whitenoise = "*"
 django = "*"
 
 

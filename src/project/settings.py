@@ -21,7 +21,7 @@ REPO_DIR = BASE_DIR.parent.resolve()
 SECRET_KEY = '0)pf!brx%99+5-frzl=h^-*vc4!_rt4wxht7vex1^zjq=dokyq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 0
 
 ALLOWED_HOSTS = [
 "127.0.0.1",
