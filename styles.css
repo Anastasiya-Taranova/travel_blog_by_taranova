@@ -12,20 +12,11 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
-	line-height: 1.2;
-}
-ol {
-	padding-left: 1.4em;
-	list-style: decimal;
-}
+
+
 ul {
 	padding-left: 1.4em;
 	list-style: square;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
 }
 
 
@@ -94,18 +85,9 @@ nav li:last-of-type a {
 nav a:hover {
 	background-color: rgb(93,43,78);
 }
-aside h2 {
-	font-size: 1.3em;
-	margin-top: 10px;
-}
-aside h3 {
-	font-size: 1.1em;
-	margin-top: 15px;
-}
-aside p, aside li {
-	font-size: .75em;
-	margin-top: 10px;
-}
+
+
+
 .main h2 {
 	font-size: 2em;
 	margin-top: 10px;
@@ -126,10 +108,6 @@ footer {
 }
 
 
-* {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
 
 
 .main {
@@ -152,10 +130,7 @@ nav ul, header h1, footer p, .contentWrapper {
 img.half {
 	max-width: 37%;
 }
-img.left {
-	float: left;
-	margin: 0 10px 10px 0;
-}
+
 img.right {
 	float: right;
 	margin: 0 0 10px 10px;
