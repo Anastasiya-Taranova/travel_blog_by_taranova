@@ -5,8 +5,7 @@ from django.urls import path, include
 from django.http import HttpRequest
 from django.shortcuts import render
 
-
-#from apps.index.views import view
+from apps.index.views import view
 
 here = Path(__file__).parent.resolve()
 
@@ -24,5 +23,4 @@ def view_jpg1(request: HttpRequest) -> HttpResponse:
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include("apps.index.urls")),]
+    path('', view) ]

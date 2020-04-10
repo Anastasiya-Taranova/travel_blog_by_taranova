@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{% block title%}{% endblock %}</title>
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
+
+    <script src="{% static 'html5shiv.js' %}"></script>
+
+</head>
+
+<body>
+<div class="pageWrapper">
+    <header>
+        <nav class="clear">
+            <ul>
+                <li><a href="#">Вьетнам</a></li>
+                <li><a href="#">США</a></li>
+                <li><a href="#">Италия</a></li>
+                <li><a href="#">Украина</a></li>
+                <li><a href="#">Нидерланды</a></li>
+            </ul>
+        </nav>
+        <h1>{% block header %}{% endblock %}</h1>
+    </header>
+
+    {% block main%}{% endblock %}
+
+
+    <footer>
+        <p></p>
+        <div class="foot">
+            <ul>
+                <li><a href="http://vk.com/nst_taranova">Vk</a></li>
+                <li><a href="http://instagram.com/nst_taranova">Instagram</a></li>
+                <li><a href="mailto:taranova.nas@gmail.com">E-mail</a></li>
+
+
+            </ul>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
