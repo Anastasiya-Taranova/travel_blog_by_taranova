@@ -10,4 +10,4 @@ httpie = "*"
 [packages]
 whitenoise = "*"
 django = "*"
-collectstatic = "*"
+

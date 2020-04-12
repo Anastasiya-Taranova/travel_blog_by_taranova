@@ -1,7 +1,6 @@
 from django.urls import path
-from apps.index.views import IndexView
 from apps.vietnam.apps import VietnamConfig
-
+from apps.vietnam.views import IndexView
 
 app_name = VietnamConfig.name
 

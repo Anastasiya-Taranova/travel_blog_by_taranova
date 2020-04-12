@@ -1,15 +1,15 @@
 {% extends "basic.html" %}
+{% load static %}
 {% block title %}Travel blog{% endblock %}
 {% block header %}Блог о бюджетных путешествиях{% endblock %}
 {% block main %}
 <div class="contentWrapper">
     <article class="main">
         <h2>Привет, меня зовут Настя Таранова :) </h2>
-        <p><img src="index/imgs/nastya1.jpg" alt="Nastya Taranova" class="half right"></p>
+        <img src= "{% static 'index/imgs/nastya1.jpg' %}" alt="Nastya Taranova" class="half right">
         <p>Я тот человек, который не умеет сидеть на месте и постоянно ищет приключений.</p>
         <p> Почему я люблю путешествовать? Не представляю свою жизнь без путешествий - без исследования новых мест или
             открытия неизвестного в местах, где была уже много раз. </p>
-
         <p>
         <h3>Факты обо мне</h3></p>
         <ul>
@@ -32,4 +32,5 @@
             скучно. Составляю свои маршруты с учетом возможности для импровизации, а мои планы порой оказываются очень
             гибкими.</p>
     </article>
+
     {% endblock %}
