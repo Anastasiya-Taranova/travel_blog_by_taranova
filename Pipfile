@@ -10,6 +10,5 @@ httpie = "*"
 [packages]
 whitenoise = "*"
 django = "*"
-dynacdonf = {extras = ["yaml"],version = "*"}
-dynaconf = "*"
+dynaconf = {extras = ["yaml"],version = "*"}
 dj-database-url = "*"
