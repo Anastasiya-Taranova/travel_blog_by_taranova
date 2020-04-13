@@ -10,8 +10,7 @@ development:
 
 heroku:
   ALLOWED_HOSTS:
-    - .sidorov-dev.herokuapp.com
-    - .sidorov.dev
+    - taranova-travel.herokuapp.com
     - 127.0.0.1
     - localhost
   DEBUG: false
