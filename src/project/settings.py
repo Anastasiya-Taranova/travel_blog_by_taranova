@@ -10,25 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os
+from os import getenv
 from pathlib import Path
-
+import dj_database_url
+from dynaconf import settings as _settings
 
 PROJECT_DIR = Path(__file__).parent.resolve()
 BASE_DIR = PROJECT_DIR.parent.resolve()
 REPO_DIR = BASE_DIR.parent.resolve()
 
-SECRET_KEY = '0)pf!brx%99+5-frzl=h^-*vc4!_rt4wxht7vex1^zjq=dokyq'
+SECRET_KEY = _settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 1
+DEBUG = _settings.DEBUG
 
-ALLOWED_HOSTS = [
-"127.0.0.1",
-    "localhost",
-    "taranova-travel.herokuapp.com",
-]
-
+ALLOWED_HOSTS = _settings.ALLOWED_HOSTS
 
 # Application definition
 
@@ -76,17 +72,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-
+_db_url = _settings.DATABASE_URL
+if _settings.ENV_FOR_DYNACONF == "heroku":
+    _db_url = getenv("DATABASE_URL")
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': (BASE_DIR / 'db.sqlite3').as_posix(),
-    }
+    'default': dj_database_url.parse(_db_url, conn_max_age=600)
 }
-
-
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -103,9 +95,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -116,10 +105,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-
 STATIC_URL = '/assets/'
 
-STATICFILES_DIRS = [ PROJECT_DIR / "static"]
+STATICFILES_DIRS = [PROJECT_DIR / "static"]
 
 STATIC_ROOT = REPO_DIR / ".static"

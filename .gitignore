@@ -1,3 +1,4 @@
 pipfile.lock
 .idea/
 .static/
+.secrets.*
