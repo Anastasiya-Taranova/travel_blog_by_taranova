@@ -3,3 +3,4 @@ pipfile.lock
 .static/
 .secrets.*
 .env
+.urls.py.swp
