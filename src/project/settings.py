@@ -21,6 +21,8 @@ from dotenv import load_dotenv
 
 
 
+
+
 PROJECT_DIR = Path(__file__).parent.resolve()
 BASE_DIR = PROJECT_DIR.parent.resolve()
 REPO_DIR = BASE_DIR.parent.resolve()
@@ -116,3 +118,15 @@ STATIC_URL = '/assets/'
 STATICFILES_DIRS = [PROJECT_DIR / "static"]
 
 STATIC_ROOT = REPO_DIR / ".static"
+
+if 1 or not DEBUG:
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn="https://cc746b5c10374d00a93041cf5a1caeb1@o383048.ingest.sentry.io/5212817",
+        integrations=[DjangoIntegration()],
+
+        # If you wish to associate users to errors (assuming you are using
+        # django.contrib.auth) you may enable sending PII data.
+        send_default_pii=True)
