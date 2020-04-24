@@ -13,5 +13,4 @@ django = "*"
 dynaconf = {extras = ["yaml"],version = "*"}
 dj-database-url = "*"
 psycopg2-binary = "*"
-dotenv = "*"
 python-dotenv = "*"
