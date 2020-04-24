@@ -1,7 +1,7 @@
 {% extends "basic.html" %}
 {% load static %}
 {% block title %}Travel blog{% endblock %}
-{% block header %}Блог о бюджетных путешествиях{% endblock %}
+{% block header %}{{ country | safe }}{% endblock %}
 {% block main %}
 <div class="contentWrapper">
     <article class="main">
