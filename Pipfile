@@ -14,3 +14,4 @@ dynaconf = {extras = ["yaml"],version = "*"}
 dj-database-url = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
+sentry-sdk = "*"
