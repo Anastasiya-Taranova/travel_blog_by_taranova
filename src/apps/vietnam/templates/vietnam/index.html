@@ -1,17 +1,5 @@
 {% extends "basic.html" %}
 {% load static %}
-{% block title %}Travel blog{% endblock %}
 {% block header %}Вьетнам{% endblock %}
-
 {% block main %}
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-f97067f2-c83e-458a-a75c-5bf3e84b68c2"></div>
-{% for vieday in object_list %}
-<p>from {{ vieday.day }} till {{ vieday.save }}: in XXX</p>
-{% if vieday.responsibilities.count %}
-<p>Responsibilities:</p>
-{% endif %}
-<p>{% for resp in vieday.responsibilities.all %}</p>
-{% endfor %}
-{% endfor %}
 {% endblock %}

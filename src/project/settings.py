@@ -14,9 +14,7 @@ from os import getenv
 from pathlib import Path
 import dj_database_url
 from dynaconf import settings as _settings
-import os
-from os.path import join, dirname
-from dotenv import load_dotenv
+
 
 
 
