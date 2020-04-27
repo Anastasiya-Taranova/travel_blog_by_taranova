@@ -11,4 +11,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("apps.index.urls")),
     path('vietnam/', include('apps.vietnam.urls')),
+    path('blog/', include('apps.blog.urls')),
     path('sentry-debug/', trigger_error), ]

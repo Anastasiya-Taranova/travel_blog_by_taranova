@@ -15,12 +15,6 @@ from pathlib import Path
 import dj_database_url
 from dynaconf import settings as _settings
 
-
-
-
-
-
-
 PROJECT_DIR = Path(__file__).parent.resolve()
 BASE_DIR = PROJECT_DIR.parent.resolve()
 REPO_DIR = BASE_DIR.parent.resolve()
@@ -43,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.index',
     'apps.vietnam',
+    'apps.blog',
 ]
 
 MIDDLEWARE = [
