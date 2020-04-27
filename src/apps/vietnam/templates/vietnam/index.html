@@ -2,4 +2,18 @@
 {% load static %}
 {% block header %}Вьетнам{% endblock %}
 {% block main %}
+<div class="wrapper style1">
+    <div class="container">
+		<article id="main" class="special">
+            <header>
+                <h3><a href="#"></a>{{ viedays.h3| safe  }}</h3>
+            </header>
+            <section>
+                <header>
+                    <h2><a name="#"></a>{{ viedays.h2 | safe }}</h2>
+                </header>
+                <p><strong>{{ viedays.predecription | safe }}</strong></p>
+                <p>{{ viedays.decription | safe }}</p>
+                </section>
+
 {% endblock %}

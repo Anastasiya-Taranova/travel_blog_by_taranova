@@ -1,6 +1,6 @@
 from django.test import Client
 from django.test import TestCase
-from apps.index.views import view
+from apps.index.views import IndexView
 
 
 class Test(TestCase):
@@ -10,8 +10,13 @@ class Test(TestCase):
     def test_get(self):
         resp = self.cli.get("/index/")
         self.assertEqual(resp.status_code, 200)
-        self.assertEqual(len(resp.templates), 2)
+        self.assertTrue(resp.has_header("Cache-Control"))
+        self.assertEqual(resp.get("Cache-Control"), f"max-age={60 * 60 * 24}")
+
+        self.assertEqual(resp.resolver_match.url_name, "index")
+        self.assertEqual(resp.resolver_match.view_name, "index:index")
         self.assertEqual(
-            [_t.name for _t in resp.templates], ["index/index.html", "basic.html"]
+            resp.resolver_match.func.__name__, IndexView.as_view().__name__
         )
-        self.assertEqual(resp.resolver_match.func, view)
+
+        self.assertEqual(resp.template_name, ["index/index.html"])
