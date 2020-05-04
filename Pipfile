@@ -6,6 +6,13 @@ verify_ssl = true
 [dev-packages]
 black = "==19.10b0"
 httpie = "*"
+coverage = "*"
+django-silk = "*"
+freezegun = "*"
+ipython = "*"
+isort = "*"
+line-profiler = "*"
+pudb = "*"
 
 [packages]
 whitenoise = "*"
