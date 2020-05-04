@@ -2,18 +2,38 @@
 {% load static %}
 {% block header %}Вьетнам{% endblock %}
 {% block main %}
+{% for vietnam in object_list %}
 <div class="wrapper style1">
     <div class="container">
 		<article id="main" class="special">
             <header>
-                <h3><a href="#"></a>{{ viedays.h3| safe  }}</h3>
+                <h3><a href="#"></a>{{ vietnam.h3 | safe  }}</h3>
             </header>
             <section>
                 <header>
-                    <h2><a name="#"></a>{{ viedays.h2 | safe }}</h2>
+                    <h2><a name="#"></a>{{ vietnam.h2 | safe }}</h2>
                 </header>
-                <p><strong>{{ viedays.predecription | safe }}</strong></p>
-                <p>{{ viedays.decription | safe }}</p>
+                <p><strong>{{ vietnam.predescription | safe }}</strong></p>
+                <p>{{ vietnam.description | safe }}</p>
                 </section>
+            <div class="row">
+							<article class="col-4 col-12-mobile special">
+								<a href="#" class="image featured"><img src="{% static 'images/pic12.jpg' %}" alt="" /></a>
+
+							</article>
+							<article class="col-4 col-12-mobile special">
+								<a href="#" class="image featured"><img src="{% static 'images/pic02.jpg' %}" alt="" /></a>
+
+
+							</article>
+							<article class="col-4 col-12-mobile special">
+								<a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+
+							</article>
+						</div>
+						</div>
+
+						</div>
+            {% endfor %}
 
 {% endblock %}
