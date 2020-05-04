@@ -58,7 +58,7 @@ sh:
 
 .PHONY: transfer
 transfer:
-    ${MANAGE} python src/manage.py dumpdata --natural-primary --format=yaml vietnam
+	${MANAGE} python src/manage.py dumpdata --natural-primary --format=yaml vietnam
 
 .PHONY: test
 test:
