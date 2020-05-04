@@ -1,7 +1,7 @@
 HERE := $(shell pwd)
 VENV := $(shell pipenv --venv)
 PYTHONPATH := ${HERE}/src
-TEST_PARAMS := --verbosity 2 --pythonpath ${PYTHONPATH}
+TEST_PARAMS := --verbosity 2 --pythonpath "${PYTHONPATH}"
 PSQL_PARAMS := --host=localhost --username=alex --password
 
 
@@ -23,8 +23,8 @@ MANAGE := ${PY} python src/manage.py
 
 .PHONY: format
 format:
-	${PY} isort --virtual-env ${VENV} --recursive --apply ${HERE}
-	${PY} black ${HERE}
+	${PY} isort --virtual-env "${VENV}" --recursive --apply "${HERE}"
+	${PY} black "${HERE}"
 
 
 .PHONY: run
@@ -65,12 +65,12 @@ test:
 	ENV_FOR_DYNACONF=test \
 	${PY} coverage run \
 		src/manage.py test ${TEST_PARAMS} \
-			applications \
+			apps \
 			project \
 
 	${PY} coverage report
-	${PY} isort --virtual-env ${VENV} --recursive --check-only ${HERE}
-	${PY} black --check ${HERE}
+	${PY} isort --virtual-env "${VENV}" --recursive --check-only "${HERE}"
+	${PY} black --check "${HERE}"
 
 
 .PHONY: report

@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 from os import getenv
 from pathlib import Path
+
 import dj_database_url
-from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 
 PROJECT_DIR = Path(__file__).parent.resolve()
@@ -36,9 +36,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'apps.index',
-    'apps.vietnam',
-    'apps.blog',
+    "apps.index",
+    "apps.vietnam",
+    "apps.blog",
 ]
 
 MIDDLEWARE = [
@@ -52,27 +52,25 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = "project.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            PROJECT_DIR / "templates",
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [PROJECT_DIR / "templates",],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'project.wsgi.application'
+WSGI_APPLICATION = "project.wsgi.application"
 
 _db_url = _settings.DATABASE_URL
 if _settings.ENV_FOR_DYNACONF == "heroku":
@@ -83,27 +81,21 @@ DATABASES = {
     # "ENGINE": "django.db.backends.sqlite3",
     # "NAME": (BASE_DIR / "db.sqlite3").as_posix(),
     # }
-    'default': dj_database_url.parse(_db_url, conn_max_age=600)
+    "default": dj_database_url.parse(_db_url, conn_max_age=600)
 }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.login.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.login.password_validation.UserAttributeSimilarityValidator",
     },
-    {
-        'NAME': 'django.contrib.login.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.login.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.login.password_validation.NumericPasswordValidator',
-    },
+    {"NAME": "django.contrib.login.password_validation.MinimumLengthValidator",},
+    {"NAME": "django.contrib.login.password_validation.CommonPasswordValidator",},
+    {"NAME": "django.contrib.login.password_validation.NumericPasswordValidator",},
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -111,7 +103,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/assets/'
+STATIC_URL = "/assets/"
 
 STATICFILES_DIRS = [PROJECT_DIR / "static"]
 
@@ -124,9 +116,7 @@ if not DEBUG:
     sentry_sdk.init(
         dsn="https://cc746b5c10374d00a93041cf5a1caeb1@o383048.ingest.sentry.io/5212817",
         integrations=[DjangoIntegration()],
-
         # If you wish to associate users to errors (assuming you are using
         # django.contrib.login) you may enable sending PII data.
-        send_default_pii=True)
-
-
+        send_default_pii=True,
+    )
