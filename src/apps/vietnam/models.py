@@ -8,5 +8,8 @@ class VieDays(m.Model):
     description = m.TextField(null=True, blank=True)
 
     class Meta:
-        verbose_name_plural = "VieDays"
+        verbose_name_plural = "Information about Vietnam"
 
+    def __str__(self):
+        description = f" {self.description}" if self.description else ""
+        return f"{self.h2} {description}"

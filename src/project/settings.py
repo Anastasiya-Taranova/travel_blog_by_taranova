@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 from os import getenv
 from pathlib import Path
 import dj_database_url
+from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 
 PROJECT_DIR = Path(__file__).parent.resolve()
@@ -29,26 +30,26 @@ ALLOWED_HOSTS = _settings.ALLOWED_HOSTS
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
     'apps.index',
     'apps.vietnam',
     'apps.blog',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -78,21 +79,25 @@ if _settings.ENV_FOR_DYNACONF == "heroku":
     _db_url = getenv("DATABASE_URL")
 
 DATABASES = {
+    # 'default': {
+    # "ENGINE": "django.db.backends.sqlite3",
+    # "NAME": (BASE_DIR / "db.sqlite3").as_posix(),
+    # }
     'default': dj_database_url.parse(_db_url, conn_max_age=600)
 }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.login.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.login.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.login.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.login.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -112,7 +117,7 @@ STATICFILES_DIRS = [PROJECT_DIR / "static"]
 
 STATIC_ROOT = REPO_DIR / ".static"
 
-if 1 or not DEBUG:
+if not DEBUG:
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -121,5 +126,7 @@ if 1 or not DEBUG:
         integrations=[DjangoIntegration()],
 
         # If you wish to associate users to errors (assuming you are using
-        # django.contrib.auth) you may enable sending PII data.
+        # django.contrib.login) you may enable sending PII data.
         send_default_pii=True)
+
+
