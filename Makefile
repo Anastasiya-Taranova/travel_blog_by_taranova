@@ -2,7 +2,7 @@ HERE := $(shell pwd)
 VENV := $(shell pipenv --venv)
 PYTHONPATH := ${HERE}/src
 TEST_PARAMS := --verbosity 2 --pythonpath "${PYTHONPATH}"
-PSQL_PARAMS := --host=localhost --username=alex --password
+PSQL_PARAMS := --host=localhost --username=anastasiataranova --password
 
 
 ifeq ($(origin PIPENV_ACTIVE), undefined)
