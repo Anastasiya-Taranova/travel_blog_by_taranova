@@ -4,3 +4,4 @@ pipfile.lock
 .secrets.*
 .env
 .urls.py.swp
+.coverage

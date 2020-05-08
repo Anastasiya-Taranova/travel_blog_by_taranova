@@ -17,5 +17,4 @@ class Test(TestCase):
         self.assertEqual(
             resp.resolver_match.func.__name__, IndexView.as_view().__name__
         )
-
-        self.assertEqual(resp.template_name, ["/index/index.html"])
+        self.assertTemplateUsed(resp, template_name="index/index.html")
