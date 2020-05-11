@@ -21,9 +21,9 @@
     </article>
 
     <article>
-        <form action="{{ url('onboarding:pwc') }}" method="post">
+        <form action="{% url 'onboarding:pwc' %}" method="post">
             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-            {{ form.as_p() }}
+            {{ form.as_p }}
             <button class="button" type="submit">Update</button>
             <input name="next" type="hidden" value="{{ next }}">
         </form>

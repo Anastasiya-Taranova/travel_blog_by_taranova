@@ -25,15 +25,15 @@
 
     <article>
 
-        <form action="{{ url('onboarding:sign_in') }}" method="post">
+        <form action="{% url 'onboarding:sign_in' %}" method="post">
             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
             <div class="grid">
                 <p>
-                    {{ form.username.label_tag() }}
+                    {{ form.username.label_tag }}
                     {{ form.username }}
                 </p>
                 <p>
-                    {{ form.password.label_tag() }}
+                    {{ form.password.label_tag }}
                     {{ form.password }}
                 </p>
             </div>

@@ -25,10 +25,10 @@
     </article>
 
     <article>
-        <form action="{{ url('onboarding:sign_up') }}" method="post">
+        <form action="{% url 'onboarding:sign_up' %}" method="post">
             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
             <div class="grid">
-                {{ form.as_p() }}
+                {{ form.as_p }}
             </div>
             <button type="submit" class="button">Sign Up</button>
             <input name="next" type="hidden" value="{{ next }}">
