@@ -2,15 +2,15 @@ from django.urls import path
 
 from apps.onboarding.apps import OnboardingConfig
 from apps.onboarding.views import IndexView
-from apps.onboarding.views import ProfileView
 from apps.onboarding.views import ProfileEditView
-from apps.onboarding.views import PwcView
+from apps.onboarding.views import ProfileView
 from apps.onboarding.views import PwcDoneView
-from apps.onboarding.views import SignInView
+from apps.onboarding.views import PwcView
 from apps.onboarding.views import SignInVerifiedView
+from apps.onboarding.views import SignInView
 from apps.onboarding.views import SignOutView
-from apps.onboarding.views import SignUpView
 from apps.onboarding.views import SignUpConfirmedView
+from apps.onboarding.views import SignUpView
 
 app_name = OnboardingConfig.label
 
