@@ -19,5 +19,4 @@ def render_static(file_path: Path, content_type: str) -> HttpResponse:
     return response
 
 
-def get_favicon() -> Path:
-    return STATIC_DIR / "favicon.png"
+

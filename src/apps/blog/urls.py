@@ -3,7 +3,7 @@ from django.urls import path
 from apps.blog import views
 from apps.blog.apps import BlogConfig
 
-app_name = BlogConfig.name
+app_name = BlogConfig.label
 
 urlpatterns = [
     path("", views.AllBlogPostView.as_view(), name="blog"),

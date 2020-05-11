@@ -1,7 +1,6 @@
-pipfile.lock
+Pipfile.lock
 .idea/
 .static/
 .secrets.*
-.env
-.urls.py.swp
+.urls.py.*swp
 .coverage
