@@ -55,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -89,14 +90,12 @@ DATABASES = {
     "default": dj_database_url.parse(_db_url, conn_max_age=600)
 }
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.login.password_validation.UserAttributeSimilarityValidator",
-    },
-    {"NAME": "django.contrib.login.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.login.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.login.password_validation.NumericPasswordValidator",},
-]
+# AUTH_PASSWORD_VALIDATORS = [
+# { "NAME": "django.contrib.login.password_validation.UserAttributeSimilarityValidator",},
+# {"NAME": "django.contrib.login.password_validation.MinimumLengthValidator", },
+# {"NAME": "django.contrib.login.password_validation.CommonPasswordValidator", },
+# {"NAME": "django.contrib.login.password_validation.NumericPasswordValidator", },
+# ]
 
 LANGUAGE_CODE = "en-us"
 

@@ -17,6 +17,3 @@ def render_static(file_path: Path, content_type: str) -> HttpResponse:
 
     response = HttpResponse(content, content_type=content_type)
     return response
-
-
-
