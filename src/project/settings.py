@@ -29,17 +29,21 @@ ALLOWED_HOSTS = _settings.ALLOWED_HOSTS
 
 # Application definition
 
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "apps.index",
-    "apps.vietnam",
-    "apps.blog",
-]
+INSTALLED_APPS_ORDERED = {
+    0: "django.contrib.admin",
+    10: "django.contrib.auth",
+    20: "django.contrib.contenttypes",
+    30: "django.contrib.sessions",
+    40: "django.contrib.messages",
+    50: "django.contrib.staticfiles",
+    60: "django.contrib.sites",
+    # --- my applications ---
+    1000: "apps.onboarding.apps.OnboardingConfig",
+    2000: "apps.index.apps.IndexConfig",
+    3000: "apps.vietnam.apps.VietnamConfig",
+    4000: "apps.blog.apps.BlogConfig",
+}
+INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
