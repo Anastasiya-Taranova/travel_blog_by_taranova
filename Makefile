@@ -104,3 +104,12 @@ resetdb:
 
 .PHONY: initdb
 initdb: resetdb migrate
+
+.PHONY: beat
+beat:
+	PYTHONPATH=${PYTHONPATH} \
+	${RUN} celery worker \
+		--app periodic.app -B \
+		--config periodic.celeryconfig \
+		--workdir ${HERE}/src \
+		--loglevel=info
