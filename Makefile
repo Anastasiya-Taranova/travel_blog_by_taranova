@@ -2,7 +2,7 @@ HERE := $(shell pwd)
 VENV := $(shell pipenv --venv)
 PYTHONPATH := ${HERE}/src
 TEST_PARAMS := --verbosity 2 --pythonpath "${PYTHONPATH}"
-PSQL_PARAMS := --host=localhost --username=alex --password
+PSQL_PARAMS := --host=localhost --username=anastasiataranova --password
 
 
 ifeq ($(origin PIPENV_ACTIVE), undefined)
@@ -104,3 +104,12 @@ resetdb:
 
 .PHONY: initdb
 initdb: resetdb migrate
+
+.PHONY: beat
+beat:
+	PYTHONPATH=${PYTHONPATH} \
+	${RUN} celery worker \
+		--app periodic.app -B \
+		--config periodic.celeryconfig \
+		--workdir ${HERE}/src \
+		--loglevel=info

@@ -14,6 +14,7 @@ from os import getenv
 from pathlib import Path
 
 import dj_database_url
+from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 
 PROJECT_DIR = Path(__file__).parent.resolve()
@@ -29,17 +30,21 @@ ALLOWED_HOSTS = _settings.ALLOWED_HOSTS
 
 # Application definition
 
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "apps.index",
-    "apps.vietnam",
-    "apps.blog",
-]
+INSTALLED_APPS_ORDERED = {
+    0: "django.contrib.admin",
+    10: "django.contrib.auth",
+    20: "django.contrib.contenttypes",
+    30: "django.contrib.sessions",
+    40: "django.contrib.messages",
+    50: "django.contrib.staticfiles",
+    60: "django.contrib.sites",
+    # --- my applications ---
+    1000: "apps.onboarding.apps.OnboardingConfig",
+    2000: "apps.index.apps.IndexConfig",
+    3000: "apps.vietnam.apps.VietnamConfig",
+    4000: "apps.blog.apps.BlogConfig",
+}
+INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -84,14 +90,12 @@ DATABASES = {
     "default": dj_database_url.parse(_db_url, conn_max_age=600)
 }
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.login.password_validation.UserAttributeSimilarityValidator",
-    },
-    {"NAME": "django.contrib.login.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.login.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.login.password_validation.NumericPasswordValidator",},
-]
+# AUTH_PASSWORD_VALIDATORS = [
+# { "NAME": "django.contrib.login.password_validation.UserAttributeSimilarityValidator",},
+# {"NAME": "django.contrib.login.password_validation.MinimumLengthValidator", },
+# {"NAME": "django.contrib.login.password_validation.CommonPasswordValidator", },
+# {"NAME": "django.contrib.login.password_validation.NumericPasswordValidator", },
+# ]
 
 LANGUAGE_CODE = "en-us"
 
@@ -120,3 +124,16 @@ if not DEBUG:
         # django.contrib.login) you may enable sending PII data.
         send_default_pii=True,
     )
+EMAIL_HOST = _settings.EMAIL_HOST
+EMAIL_HOST_PASSWORD = _settings.EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
+EMAIL_PORT = _settings.EMAIL_PORT
+EMAIL_USE_SSL = _settings.EMAIL_USE_SSL
+EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
+
+EMAIL_FROM = _settings.EMAIL_FROM
+
+LOGIN_URL = reverse_lazy("onboarding:sign_in")
+LOGIN_REDIRECT_URL = reverse_lazy("onboarding:me")
+
+SITE_ID = _settings.SITE_ID

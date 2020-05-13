@@ -17,14 +17,14 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1><a href="{% static 'index/index.html' %}" id="logo">{% block header %}{% endblock %}</a></h1>
+								<h1><a href="{% url 'index:index' %}" id="logo">{% block header %}{% endblock %}</a></h1>
 								<video autoplay muted loop id="myVideo">
 							  <source src="{% static 'video.mp4' %}" type="video/mp4">
 								<hr />
 
 							</header>
 							<footer>
-								<a href="#banner" class="button circled scrolly">Начать</a>
+								<a href="#" class="button circled scrolly">Начать</a>
 							</footer>
 						</div>
 
@@ -42,7 +42,7 @@
 										<li><a href="#">Нидерланды</a></li>
 									</ul>
 								</li>
-								<li><a href="{% static 'photo.html' %}">Фотографии</a></li>
+								<li><a href="#">Фотографии</a></li>
 								<li><a href="#">Полезные статьи и файлы</a></li>
 								<li><a href="#">Контакты</a></li>
 								<li><a href="#">Вход/Регистрация</a></li>
