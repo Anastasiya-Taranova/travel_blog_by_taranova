@@ -39,6 +39,7 @@ heroku:
   MODE_DEBUG: 0
   MODE_PROFILING: 0
   DEBUG: true
+  DISABLE_COLLECTSTATIC: 1
 
 travis:
   DATABASE_URL: "postgresql://postgres@localhost:5432/sd"

@@ -25,3 +25,4 @@ sentry-sdk = "*"
 django-crispy-forms = "*"
 delorean = "*"
 django-ipware = "*"
+celery = {extras = ["redis"],version = "*"}
