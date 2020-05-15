@@ -10,7 +10,7 @@ app = Celery()
 
 @app.on_after_configure.connect
 def setup_periodic_tasks(sender, **_kwargs):
-    from apps.periodic import tasks
+    from periodic import tasks
 
     sender.add_periodic_task(
         settings.CELERY_BEAT_INVITATION,
