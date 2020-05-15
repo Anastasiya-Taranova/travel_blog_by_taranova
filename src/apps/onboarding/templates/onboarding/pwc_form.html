@@ -1,13 +1,13 @@
 {% extends "basic.html" %}
 
-{% block title %}Change Password{% endblock %}
+{% block title %}Изменение пароля{% endblock %}
 
-{% block header %}Change Password{% endblock %}
+{% block header %}Изменение пароля{% endblock %}
 
 {% block main %}
     <article>
         {% if form.errors %}
-            <p>Errors during changing password: {{ form.errors }}</p>
+            <p>Проблемы при изменении пароля: {{ form.errors }}</p>
         {% endif %}
 
         {% if next %}
@@ -15,7 +15,7 @@
                 <p>Your account doesn't have access to this page. To proceed,
                    please login with an account that has access.</p>
             {% else %}
-                <p>Please login to see this page.</p>
+                <p>Пожалуйста, зарегистрируйтесь, чтоб увидеть эту страницу.</p>
             {% endif %}
         {% endif %}
     </article>

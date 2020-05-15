@@ -1,8 +1,8 @@
 {% extends "basic.html" %}
 
-{% block title %}Edit Profile{% endblock %}
+{% block title %}Редактировать профиль{% endblock %}
 
-{% block header %}Edit Profile{% endblock %}
+{% block header %}Редактировать профиль{% endblock %}
 
 {% block main %}
 
@@ -10,11 +10,11 @@
 
         {% if user.is_anonymous %}
 
-            <h2>You are not authorized to use this</h2>
+            <h2>У вас нет доступа к этой странице</h2>
 
         {% else %}
 
-            <h2>Your new data</h2>
+            <h2>Ваша новая информация</h2>
 
             <form method="post">
                 <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
