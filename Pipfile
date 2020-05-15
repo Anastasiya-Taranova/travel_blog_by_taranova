@@ -28,4 +28,3 @@ django-ipware = "*"
 celery = {extras = ["redis"],version = "*"}
 requests = "*"
 
-
