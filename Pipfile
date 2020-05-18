@@ -27,4 +27,7 @@ delorean = "*"
 django-ipware = "*"
 celery = {extras = ["redis"],version = "*"}
 requests = "*"
+uvicorn = "*"
+gunicorn = "*"
+
 

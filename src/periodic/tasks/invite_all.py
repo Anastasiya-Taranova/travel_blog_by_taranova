@@ -1,8 +1,9 @@
 from django.db.models import Q
 
-from periodic import get_auth_profile_model
+
 from periodic import tasks
 from periodic.app import app
+from periodic.utils.xmodels import get_auth_profile_model
 
 
 @app.task

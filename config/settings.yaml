@@ -41,6 +41,17 @@ heroku:
   DEBUG: true
   DISABLE_COLLECTSTATIC: 1
 
+docker:
+  CELERY_BEAT_INVITATION: 30
+  CELERY_BROKER_URL: "redis://taranova-travel-broker"
+  DATABASE_URL: "postgresql://anastasiataranova:1@taranova-travel-db:5432/taranova-travel"
+  MODE_CACHING: 0
+  MODE_DEBUG: 0
+  MODE_PROFILING: 0
+  SECRET_KEY: "1"
+  SITE_ID: 1
+  TIME_ZONE: "Europe/Minsk"
+
 travis:
   DATABASE_URL: "postgresql://postgres@localhost:5432/sd"
   DEBUG: true
