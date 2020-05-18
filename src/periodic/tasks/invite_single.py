@@ -2,7 +2,6 @@ from apps.onboarding.utils.consts import PROJECT_NAME
 from apps.onboarding.utils.safeguards import safe
 from apps.onboarding.utils.xdatetime import utcnow
 from apps.onboarding.utils.xmail import send_email
-
 from periodic.app import app
 from periodic.utils.xmodels import get_auth_profile_model
 
