@@ -11,3 +11,4 @@ cd "${PROJECT_DIR}" || exit 1
 make beat
 
 echo "DONE: RUNNING SPAM"
+
