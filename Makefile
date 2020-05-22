@@ -1,6 +1,6 @@
 HERE := $(shell pwd)
 VENV := $(shell pipenv --venv)
-PYTHONPATH := "${HERE}/src"
+PYTHONPATH := ${HERE}/src
 TEST_PARAMS := --verbosity 2 --pythonpath "${PYTHONPATH}"
 PSQL_PARAMS := --host=localhost --username=anastasiataranova --password
 
@@ -81,7 +81,7 @@ sh:
 test:
 	ENV_FOR_DYNACONF=test \
 	${RUN} coverage run \
-		src/manage.py test "${TEST_PARAMS}" \
+		src/manage.py test ${TEST_PARAMS} \
 			apps \
 			periodic \
 			project \
@@ -93,7 +93,7 @@ test:
 
 .PHONY: report
 report:
-	${RUN} coverage html --directory=${HERE}/htmlcov --fail-under=0
+	${RUN} coverage html --directory="${HERE}/htmlcov${HERE}/htmlcov" --fail-under=0
 	open "${HERE}/htmlcov/index.html"
 
 
