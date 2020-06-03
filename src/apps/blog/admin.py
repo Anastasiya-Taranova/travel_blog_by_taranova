@@ -1,6 +1,8 @@
 from django.contrib import admin
 
-from apps.blog.models import Post, Comment, Photo
+from apps.blog.models import Comment
+from apps.blog.models import Photo
+from apps.blog.models import Post
 
 
 @admin.register(Post)
