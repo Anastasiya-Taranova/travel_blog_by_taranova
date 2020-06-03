@@ -1,7 +1,7 @@
 /// Removes a specific item from a list.
 /// @author Hugo Giraudel
 /// @param {list} $list List.
-/// @param {integer} $index Index.
+/// @param {integer} $blog Index.
 /// @return {list} Updated list.
 @function remove-nth($list, $index) {
 

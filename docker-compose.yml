@@ -1,0 +1,50 @@
+version: "3.3"
+services:
+  taranova-travel-web:
+    image: taranova-travel-web
+    container_name: taranova-travel-web
+    build: ./
+    ports:
+      - "8000:80"
+    depends_on:
+      - taranova-travel-db
+      - taranova-travel-beat
+    environment:
+      ENV_FOR_DYNACONF: docker
+      PORT: 80
+  taranova-travel-beat:
+    image: taranova-travel-web
+    container_name: taranova-travel-beat
+    build: .
+    ports:
+      - "8001:80"
+    depends_on:
+      - taranova-travel-broker
+      - taranova-travel-db
+    entrypoint: ["docker/run-beat.sh"]
+    environment:
+      ENV_FOR_DYNACONF: docker
+      PORT: 80
+  taranova-travel-broker:
+    container_name: taranova-travel-redis
+    image: redis:latest
+  taranova-travel-db:
+    container_name: taranova-travel-db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: anastasiataranova
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: taranova-travel
+    ports:
+      - "5433:5432"
+  taranova-travel-dba:
+    container_name: taranova-travel-dba
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:

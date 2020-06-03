@@ -16,6 +16,9 @@ pudb = "*"
 
 [packages]
 whitenoise = "*"
+boto3 = "*"
+django-storages = "*"
+djangorestframework = "*"
 django = "*"
 dynaconf = {extras = ["yaml"],version = "*"}
 dj-database-url = "*"
@@ -27,4 +30,7 @@ delorean = "*"
 django-ipware = "*"
 celery = {extras = ["redis"],version = "*"}
 requests = "*"
+uvicorn = "*"
+gunicorn = "*"
+
 

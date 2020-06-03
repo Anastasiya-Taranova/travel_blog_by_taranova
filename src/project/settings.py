@@ -26,7 +26,7 @@ SECRET_KEY = _settings.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = _settings.DEBUG
 
-ALLOWED_HOSTS = _settings.ALLOWED_HOSTS
+ALLOWED_HOSTS = _settings.ALLOWED_HOSTS + ["localhost", "127.0.0.1"]
 
 # Application definition
 
@@ -137,3 +137,12 @@ LOGIN_URL = reverse_lazy("onboarding:sign_in")
 LOGIN_REDIRECT_URL = reverse_lazy("onboarding:me")
 
 SITE_ID = _settings.SITE_ID
+
+AWS_ACCESS_KEY_ID = _settings.AWS_ACCESS_KEY_ID
+AWS_DEFAULT_ACL = "public-read"
+AWS_LOCATION = _settings.AWS_LOCATION
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_ADDRESSING_STYLE = "path"
+AWS_S3_REGION_NAME = _settings.AWS_S3_REGION_NAME
+AWS_SECRET_ACCESS_KEY = _settings.AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME = "taranova"
