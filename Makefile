@@ -134,3 +134,4 @@ resetdb:
 
 .PHONY: initdb
 initdb: resetdb migrate
+

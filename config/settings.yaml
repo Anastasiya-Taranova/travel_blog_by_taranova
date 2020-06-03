@@ -1,5 +1,9 @@
 default:
   ALLOWED_HOSTS: []
+  AWS_ACCESS_KEY_ID: ""
+  AWS_LOCATION: ""
+  AWS_S3_REGION_NAME: ""
+  AWS_SECRET_ACCESS_KEY: ""
   CELERY_BEAT_INVITATION: -1
   CELERY_BROKER_URL: ""
   DATABASE_URL: ""
@@ -30,6 +34,8 @@ development:
   DEBUG: true
 
 heroku:
+  AWS_LOCATION: "heroku"
+  AWS_S3_REGION_NAME: "us-east-1"
   ALLOWED_HOSTS:
     - taranova-travel.herokuapp.com
     - 127.0.0.1
@@ -42,6 +48,8 @@ heroku:
   DISABLE_COLLECTSTATIC: 1
 
 docker:
+  AWS_LOCATION: "docker"
+  AWS_S3_REGION_NAME: "us-east-1"
   CELERY_BEAT_INVITATION: 30
   CELERY_BROKER_URL: "redis://taranova-travel-broker"
   DATABASE_URL: "postgresql://anastasiataranova:1@taranova-travel-db:5432/taranova-travel"
