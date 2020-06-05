@@ -26,4 +26,3 @@ urlpatterns = [
     path("sign_up/", SignUpView.as_view(), name="sign_up"),
     path("sign_up/confirmed/", SignUpConfirmedView.as_view(), name="sign_up_confirmed"),
 ]
-
