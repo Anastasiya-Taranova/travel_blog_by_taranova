@@ -13,7 +13,6 @@ ipython = "*"
 isort = "*"
 line-profiler = "*"
 pudb = "*"
-v = {editable = true,version = "*"}
 
 [packages]
 whitenoise = "*"
