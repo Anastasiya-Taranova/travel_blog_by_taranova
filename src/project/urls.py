@@ -16,3 +16,4 @@ urlpatterns = [
     path("sentry-debug/", trigger_error),
     path("api/", include("apps.api.urls")),
 ]
+

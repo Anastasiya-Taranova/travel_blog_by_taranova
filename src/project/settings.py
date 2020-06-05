@@ -47,6 +47,7 @@ INSTALLED_APPS_ORDERED = {
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
 }
+
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
 
 MIDDLEWARE = [
