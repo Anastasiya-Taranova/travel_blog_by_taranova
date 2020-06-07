@@ -39,6 +39,7 @@ INSTALLED_APPS_ORDERED = {
     50: "django.contrib.staticfiles",
     60: "rest_framework",
     70: "django.contrib.sites",
+    80: "drf_yasg",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.index.apps.IndexConfig",
@@ -46,6 +47,7 @@ INSTALLED_APPS_ORDERED = {
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
 }
+
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
 
 MIDDLEWARE = [
