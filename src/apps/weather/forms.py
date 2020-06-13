@@ -1,4 +1,5 @@
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm
+from django.forms import TextInput
 
 from apps.weather.models import City
 
@@ -8,10 +9,12 @@ class CityForm(ModelForm):
         model = City
         fields = ["name"]
         widjets = {
-            'name': TextInput(attrs={
-                'class': 'form-control',
-                'name': 'city',
-                'id': 'city',
-                'placeholder': 'Введите город'
-            })
+            "name": TextInput(
+                attrs={
+                    "class": "form-control",
+                    "name": "city",
+                    "id": "city",
+                    "placeholder": "Введите город",
+                }
+            )
         }
