@@ -1,39 +1,16 @@
-{% extends "meta/_meta.html" %}
+{% extends "basic.html" %}
 
-{% block title %}{{ object.title }} :: Blog of Alexander Sidorov{% endblock %}
+{% block title %}Blog{% endblock %}
 
 {% block header %}Blog{% endblock %}
 
 {% block main %}
 
-    <article>
-        <h2>{{ object.title }}</h2>
-        <p>{{ object.content }}</p>
-        {% for photo in object.photos.all %}
-            <a href="{{ photo.original.url }}"><img src="{{ photo.original.url }}" alt="{{ photo.pk }}" style="max-width:200px; height: auto" ></a>
-        {%  endfor %}
-    </article>
-
-    <article>
-        <h3>Comments</h3>
-        {% if not object.comments.count %}
-            <p>No one commented this</p>
-        {% endif %}
-        {% for comment in object.comments.all %}
-            <section>
-                <p><i>{{ comment.message }}</i></p>
-                <p>&mdash; {{ comment.author.profile.name }}</p>
-            </section>
-        {% endfor %}
-        {% if not user.is_authenticated %}
-            <p><a href="{{ url("onboarding:index") }}">Sign in</a> to leave a comment.</p>
-        {% else %}
-            <form action="{{ url("blog:comment", kwargs={"pk": object.pk}) }}" method="post">
-                {{ form.as_p() }}
-                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                <button type="submit">Comment</button>
-            </form>
-        {% endif %}
-    </article>
+    {% for post in object_list %}
+        <article>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.co }} <a href="{{ post.get_absolute_url }}">...</a></p>
+        </article>
+    {% endfor %}
 
 {% endblock %}
