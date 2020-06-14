@@ -23,8 +23,8 @@ def index(request):
         res = requests.get(url.format(city.name)).json()
         city_info = {
             "city": city.name,
-            "temp": res["main"][0]["temp"],
-            "icon": res["weather"][0]["icon"],
+            "temp": res["list"][0]["main"]["temp"],
+            "icon": res["list"][0]["weather"][0]["icon"],
         }
 
         all_cities.append(city_info)

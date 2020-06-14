@@ -34,4 +34,4 @@ requests = "*"
 uvicorn = "*"
 gunicorn = "*"
 awscli = "*"
-
+geopy = "*"
