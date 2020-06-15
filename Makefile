@@ -61,6 +61,21 @@ static:
 migrations:
 	${MANAGE} makemigrations
 
+.PHONY: lambda
+lambda:
+	(cd serverless && sls deploy)
+
+
+.PHONY: lambda-clean
+lambda-clean:
+	rm -rf serverless/.serverless
+
+
+.PHONY: lambda-remove
+lambda-remove:
+	(cd serverless && sls remove)
+
+
 
 .PHONY: migrate
 migrate:
@@ -119,7 +134,7 @@ clean-docker:
 
 
 .PHONY: wipe
-wipe: clean clean-docker
+wipe: clean clean-docker lambda-clean
 
 
 .PHONY: resetdb

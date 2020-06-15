@@ -40,12 +40,14 @@ INSTALLED_APPS_ORDERED = {
     60: "rest_framework",
     70: "django.contrib.sites",
     80: "drf_yasg",
+    90: "storages",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.index.apps.IndexConfig",
     3000: "apps.vietnam.apps.VietnamConfig",
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
+    6000: "apps.weather.apps.WeatherConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
@@ -149,4 +151,16 @@ AWS_QUERYSTRING_AUTH = False
 AWS_S3_ADDRESSING_STYLE = "path"
 AWS_S3_REGION_NAME = _settings.AWS_S3_REGION_NAME
 AWS_SECRET_ACCESS_KEY = _settings.AWS_SECRET_ACCESS_KEY
-AWS_STORAGE_BUCKET_NAME = "taranova"
+AWS_STORAGE_BUCKET_NAME = "taranova-travel"
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+}
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Token": {"type": "apiKey", "name": "Authorization", "in": "header",}
+    },
+}
