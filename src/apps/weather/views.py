@@ -38,7 +38,7 @@ def index(request):
 
             if existing_city_count == 0:
                 res = requests.get(url.format(new_city)).json()
-                if res["cod"] == 200:
+                if res["cod"] == "200":
                     form.save()
                 else:
                     err_msg = "Такого города не существует"
