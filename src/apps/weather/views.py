@@ -42,7 +42,6 @@ def index(request):
                     form.save()
                 else:
                     err_msg = "Такого города не существует"
-                    # сюда надо что-то, чтоб удалялась ячейка с херней-городом из базы данных
             else:
                 err_msg = "Погода для этого города уже отображена"
         if err_msg:
@@ -79,7 +78,6 @@ def index(request):
 
 
 def get_real_ip(request: HttpRequest):
-    breakpoint()
     ip = get_real_ip(request)[0]
     ip_city = retrieve_ip(ip)
     appid = "b4be221bb02fa8a7be1d57407c585b5b"
@@ -95,7 +93,6 @@ def get_real_ip(request: HttpRequest):
 
     all_cities_ip = []
     city_name_ip = response.city.name
-
     res = requests.get(url.format(city_name_ip)).json()
     city_info_ip = {
         "city": city_name_ip,
