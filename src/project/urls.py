@@ -15,5 +15,4 @@ urlpatterns = [
     path("onboarding/", include("apps.onboarding.urls")),
     path("sentry-debug/", trigger_error),
     path("api/", include("apps.api.urls")),
-    path("weather/", include("apps.weather.urls")),
 ]
