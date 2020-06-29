@@ -47,7 +47,6 @@ INSTALLED_APPS_ORDERED = {
     3000: "apps.vietnam.apps.VietnamConfig",
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
-    6000: "apps.weather.apps.WeatherConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
