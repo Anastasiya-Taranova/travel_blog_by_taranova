@@ -153,6 +153,12 @@ LOGIN_REDIRECT_URL = reverse_lazy("onboarding:me")
 
 SITE_ID = _settings.SITE_ID
 
+EMAIL_HOST = _settings.EMAIL_HOST
+EMAIL_PORT = _settings.EMAIL_PORT
+EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = _settings.EMAIL_HOST_PASSWORD
+EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
+
 AWS_ACCESS_KEY_ID = _settings.AWS_ACCESS_KEY_ID
 AWS_DEFAULT_ACL = "public-read"
 AWS_LOCATION = _settings.AWS_LOCATION
