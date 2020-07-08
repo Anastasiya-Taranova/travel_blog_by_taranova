@@ -25,6 +25,9 @@ default:
   TELEGRAM_BOT_TOKEN: ""
 
 development:
+  CELERY_BROKER_URL: "redis://"
+  AWS_LOCATION: "development"
+  AWS_S3_REGION_NAME: "us-east-1"
   CELERY_BEAT_INVITATION: 30
   MODE_CACHING: 0
   MODE_DEBUG: 1
@@ -41,6 +44,7 @@ heroku:
     - taranova-travel.herokuapp.com
     - 127.0.0.1
     - localhost
+    - ef95a59f1dd9.ngrok.io
   CELERY_BEAT_INVITATION: 900
   MODE_CACHING: 1
   MODE_DEBUG: 0

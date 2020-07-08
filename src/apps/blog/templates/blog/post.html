@@ -10,8 +10,8 @@
         <h2>{{ object.title }}</h2>
         <p>{{ object.content }}</p>
         {% for photo in object.photos.all %}
-            <a href="{{ photo.original }}">
-                <img src="{{ photo.original }}"
+            <a href="{{ photo.original.url }}">
+                <img src="{{ photo.original.url }}"
                      alt="{{ photo.pk }}"
                      style="max-width:200px; height: auto">
             </a>
@@ -32,7 +32,7 @@
         {% if not user.is_authenticated %}
             <p><a href="{% url 'onboarding:index' %}">Sign in</a> to leave a comment.</p>
         {% else %}
-            <form action="{% url 'blog:comment' %}" method="post">
+            <form action="{% url 'blog:comment' object.pk %}" method="post">
                 {{ form.as_p }}
                 <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
                 <button type="submit">Comment</button>
