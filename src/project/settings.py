@@ -41,17 +41,12 @@ INSTALLED_APPS_ORDERED = {
     70: "django.contrib.sites",
     80: "drf_yasg",
     90: "storages",
-    100: "django.contrib.gis",
-    110: "ckeditor",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.index.apps.IndexConfig",
     3000: "apps.vietnam.apps.VietnamConfig",
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
-    6000: "apps.contacts.apps.ContactsConfig",
-    7000: "apps.preparation.apps.PreparationConfig",
-    8000: "apps.account.apps.AccountConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
@@ -73,9 +68,7 @@ ROOT_URLCONF = "project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            PROJECT_DIR / "templates",
-        ],
+        "DIRS": [PROJECT_DIR / "templates",],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -101,7 +94,6 @@ DATABASES = {
     # }
     "default": dj_database_url.parse(_db_url, conn_max_age=600)
 }
-DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 
 # AUTH_PASSWORD_VALIDATORS = [
 # { "NAME": "django.contrib.login.password_validation.UserAttributeSimilarityValidator",},
@@ -153,12 +145,6 @@ LOGIN_REDIRECT_URL = reverse_lazy("onboarding:me")
 
 SITE_ID = _settings.SITE_ID
 
-EMAIL_HOST = _settings.EMAIL_HOST
-EMAIL_PORT = _settings.EMAIL_PORT
-EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = _settings.EMAIL_HOST_PASSWORD
-EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
-
 AWS_ACCESS_KEY_ID = _settings.AWS_ACCESS_KEY_ID
 AWS_DEFAULT_ACL = "public-read"
 AWS_LOCATION = _settings.AWS_LOCATION
@@ -176,18 +162,6 @@ REST_FRAMEWORK = {
 
 SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
-        "Token": {
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header",
-        }
-    },
-}
-ADMIN_MEDIA_PREFIX = "/static/admin/"
-CKEDITOR_UPLOAD_PATH = "uploads/"
-MEDIA_URL = "/media/"
-CKEDITOR_CONFIGS = {
-    "default": {
-        "toolbar": None,
+        "Token": {"type": "apiKey", "name": "Authorization", "in": "header",}
     },
 }
