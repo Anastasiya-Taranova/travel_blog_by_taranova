@@ -68,7 +68,7 @@ ROOT_URLCONF = "project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [PROJECT_DIR / "templates",],
+        "DIRS": [PROJECT_DIR / "templates", ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -135,6 +135,8 @@ EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
 EMAIL_PORT = _settings.EMAIL_PORT
 EMAIL_USE_SSL = _settings.EMAIL_USE_SSL
 EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 EMAIL_FROM = _settings.EMAIL_FROM
 
@@ -142,12 +144,6 @@ LOGIN_URL = reverse_lazy("onboarding:sign_in")
 LOGIN_REDIRECT_URL = reverse_lazy("onboarding:me")
 
 SITE_ID = _settings.SITE_ID
-
-EMAIL_HOST = _settings.EMAIL_HOST
-EMAIL_PORT = _settings.EMAIL_PORT
-EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = _settings.EMAIL_HOST_PASSWORD
-EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
 
 AWS_ACCESS_KEY_ID = _settings.AWS_ACCESS_KEY_ID
 AWS_DEFAULT_ACL = "public-read"
@@ -166,6 +162,6 @@ REST_FRAMEWORK = {
 
 SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
-        "Token": {"type": "apiKey", "name": "Authorization", "in": "header",}
+        "Token": {"type": "apiKey", "name": "Authorization", "in": "header", }
     },
 }
