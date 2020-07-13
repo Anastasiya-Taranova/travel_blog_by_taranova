@@ -41,12 +41,14 @@ INSTALLED_APPS_ORDERED = {
     70: "django.contrib.sites",
     80: "drf_yasg",
     90: "storages",
+    100: "django.contrib.gis",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.index.apps.IndexConfig",
     3000: "apps.vietnam.apps.VietnamConfig",
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
+    6000: "apps.contacts.apps.ContactsConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
