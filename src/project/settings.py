@@ -96,6 +96,7 @@ DATABASES = {
     # }
     "default": dj_database_url.parse(_db_url, conn_max_age=600)
 }
+DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 
 # AUTH_PASSWORD_VALIDATORS = [
 # { "NAME": "django.contrib.login.password_validation.UserAttributeSimilarityValidator",},
