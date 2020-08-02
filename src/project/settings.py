@@ -49,6 +49,7 @@ INSTALLED_APPS_ORDERED = {
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
     6000: "apps.contacts.apps.ContactsConfig",
+    7000: "apps.preparation.apps.PreparationConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
@@ -168,3 +169,4 @@ SWAGGER_SETTINGS = {
         "Token": {"type": "apiKey", "name": "Authorization", "in": "header",}
     },
 }
+ADMIN_MEDIA_PREFIX = "/static/admin/"
