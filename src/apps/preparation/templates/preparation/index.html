@@ -1,0 +1,85 @@
+{% extends "basic1.html" %}
+{% load static %}
+{% block header %}Подготовка к путешествию{% endblock %}
+{% block main %}
+<section class="section">
+
+    <div class="container">
+        <div class="columns">
+            <div class="column is-offset-4 is-2">
+                <h2>Поиск авиабилета:</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="city">Город отправления:</label>
+                    {{ form.name_city }}
+                    <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
+                </form>
+            </div>
+
+        </div>
+
+
+        {% for info in all_info %}
+        <div class="col-5 offset-2">
+            <h2>Информация:</h2>
+            <b>Город: </b> {{ info.CountryName}} <br>
+            <b> Температура: </b> {{ info.PlaceId }} <sup>0</sup><br>
+        </div>
+        {% endfor %}
+        {{ form.date }}
+
+<script>
+  $(function () {
+    $("#id_date").datepicker({
+      format:'dd/mm/yyyy',
+    });
+  });
+</script>
+    </div>
+    </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="section">
+
+    <div class="container">
+        <div class="columns">
+            <div class="column is-offset-4 is-2">
+                <h2>Найти город:</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="city">Город:</label>
+                    {{ form.name_city }}
+                    <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
+                </form>
+            </div>
+
+        </div>
+
+
+        {% for info in all_info %}
+        <div class="col-5 offset-2">
+            <h2>Информация:</h2>
+            <b>Город: </b> {{ info.CountryName}} <br>
+            <b> Температура: </b> {{ info.PlaceId }} <sup>0</sup><br>
+        </div>
+        {% endfor %}
+        {{ form.date }}
+
+<script>
+  $(function () {
+    $("#id_date").datepicker({
+      format:'dd/mm/yyyy',
+    });
+  });
+</script>
+    </div>
+    </div>
+    </div>
+</section>
+{% endblock %}
