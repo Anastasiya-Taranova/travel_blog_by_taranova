@@ -15,7 +15,7 @@ addons:
 env:
   global:
     - ENV_FOR_DYNACONF=travis
-    - DYNACONF_DATABASE_URL="postgresql://postgres@localhost:5432/test"
+    - DYNACONF_DATABASE_URL="postgresql://postgres@localhost:5432/taranova-travel"
 
 install:
   - sudo add-apt-repository --yes ppa:ubuntugis/ppa
@@ -31,7 +31,7 @@ install:
 
 before_script:
   - make resetdb
-  - psql -U postgres -c "create extension postgis" -d test
+  - psql -U postgres -c "create extension postgis" -d taranova-travel
 
 script:
   - make test
