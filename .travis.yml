@@ -6,6 +6,12 @@ python:
 services:
   - postgresql
 
+addons:
+  postgresql: "9.6"
+  apt:
+    packages:
+    - postgresql-9.6-postgis-2.3
+
 env:
   global:
     - ENV_FOR_DYNACONF=travis
@@ -16,20 +22,12 @@ install:
   - sudo apt-get --quiet update
   - sudo apt-get install python3-gdal libgdal-dev
   - sudo apt-get install --yes libgdal-dev gdal-bin
-  #  - sudo mv /etc/apt/sources.list.d/pgdg-source.list* /tmp
-#    - sudo apt-get -qq remove postgis
-#    - sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
-#    - sudo apt-get update -qq
-#    - sudo apt-get install -qq bison flex python-lxml libfribidi-dev swig cmake
-#    librsvg2-dev colordiff postgis postgresql-9.6-postgis-2.0-scripts libpq-dev
-#    libpng12-dev libjpeg-dev libgif-dev libgeos-dev libgd2-xpm-dev libfreetype6-dev
-#    libfcgi-dev libcurl4-gnutls-dev libcairo2-dev libgdal1-dev libproj-dev
-#    libxml2-dev python-dev php5-dev libexempi-dev lcov lftp
   - pip install pipenv --upgrade
   - make venv static
 
 before_script:
   - make resetdb
+  - psql -U postgres -c "create extension postgis"
 
 script:
   - make test
