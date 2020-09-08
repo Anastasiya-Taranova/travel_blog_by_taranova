@@ -1,14 +1,16 @@
-from django.forms import DateInput, forms
+from django.forms import DateInput
+from django.forms import forms
 
 from apps.account.models import Trips
+from suit.widgets import EnclosedInput, SuitSplitDateTimeWidget
 
 
 class CreateTripForm(forms.ModelForm):
     name = forms.CharField(max_length=50)
     user_location = forms.CharField(max_length=100)
     destination = forms.CharField(max_length=100)
-    start_date = forms.DateField(widget=DateInput)
-    end_date = forms.DateField(widget=DateInput)
+    start_date = forms.DateField()
+    end_date = forms.DateField()
     budget = forms.IntegerField()
     participants = forms.IntegerField()
     picture = forms.ImageField()
@@ -16,3 +18,7 @@ class CreateTripForm(forms.ModelForm):
     class Meta:
         model = Trips
         fields = "__all__"
+        # widjets = {
+        #     "packing_list": EnclosedInput(prepend='$', append='.00'),
+        #     "start_date": SuitSplitDateTimeWidget
+        # }
