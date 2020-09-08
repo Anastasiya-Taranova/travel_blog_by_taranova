@@ -28,6 +28,7 @@ install:
     postgis
   - pip install pipenv --upgrade
   - sudo apt-get install python-gdal
+  - sudo apt-get install python3-gdal
   - make venv static
 
 before_script:
