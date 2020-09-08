@@ -24,7 +24,7 @@ install:
     python3-gdal
     libgdal-dev
     gdal-bin
-    postgresql-9.6-postgis-2.3
+    postgresql-9.6-postgis-2.4
     postgis
   - pip install pipenv --upgrade
   - make venv static
