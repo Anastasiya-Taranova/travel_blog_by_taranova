@@ -35,4 +35,3 @@ class ProfileAdminForm(forms.ModelForm):
 @admin.register(Profile)
 class ProfileAdminModel(ModelAdmin):
     readonly_fields = [a(f) for f in (Profile.user,)]
-
