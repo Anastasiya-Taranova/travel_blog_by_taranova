@@ -6,4 +6,6 @@ from apps.index.views import IndexView
 
 app_name = IndexConfig.label
 
-urlpatterns = [path("", IndexView.as_view(), name="index")]
+urlpatterns = [
+    path("", IndexView.as_view(), name="index"),
+]

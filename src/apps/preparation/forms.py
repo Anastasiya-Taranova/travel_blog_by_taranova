@@ -1,25 +1,50 @@
 from django import forms
-from django.forms import ModelForm
-from django.forms import TextInput
-
-from apps.preparation.models import Skyscanner
+from django.forms import Form
 
 
-class CityForm(ModelForm):
-    class Meta:
-        model = Skyscanner
-        fields = ["name_city"]
-        widjets = {
-            "name_city": TextInput(
-                attrs={
-                    "class": "form-control",
-                    "name": "city",
-                    "id": "city",
-                    "placeholder": "Введите город",
-                }
-            )
-        }
-
-
-class DateForm(forms.Form):
-    date = forms.DateTimeField(input_formats=["%d/%m/%Y %H:%M"])
+class CityForm(Form):
+    name_city = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "name": "city",
+                "id": "city",
+                "placeholder": "Введите город",
+            }
+        ),
+    )
+    outboundpartialdate = forms.DateField(
+        widget=forms.DateInput(
+            format=("%Y-%m-%d"),
+            attrs={"class": "outboundpartialdate", "placeholder": "Год-Месяц-День"},
+        )
+    )
+    inboundpartialdate = forms.DateField(
+        widget=forms.DateInput(
+            format=("%Y-%m-%d"),
+            attrs={"class": "inboundpartialdate", "placeholder": "Год-Месяц-День"},
+        )
+    )
+    originplace = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "name": "city",
+                "id": "city",
+                "placeholder": "Введите город",
+            }
+        ),
+    )
+    destinationplace = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "name": "city",
+                "id": "city",
+                "placeholder": "Введите город",
+            }
+        ),
+    )

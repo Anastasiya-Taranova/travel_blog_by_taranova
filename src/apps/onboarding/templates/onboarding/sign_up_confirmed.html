@@ -1,10 +1,23 @@
-{% extends "basic.html" %}
+{% extends "basic1.html" %}
 
 {% block title %}Вы зарегистрировались успешно{% endblock %}
 
-{% block header %}Вы зарегистрировались успешно{% endblock %}
-
 {% block main %}
+<style>
+    .container {
+        padding-left: 100px;
+        padding-top: 20px;
+        padding-bottom: 0;
+
+    }
+    h2 {
+        padding-bottom: 20px;
+    }
+
+</style>
+<div class="wrapper style2">
+    <div class="container">
+        <header id="main" class="special">
 
     <article>
 
@@ -14,5 +27,9 @@
         <p>Письмо с кодом для активации было отправлено на ваш ящик.</p>
 
     </article>
+                    </header>
+    </div>
+
+</div>
 
 {% endblock %}

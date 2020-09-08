@@ -1,16 +1,55 @@
-{% extends "basic.html" %}
+{% extends "basic1.html" %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}Полезные статьи и файлы{% endblock %}
 
-{% block header %}Blog{% endblock %}
+{% block header %}Полезные статьи и файлы{% endblock %}
 
 {% block main %}
+{% for post in object_list %}
+<style>
+    h2 {
+        text-align: center;
+        font-size: 40px
+    }
 
-    {% for post in object_list %}
-        <article>
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.co }} <a href="{{ post.get_absolute_url }}">...</a></p>
-        </article>
-    {% endfor %}
+    p.content {
+        margin-top: 10px;
+
+    }
+</style>
+
+<div class="wrapper style2">
+
+    <div class="container">
+        <header id="main" class="special">
+            <section>
+
+                <article>
+                    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                    <p class="content">{{ post.precontent }}</p>
+                </article>
+
+            </section>
+        </header>
+
+        <div class="row">
+            <article class="col-4 col-12-mobile special">
+                <a href="#" class="image featured"></a>
+
+            </article>
+            <article class="col-4 col-12-mobile special">
+                <a href="#" class="image featured"></a>
+
+
+            </article>
+            <article class="col-4 col-12-mobile special">
+                <a href="#" class="image featured"></a>
+
+            </article>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
 
 {% endblock %}
