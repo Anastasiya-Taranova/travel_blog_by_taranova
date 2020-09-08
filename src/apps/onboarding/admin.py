@@ -1,6 +1,5 @@
 from apps.onboarding.models import AuthProfile
 from apps.onboarding.models import Profile
-from apps.onboarding.models import Trips
 from apps.onboarding.utils.xmodels import a
 from django import forms
 from django.contrib import admin
@@ -37,7 +36,3 @@ class ProfileAdminForm(forms.ModelForm):
 class ProfileAdminModel(ModelAdmin):
     readonly_fields = [a(f) for f in (Profile.user,)]
 
-
-@admin.register(Trips)
-class TripsAdmin(admin.ModelAdmin):
-    pass
