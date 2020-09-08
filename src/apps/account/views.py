@@ -58,7 +58,7 @@ class TripsDetailed(LoginRequiredMixin, DetailView):
                 "index/index.html",
                 {
                     "error": "This is a private trip which you "
-                             "do not have permissions to view."
+                    "do not have permissions to view."
                 },
             )
 

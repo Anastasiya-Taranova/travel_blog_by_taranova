@@ -25,6 +25,3 @@ class ProfileEditForm(forms.Form):
             raise forms.ValidationError("Username has been already taken")
 
         return cleaned
-
-
-
