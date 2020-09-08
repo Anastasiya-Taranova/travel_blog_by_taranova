@@ -19,10 +19,13 @@ env:
 
 install:
   - sudo add-apt-repository --yes ppa:ubuntugis/ppa
-  - sudo apt-get --quiet update
-  - sudo apt-get install python3-gdal libgdal-dev
-  - sudo apt-get install --yes libgdal-dev gdal-bin
-  - sudo apt-get install postgresql-9.6-postgis-2.3 postgis -y -qx
+  - sudo apt-get update
+  - sudo apt-get install --yes
+    python3-gdal
+    libgdal-dev
+    gdal-bin
+    postgresql-9.6-postgis-2.3
+    postgis
   - pip install pipenv --upgrade
   - make venv static
 
