@@ -1,0 +1,130 @@
+from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.views.generic import DeleteView
+from django.views.generic import DetailView
+from django.views.generic import ListView
+from django.views.generic import UpdateView
+
+from apps.account.models import Trips
+
+User = get_user_model()
+
+
+def render_community_trips(request):
+    community_trips = []
+    for trip in Trips.objects.all():
+        if trip.public:
+            if trip.user_id.get_username() != request.user.get_username():
+                community_trips.append(trip)
+    return community_trips
+
+
+def render_user_trips(request):
+    trips = []
+    for trip in Trips.objects.all():
+        if trip.user_id.get_username() == request.user.get_username():
+            trips.append(trip)
+    return trips
+
+
+class TripsDetailed(LoginRequiredMixin, DetailView):
+    context_object_name = "trips_detailed"
+    template_name = "account/trips_detailed.html"
+    object = Trips
+
+    def get(self, request, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["community_trips"] = render_community_trips(request)
+        context["trips"] = self.clean_object(request)
+        context["trips_total"] = len(render_user_trips(request))
+        return render(request, self.template_name, context)
+
+    def get_object(self, queryset=Trips):
+        slug_ = self.kwargs.get("slug")
+        return get_object_or_404(Trips, slug=slug_)
+
+    def clean_object(self, request):
+        slug_ = self.kwargs.get("slug")
+        obj = self.get_object()
+        if obj.user_id.get_username() == request.user.get_username() or obj.public:
+            return get_object_or_404(Trips, slug=slug_)
+        else:
+            return render(
+                request,
+                "index/index.html",
+                {
+                    "error": "This is a private trip which you "
+                             "do not have permissions to view."
+                },
+            )
+
+
+class CreateTrip(LoginRequiredMixin, CreateView):
+    context_object_name = "create_trip"
+    template_name = "account/create_trip.html"
+    object = Trips
+    model = Trips
+    fields = "__all__"
+
+    def get(self, request, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return render(request, self.template_name, context)
+
+    def get_object(self, queryset=Trips):
+        slug_ = self.kwargs.get("slug")
+        return get_object_or_404(Trips, slug=slug_)
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+
+class UpdateTrip(LoginRequiredMixin, UpdateView):
+    context_object_name = "update_trip"
+    template_name = "account/create_trip.html"
+    model = Trips
+    fields = "__all__"
+
+    def get(self, request, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["trips"] = self.get_object()
+        return render(request, self.template_name, context)
+
+    def get_object(self, queryset=Trips):
+        slug_ = self.kwargs.get("slug")
+        return get_object_or_404(Trips, slug=slug_)
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+
+class DeleteTrip(LoginRequiredMixin, DeleteView):
+    context_object_name = "update_trip"
+    template_name = "account/create_trip.html"
+    model = Trips
+    success_url = reverse_lazy("onboarding:trips_list")
+
+    def get_object(self, queryset=Trips):
+        slug_ = self.kwargs.get("slug")
+        return get_object_or_404(Trips, slug=slug_)
+
+    def post(self, request, *args, **kwargs):
+        pass
+
+
+class TripsList(LoginRequiredMixin, ListView):
+    context_object_name = "trips_list"
+    template_name = "account/trips_list.html"
+    object_list = Trips.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        self.object_list = render_user_trips(request)
+        context = super().get_context_data(**kwargs)
+        context["trips"] = render_user_trips(request)
+        context["trips_total"] = len(render_user_trips(request))
+        return render(request, self.template_name, context)
