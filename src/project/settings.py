@@ -50,6 +50,7 @@ INSTALLED_APPS_ORDERED = {
     5000: "apps.api.apps.ApiConfig",
     6000: "apps.contacts.apps.ContactsConfig",
     7000: "apps.preparation.apps.PreparationConfig",
+    8000: "apps.account.apps.AccountConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]

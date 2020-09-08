@@ -27,7 +27,7 @@
     <div class="container">
         <div class="grid">
 
-            <form action="{% url 'onboarding:create_trip' %}" method="post">
+            <form action="{% url 'account:create_trip' %}" method="post">
                 {% csrf_token %}
                 <p>{{ form.as_p }}</p>
                 <input type="submit" name="Save" value="Узнать" class="mt-2 btn btn-danger">
