@@ -37,9 +37,9 @@
 					</article>
 
 				</div>
-{% if object_list %}
+
     <div class="grid">
-      {% for photo in object_list.random_photos %}
+      {% for photo in obj_list %}
         <div class="photo">
           <a href="{{ photo.url }}">
             <img src="{{ photo.url }}" alt="lol">
@@ -47,5 +47,5 @@
         </div>
       {% endfor %}
     </div>
-{% endif %}
+
     {% endblock %}
