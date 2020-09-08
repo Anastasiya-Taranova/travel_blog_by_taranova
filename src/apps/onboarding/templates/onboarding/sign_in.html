@@ -1,10 +1,23 @@
-{% extends "basic.html" %}
+{% extends "basic1.html" %}
 
 {% block title %}Войти{% endblock %}
 
 {% block header %}Войти{% endblock %}
 
 {% block main %}
+<style>
+    .container {
+        padding-left: 320px;
+        padding-top: 40px;
+        padding-bottom: 0;
+        margin: 0;
+
+    }
+
+</style>
+<div class="wrapper style2">
+    <div class="container">
+        <header id="main" class="special">
 
     <article>
 
@@ -39,9 +52,18 @@
             </div>
 
             <button type="submit" class="button">Войти</button>
+
+
             <input name="next" type="hidden" value="{{ next }}">
         </form>
+        <form action="{% url 'onboarding:sign_up' %}">
+    <button type="submit">Зарегистрироваться</button>
+</form>
 
     </article>
+            </header>
+        </div>
+
+						</div>
 
 {% endblock %}

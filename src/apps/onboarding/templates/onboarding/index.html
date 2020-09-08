@@ -1,26 +1,40 @@
-{% extends "basic.html" %}
+{% extends "basic1.html" %}
 
 {% block title %}Вход/Регистрация{% endblock %}
 
-{% block header %}Вход/Регистрация{% endblock %}
+{% block header %}
+<style>
+    button {
+        width: 450px;
+        height: 100px;
+        margin-bottom: 20px;
+        margin-right: 50px;
+        font-size: 25px;
+        position: relative;
 
-{% block main %}
-
-    <article>
+    }
 
 
-        <section>
-            <ul>
-                {% if user.is_authenticated %}
-                    <li><a href="{% url 'onboarding:pwc' %}">Поменять пароль</a></li>
-                    <li><a href="{% url 'onboarding:sign_out' %}">Выйти из учетной записи</a></li>
-                {% else %}
-                    <li><a href="{% url 'onboarding:sign_in' %}">Войти</a></li>
-                    <li><a href="{% url 'onboarding:sign_up' %}">Зарегистрироваться</a></li>
-                {% endif %}
-            </ul>
-        </section>
+</style>
 
-    </article>
 
+<article>
+
+
+    <section>
+        <ul>
+            {% if user.is_authenticated %}
+            <button><a class="boot" href="{% url 'onboarding:pwc' %}">Поменять пароль</a></button>
+            <button><a class="boot" href="{% url 'onboarding:sign_out' %}">Выйти из учетной записи</a></button>
+            {% else %}
+            <button><a class="boot" href="{% url 'onboarding:sign_in' %}">Войти</a></button>
+            <button><a class="boot" href="{% url 'onboarding:sign_up' %}">Зарегистрироваться</a></button>
+            {% endif %}
+        </ul>
+    </section>
+
+</article>
 {% endblock %}
+
+
+
