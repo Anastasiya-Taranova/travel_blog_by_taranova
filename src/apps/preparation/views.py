@@ -39,33 +39,26 @@ def get_country_code(country):
     return country_code
 
 
-def create_session(originplace, destinationplace, name_city, outboundpartialdate):
+def create_session(
+    originplace, destinationplace, name_city, outboundpartialdate, inboundpartialdate
+):
     apicall = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0"
-    params = {
-        "cabinClass": "economy",
-        "children": 0,
-        "infants": 0,
+    querystring = {
         "country": name_city,
         "currency": "USD",
         "locale": "en-US",
-        "originPlace": originplace,
-        "destinationPlace": destinationplace,
-        "outboundDate": outboundpartialdate,
-        "adults": 1,
+        "originplace": originplace,
+        "destinationplace": destinationplace,
+        "outboundpartialdate": outboundpartialdate,
+        "inboundpartialdate": inboundpartialdate,
     }
-    r = requests.post(apicall, headers=headers, data=params)
-    session_key = r.headers["Location"].split("/")[-1]
-    return session_key
-
-
-def poll_results(session_key):
-    apicall = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/uk2/v1.0/{}?sortType=price&pageIndex=0&pageSize=10".format(
-        session_key
-    )
-    r = requests.get(apicall, headers=headers)
+    r = requests.get(apicall, headers=headers, params=querystring)
     body = json.loads(r.text)
-    itineraries = body["Itineraries"]
-    return itineraries
+    quotes = body["Quotes"]
+    min_price = quotes[0]["MinPrice"]
+    results = []
+    results.append(min_price)
+    return results
 
 
 def search_flights(flight: CityForm):
@@ -81,15 +74,9 @@ def search_flights(flight: CityForm):
         destination_id,
         country_code,
         flight.cleaned_data["outboundpartialdate"],
+        flight.cleaned_data["inboundpartialdate"],
     )
-    itineraries = poll_results(session_key)
-    results = []
-    for i in itineraries:
-        for j in i["PricingOptions"]:
-            url = j["DeeplinkUrl"]
-            price = j["Price"]
-            results.append((price, url))
-    return results
+    return session_key
 
 
 class IndexView(TemplateView):
