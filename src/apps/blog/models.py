@@ -1,5 +1,6 @@
 import uuid
 
+from ckeditor.fields import RichTextField
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse_lazy
@@ -11,7 +12,7 @@ User = get_user_model()
 class Post(models.Model):
     title = models.TextField(null=True, blank=True)
     precontent = models.TextField(null=True, blank=True)
-    content = models.TextField(null=True, blank=True)
+    content = RichTextField(null=True, blank=True)
     nr_likes = models.IntegerField(null=True, blank=True)
     nr_dislikes = models.IntegerField(null=True, blank=True)
 

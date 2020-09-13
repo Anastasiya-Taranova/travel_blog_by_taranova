@@ -11,10 +11,22 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(model_name="responsibility", name="vieday",),
-        migrations.RemoveField(model_name="viedays", name="adds",),
-        migrations.RemoveField(model_name="viedays", name="day",),
-        migrations.RemoveField(model_name="viedays", name="money",),
+        migrations.RemoveField(
+            model_name="responsibility",
+            name="vieday",
+        ),
+        migrations.RemoveField(
+            model_name="viedays",
+            name="adds",
+        ),
+        migrations.RemoveField(
+            model_name="viedays",
+            name="day",
+        ),
+        migrations.RemoveField(
+            model_name="viedays",
+            name="money",
+        ),
         migrations.AddField(
             model_name="viedays",
             name="h2",
@@ -30,6 +42,10 @@ class Migration(migrations.Migration):
             name="predecription",
             field=models.TextField(blank=True, null=True),
         ),
-        migrations.DeleteModel(name="Add",),
-        migrations.DeleteModel(name="Responsibility",),
+        migrations.DeleteModel(
+            name="Add",
+        ),
+        migrations.DeleteModel(
+            name="Responsibility",
+        ),
     ]

@@ -1,9 +1,8 @@
+from apps.onboarding.utils.util import unique_slug_generator
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models.signals import pre_save
 from django.urls import reverse
-
-from apps.onboarding.utils.util import unique_slug_generator
 
 User = get_user_model()
 
@@ -42,5 +41,3 @@ def pre_save_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_receiver, sender=Trips)
-
-

@@ -1,11 +1,10 @@
 from os import urandom
 from unittest import TestCase
 
-from django.contrib.auth import get_user_model
-
 from apps.onboarding.forms.profile_edit import ProfileEditForm
 from apps.onboarding.forms.sign_up import SignUpForm
 from apps.onboarding.utils.xtests import UserTestMixin
+from django.contrib.auth import get_user_model
 
 User = get_user_model()
 

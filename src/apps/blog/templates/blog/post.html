@@ -2,8 +2,6 @@
 
 {% block title %}{{ object.title }} Blog {% endblock %}
 
-{% block header %}Полезные статьи и файлы{% endblock %}
-
 {% block main %}
 <style>
     h2 {
@@ -49,7 +47,7 @@
             <section>
                 <article>
                     <h2>{{ object.title }}</h2>
-                    <p class="content">{{ object.content }}</p>
+                    <p class="content">{{ object.content | safe }}</p>
                     {% for photo in object.photos.all %}
                     <a href="{{ photo.original.url }}">
                         <img src="{{ photo.original.url }}"

@@ -42,6 +42,7 @@ INSTALLED_APPS_ORDERED = {
     80: "drf_yasg",
     90: "storages",
     100: "django.contrib.gis",
+    110: "ckeditor",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.index.apps.IndexConfig",
@@ -72,7 +73,9 @@ ROOT_URLCONF = "project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [PROJECT_DIR / "templates",],
+        "DIRS": [
+            PROJECT_DIR / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -167,7 +170,18 @@ REST_FRAMEWORK = {
 
 SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
-        "Token": {"type": "apiKey", "name": "Authorization", "in": "header",}
+        "Token": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+        }
     },
 }
 ADMIN_MEDIA_PREFIX = "/static/admin/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+MEDIA_URL = "/media/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": None,
+    },
+}

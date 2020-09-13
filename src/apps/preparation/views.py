@@ -1,9 +1,8 @@
 import json
 
 import requests
-from django.views.generic import TemplateView
-
 from apps.preparation.forms import CityForm
+from django.views.generic import TemplateView
 
 API_KEY = "bfea1864abmsha9c55f09e75d6adp116740jsn62b2a0553716"
 rapidapi_host = "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
@@ -101,7 +100,10 @@ class IndexView(TemplateView):
         results = search_flights(form)
         ctx = super().get_context_data(*args, **kwargs)
         ctx.update(
-            {"form": form, "all_info": results,}
+            {
+                "form": form,
+                "all_info": results,
+            }
         )
 
         return ctx

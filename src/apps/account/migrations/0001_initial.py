@@ -54,6 +54,9 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
-            options={"verbose_name": "trip", "verbose_name_plural": "trips",},
+            options={
+                "verbose_name": "trip",
+                "verbose_name_plural": "trips",
+            },
         ),
     ]

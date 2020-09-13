@@ -1,3 +1,4 @@
+from apps.account.models import Trips
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
@@ -8,8 +9,6 @@ from django.views.generic import DeleteView
 from django.views.generic import DetailView
 from django.views.generic import ListView
 from django.views.generic import UpdateView
-
-from apps.account.models import Trips
 
 User = get_user_model()
 
@@ -107,7 +106,7 @@ class DeleteTrip(LoginRequiredMixin, DeleteView):
     context_object_name = "update_trip"
     template_name = "account/create_trip.html"
     model = Trips
-    success_url = reverse_lazy("onboarding:trips_list")
+    success_url = reverse_lazy("account:trips_list")
 
     def get_object(self, queryset=Trips):
         slug_ = self.kwargs.get("slug")
