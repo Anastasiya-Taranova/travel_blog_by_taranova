@@ -1,10 +1,9 @@
-from django import forms
-from django.contrib import admin
-from django.contrib.admin import ModelAdmin
-
 from apps.onboarding.models import AuthProfile
 from apps.onboarding.models import Profile
 from apps.onboarding.utils.xmodels import a
+from django import forms
+from django.contrib import admin
+from django.contrib.admin import ModelAdmin
 
 
 class AuthProfileAdminForm(forms.ModelForm):

@@ -2,7 +2,7 @@ HERE := "$(shell pwd)"
 VENV := "$(shell pipenv --venv)"
 PYTHONPATH := ${HERE}/src
 TEST_PARAMS := --verbosity 2 --pythonpath ${PYTHONPATH}
-PSQL_PARAMS := --host=localhost --username=anastasiataranova --password
+PSQL_PARAMS := --host=localhost --username=anastasiyataranava --password
 
 
 ifeq ($(origin PIPENV_ACTIVE), undefined)
@@ -23,7 +23,7 @@ MANAGE := ${RUN} python src/manage.py
 
 .PHONY: format
 format:
-	${RUN} isort --virtual-env ${VENV} --recursive --apply ${HERE}
+	${RUN} isort --virtual-env ${VENV} ${HERE}
 	${RUN} black ${HERE}
 
 
@@ -102,7 +102,7 @@ test:
 			project \
 
 	${RUN} coverage report
-	${RUN} isort --virtual-env ${VENV} --recursive --check-only ${HERE}
+	${RUN} isort --virtual-env ${VENV} --check-only ${HERE}
 	${RUN} black --check ${HERE}
 
 

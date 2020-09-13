@@ -1,3 +1,6 @@
+# TODO: move to views
+from apps.api.views import ObtainAuthToken
+from apps.api.views import TelegramView
 from django.conf import settings
 from django.urls import include
 from django.urls import path
@@ -6,10 +9,6 @@ from django.views.decorators.csrf import csrf_exempt
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework.permissions import AllowAny
-
-# TODO: move to views
-from apps.api.views import ObtainAuthToken
-from apps.api.views import TelegramView
 
 schema_view = get_schema_view(
     openapi.Info(

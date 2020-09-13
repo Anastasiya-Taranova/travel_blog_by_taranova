@@ -2,15 +2,14 @@ from typing import Dict
 from typing import Optional
 
 import jinja2
+from apps.onboarding.utils import consts
+from apps.onboarding.utils.xdatetime import get_user_hour
 from delorean import Delorean
 from django.conf import settings
 from django.http import HttpRequest
 from django.templatetags.static import static
 from django.urls import reverse
 from jinja2 import Environment
-
-from apps.onboarding.utils import consts
-from apps.onboarding.utils.xdatetime import get_user_hour
 
 
 def user_hour(request: HttpRequest) -> Dict[str, int]:
@@ -39,7 +38,10 @@ def build_jinja2_environment(**options) -> Environment:
 
     opts = options.copy()
     opts.update(
-        {"auto_reload": True, "undefined": undefined_cls,}
+        {
+            "auto_reload": True,
+            "undefined": undefined_cls,
+        }
     )
 
     env = Environment(**opts)

@@ -3,13 +3,12 @@ from unittest import TestCase
 from unittest.mock import Mock
 from unittest.mock import patch
 
-from django.contrib.auth import get_user_model
-from django.contrib.sites.models import Site
-from django.http import HttpRequest
-
 from apps.onboarding.models import AuthProfile
 from apps.onboarding.utils import verification
 from apps.onboarding.utils.profile import setup_profile
+from django.contrib.auth import get_user_model
+from django.contrib.sites.models import Site
+from django.http import HttpRequest
 
 User = get_user_model()
 
@@ -26,7 +25,8 @@ class Test(TestCase):
     def test_deactivate_user(self):
         placeholder = urandom(4).hex()
         user = User.objects.create_user(
-            email=f"email_{placeholder}", username=f"username_{placeholder}",
+            email=f"email_{placeholder}",
+            username=f"username_{placeholder}",
         )
         self.assertTrue(user.is_active)
 
@@ -40,7 +40,8 @@ class Test(TestCase):
         placeholder = urandom(4).hex()
 
         user = User.objects.create_user(
-            email=f"email_{placeholder}", username=f"username_{placeholder}",
+            email=f"email_{placeholder}",
+            username=f"username_{placeholder}",
         )
         self.assertTrue(user.is_active)
         self.assertFalse(AuthProfile.objects.filter(user=user).all())

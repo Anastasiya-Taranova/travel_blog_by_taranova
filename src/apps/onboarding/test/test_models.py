@@ -2,12 +2,11 @@ from datetime import timedelta
 from os import urandom
 
 import delorean
+from apps.onboarding.models import AuthProfile
+from apps.onboarding.utils.xdatetime import utcnow
 from django.contrib.auth import get_user_model
 from django.contrib.sites.models import Site
 from django.test import TestCase
-
-from apps.onboarding.models import AuthProfile
-from apps.onboarding.utils.xdatetime import utcnow
 
 User = get_user_model()
 
@@ -44,5 +43,6 @@ class Test(TestCase):
         self.assertTrue(auth.link)
 
         self.assertEqual(
-            str(auth), f"AuthProfile #{auth.pk} for {placeholder!r}",
+            str(auth),
+            f"AuthProfile #{auth.pk} for {placeholder!r}",
         )

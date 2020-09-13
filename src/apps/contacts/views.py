@@ -1,8 +1,7 @@
+from apps.contacts.models import Shop
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
 from django.views.generic import ListView
-
-from apps.contacts.models import Shop
 
 longitude = -80.191788
 latitude = 25.761681

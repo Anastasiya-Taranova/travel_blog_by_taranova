@@ -57,7 +57,7 @@ docker:
   AWS_S3_REGION_NAME: "us-east-1"
   CELERY_BEAT_INVITATION: 30
   CELERY_BROKER_URL: "redis://taranova-travel-broker"
-  DATABASE_URL: "postgresql://anastasiataranova:1@taranova-travel-db:5432/taranova-travel"
+  DATABASE_URL: "postgresql://anastasiyataranava:1@taranova-travel-db:5432/taranova-travel"
   MODE_CACHING: 0
   MODE_DEBUG: 0
   MODE_PROFILING: 0

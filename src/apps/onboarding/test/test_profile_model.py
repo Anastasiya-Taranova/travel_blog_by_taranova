@@ -1,7 +1,6 @@
+from apps.onboarding.models import Profile
 from django.contrib.auth import get_user_model
 from django.test import TestCase
-
-from apps.onboarding.models import Profile
 
 User = get_user_model()
 

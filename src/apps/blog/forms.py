@@ -1,7 +1,6 @@
-from django import forms
-
 from apps.blog.models import Comment
 from apps.onboarding.utils.xmodels import a
+from django import forms
 
 
 class CommentForm(forms.ModelForm):
@@ -11,6 +10,18 @@ class CommentForm(forms.ModelForm):
         widgets = {
             a(Comment.author): forms.HiddenInput,
             a(Comment.post): forms.HiddenInput,
-            a(Comment.message): forms.Textarea(attrs={"cols": 70, "rows": 2,}),
+            a(Comment.message): forms.Textarea(
+                attrs={
+                    "cols": 70,
+                    "rows": 2,
+                }
+            ),
         }
-        fields = [a(_f) for _f in (Comment.author, Comment.message, Comment.post,)]
+        fields = [
+            a(_f)
+            for _f in (
+                Comment.author,
+                Comment.message,
+                Comment.post,
+            )
+        ]
