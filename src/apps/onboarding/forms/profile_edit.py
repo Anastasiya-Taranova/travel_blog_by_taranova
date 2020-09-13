@@ -4,6 +4,10 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class DateInput(forms.DateInput):
+    input_type = "date"
+
+
 class ProfileEditForm(forms.Form):
     username = forms.CharField(max_length=200, required=True)
     name = forms.CharField(max_length=1000, required=False)

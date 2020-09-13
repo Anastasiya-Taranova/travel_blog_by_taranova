@@ -1,38 +1,55 @@
-{% extends "basic.html" %}
+{% extends "basic1.html" %}
 
 {% block title %}Зарегистрироваться{% endblock %}
 
 {% block header %}Зарегистрироваться{% endblock %}
 
 {% block main %}
+<style>
+    .container {
+        padding-left: 320px;
+        padding-top: 20px;
+        padding-bottom: 0;
+        margin: 0;
 
-    <article>
+    }
 
-        {% if form.errors %}
-            <p>Errors:</p>
-            <p>{{ form.errors }}</p>
-        {% endif %}
+</style>
+<div class="wrapper style2">
+    <div class="container">
+        <header id="main" class="special">
 
-        {% if next %}
-            {% if user.is_authenticated %}
+            <article>
+
+                {% if form.errors %}
+                <p>Errors:</p>
+                <p>{{ form.errors }}</p>
+                {% endif %}
+
+                {% if next %}
+                {% if user.is_authenticated %}
                 <p>Your account doesn't have access to this page. To proceed,
-                   please login with an account that has access.</p>
-            {% else %}
+                    please login with an account that has access.</p>
+                {% else %}
                 <p>Please login to see this page.</p>
-            {% endif %}
-        {% endif %}
+                {% endif %}
+                {% endif %}
 
-    </article>
+            </article>
 
-    <article>
-        <form action="{% url 'onboarding:sign_up' %}" method="post">
-            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-            <div class="grid">
-                {{ form.as_p }}
-            </div>
-            <button type="submit" class="button">Зарегистрироваться</button>
-            <input name="next" type="hidden" value="{{ next }}">
-        </form>
-    </article>
+            <article>
+                <form action="{% url 'onboarding:sign_up' %}" method="post">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <div class="grid">
+                        {{ form.as_p }}
+                    </div>
+                    <button type="submit" class="button">Зарегистрироваться</button>
+                    <input name="next" type="hidden" value="{{ next }}">
+                </form>
+            </article>
+        </header>
+    </div>
+
+</div>
 
 {% endblock %}

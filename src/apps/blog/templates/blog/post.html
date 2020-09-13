@@ -1,43 +1,90 @@
-{% extends "basic.html" %}
+{% extends "basic1.html" %}
 
 {% block title %}{{ object.title }} Blog {% endblock %}
 
-{% block header %}Blog{% endblock %}
-
 {% block main %}
+<style>
+    h2 {
+        text-align: center;
+        font-size: 40px;
+    }
 
-    <article>
-        <h2>{{ object.title }}</h2>
-        <p>{{ object.content }}</p>
-        {% for photo in object.photos.all %}
-            <a href="{{ photo.original }}">
-                <img src="{{ photo.original }}"
-                     alt="{{ photo.pk }}"
-                     style="max-width:200px; height: auto">
-            </a>
-        {% endfor %}
-    </article>
+    p.content {
+        padding: 1em 1em;
 
-    <article>
-        <h3>Comments</h3>
-        {% if not object.comments.count %}
-            <p>No one commented this</p>
-        {% endif %}
-        {% for comment in object.comments.all %}
+    }
+
+    .container1 {
+        border: 2px solid #ef8376;
+        background-color: white;
+        border-radius: 4px;
+        padding: 40px;
+        margin: 10px 0;
+    }
+
+    .container1 span {
+        margin-top: 40px;
+        margin-bottom: 2px;
+        display: inline-block;
+        font-size: 1rem;
+        color: #000;
+        font-weight: 700;
+    }
+
+    h3 {
+        color: #000;
+    }
+
+    p span {
+        line-height: 20px;
+    }
+
+</style>
+<div class="wrapper style2">
+
+    <div class="container">
+        <header id="main" class="special">
             <section>
-                <p><i>{{ comment.message }}</i></p>
-                <p>&mdash; {{ comment.author.profile.name }}</p>
+                <article>
+                    <h2>{{ object.title }}</h2>
+                    <p class="content">{{ object.content | safe }}</p>
+                    {% for photo in object.photos.all %}
+                    <a href="{{ photo.original.url }}">
+                        <img src="{{ photo.original.url }}"
+                             alt="{{ photo.pk }}"
+                             style="max-width:550px; margin-left: 40px;">
+                    </a>
+                    {% endfor %}
+                </article>
             </section>
-        {% endfor %}
-        {% if not user.is_authenticated %}
-            <p><a href="{% url 'onboarding:index' %}">Sign in</a> to leave a comment.</p>
-        {% else %}
-            <form action="{% url 'blog:comment' %}" method="post">
-                {{ form.as_p }}
-                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                <button type="submit">Comment</button>
-            </form>
-        {% endif %}
-    </article>
 
+
+            <div class="container1">
+                <h3>Комментарии:</h3>
+                {% if not object.comments.count %}
+                <p>0 комментариев</p>
+                {% endif %}
+
+                    {% for comment in object.comments.all %}
+                    <p><span>{{ comment.author.profile.name }}</span>: {{ comment.message }}</p>
+                    {% endfor %}
+
+
+
+                {% if not user.is_authenticated %}
+                <p><a href="{% url 'onboarding:index' %}">Войдите,</a> чтобы оставить комментарий.</p>
+                {% else %}
+                <form action="{% url 'blog:comment' object.pk %}" method="post">
+                    {{ form }}
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <button type="submit">Оставить комментарий</button>
+                    <button><a href="{% url 'blog:all_posts' %}">Вернуться назад</a></button>
+                </form>
+                {% endif %}
+            </div>
+
+
+        </header>
+    </div>
+</div>
 {% endblock %}

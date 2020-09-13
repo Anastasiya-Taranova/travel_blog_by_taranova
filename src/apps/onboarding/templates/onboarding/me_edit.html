@@ -1,10 +1,23 @@
-{% extends "basic.html" %}
+{% extends "basic1.html" %}
 
 {% block title %}Редактировать профиль{% endblock %}
 
 {% block header %}Редактировать профиль{% endblock %}
 
 {% block main %}
+<style>
+    .container {
+        padding-left: 320px;
+        padding-top: 40px;
+        padding-bottom: 0;
+        margin: 0;
+
+    }
+
+</style>
+<div class="wrapper style2">
+    <div class="container">
+        <header id="main" class="special">
 
     <article>
 
@@ -14,18 +27,20 @@
 
         {% else %}
 
-            <h2>Ваша новая информация</h2>
-
             <form method="post">
                 <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
                 <div class="grid">
                     {{ form.as_p }}
                 </div>
-                <button class="button" type="submit">Update</button>
+                <button class="button" type="submit">Обновить информацию</button>
             </form>
 
         {% endif %}
 
     </article>
+            </header>
+        </div>
+
+						</div>
 
 {% endblock %}

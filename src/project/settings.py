@@ -41,13 +41,17 @@ INSTALLED_APPS_ORDERED = {
     70: "django.contrib.sites",
     80: "drf_yasg",
     90: "storages",
+    100: "django.contrib.gis",
+    110: "ckeditor",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.index.apps.IndexConfig",
     3000: "apps.vietnam.apps.VietnamConfig",
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
-    6000: "apps.weather.apps.WeatherConfig",
+    6000: "apps.contacts.apps.ContactsConfig",
+    7000: "apps.preparation.apps.PreparationConfig",
+    8000: "apps.account.apps.AccountConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
@@ -69,7 +73,9 @@ ROOT_URLCONF = "project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [PROJECT_DIR / "templates",],
+        "DIRS": [
+            PROJECT_DIR / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -95,6 +101,7 @@ DATABASES = {
     # }
     "default": dj_database_url.parse(_db_url, conn_max_age=600)
 }
+DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 
 # AUTH_PASSWORD_VALIDATORS = [
 # { "NAME": "django.contrib.login.password_validation.UserAttributeSimilarityValidator",},
@@ -136,6 +143,8 @@ EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
 EMAIL_PORT = _settings.EMAIL_PORT
 EMAIL_USE_SSL = _settings.EMAIL_USE_SSL
 EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 EMAIL_FROM = _settings.EMAIL_FROM
 
@@ -151,7 +160,7 @@ AWS_QUERYSTRING_AUTH = False
 AWS_S3_ADDRESSING_STYLE = "path"
 AWS_S3_REGION_NAME = _settings.AWS_S3_REGION_NAME
 AWS_SECRET_ACCESS_KEY = _settings.AWS_SECRET_ACCESS_KEY
-AWS_STORAGE_BUCKET_NAME = "taranova-travel"
+AWS_STORAGE_BUCKET_NAME = "travel-taranova"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -161,6 +170,18 @@ REST_FRAMEWORK = {
 
 SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
-        "Token": {"type": "apiKey", "name": "Authorization", "in": "header",}
+        "Token": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+        }
+    },
+}
+ADMIN_MEDIA_PREFIX = "/static/admin/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+MEDIA_URL = "/media/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": None,
     },
 }

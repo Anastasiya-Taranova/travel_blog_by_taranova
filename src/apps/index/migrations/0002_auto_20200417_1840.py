@@ -11,6 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterModelOptions(
-            name="tripinfo", options={"verbose_name_plural": "Trip Info"},
+            name="tripinfo",
+            options={"verbose_name_plural": "Trip Info"},
         ),
     ]

@@ -1,9 +1,8 @@
 from os import urandom
 
+from apps.onboarding.utils.xmodels import a
 from django import forms
 from django.contrib.auth import get_user_model
-
-from apps.onboarding.utils.xmodels import a
 
 User = get_user_model()
 
@@ -31,6 +30,9 @@ class SignUpForm(forms.ModelForm):
 
         rs = urandom(16).hex()
         user = User.objects.create_user(
-            email=self.cleaned_data["email"], is_active=False, password=rs, username=rs,
+            email=self.cleaned_data["email"],
+            is_active=False,
+            password=rs,
+            username=rs,
         )
         return user

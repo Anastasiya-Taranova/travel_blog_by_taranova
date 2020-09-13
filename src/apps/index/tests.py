@@ -1,7 +1,6 @@
+from apps.index.views import IndexView
 from django.test import Client
 from django.test import TestCase
-
-from apps.index.views import IndexView
 
 
 class Test(TestCase):

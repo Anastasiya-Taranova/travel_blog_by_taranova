@@ -1,0 +1,18 @@
+{% extends "basic1.html" %}
+{% load static %}
+{% block header %}Как со мной связаться?{% endblock %}
+{% block main %}
+
+    <h1>Nearby Shops</h1>
+    {% if shops %}
+    <ul>
+    {% for shop in shops %}
+        <li>
+        {{ shop.name }} : {{shop.distance}}
+            {{shop.location}}
+        </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+ {% endblock %}

@@ -1,20 +1,37 @@
 dist: xenial
 language: python
+python:
+  - "3.8"
 
 services:
   - postgresql
 
+addons:
+  postgresql: "9.6"
+  apt:
+    packages:
+    - postgresql-9.6-postgis-2.3
+
 env:
   global:
     - ENV_FOR_DYNACONF=travis
-    - DYNACONF_DATABASE_URL="postgresql://postgres@localhost:5432/test"
+    - DYNACONF_DATABASE_URL="postgresql://postgres@localhost:5432/taranova-travel"
 
 install:
+  - sudo add-apt-repository --yes ppa:ubuntugis/ppa
+  - sudo apt-get update
+  - sudo apt-get install --yes
+    python3-gdal
+    libgdal-dev
+    gdal-bin
+    postgresql-9.6-postgis-2.4
+    postgis
   - pip install pipenv --upgrade
   - make venv static
 
 before_script:
   - make resetdb
+  - psql -U postgres -c "create extension postgis" -d taranova-travel
 
 script:
   - make test

@@ -43,15 +43,25 @@
 									</ul>
 								</li>
 								<li><a href="#">Фотографии</a></li>
-								<li><a href="#">Полезные статьи и файлы</a></li>
-								<li><a href="#">Контакты</a></li>
+								<li><a href="{% url 'blog:all_posts' %}">Полезные статьи и файлы</a></li>
+								<li><a href="{% url 'preparation:index' %}">Подготовка к путешествию</a></li>
+								{% if user.is_authenticated %}
+								<li><a href="{% url 'onboarding:me' %}">Мой профиль</a></li>
+								{% else %}
 								<li><a href="{% url 'onboarding:index' %}">Вход/Регистрация</a></li>
+								{% endif %}
 							</ul>
 						</nav>
 
 				</div>
 {%block main %}
 			{% endblock %}
+			{% block main_allowed %}
+			{% endblock %}
+			{% block custom_body %}{% endblock %}
+
+{% block body_block %}{% endblock %}
+			{% block scripts_block %}{% endblock %}
 
 
 
@@ -63,7 +73,7 @@
 							<!-- Tweets -->
 								<section class="col-4 col-12-mobile">
 									<header>
-										<h2 class="icon fa-map-marker-alt circled"><span class="label">Контакты:</span></h2>
+										<h2 class="icon brands fa-facebook circled"><span class="label">Контакты:</span></h2>
 									</header>
 									<ul class="divided">
 										<li>
