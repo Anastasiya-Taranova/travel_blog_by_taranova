@@ -13,12 +13,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterModelOptions(
-            name="add", options={"verbose_name_plural": "Add"},
+            name="add",
+            options={"verbose_name_plural": "Add"},
         ),
         migrations.AlterModelOptions(
-            name="viedays", options={"verbose_name_plural": "VieDays"},
+            name="viedays",
+            options={"verbose_name_plural": "VieDays"},
         ),
-        migrations.RemoveField(model_name="viedays", name="save",),
+        migrations.RemoveField(
+            model_name="viedays",
+            name="save",
+        ),
         migrations.CreateModel(
             name="Responsibility",
             fields=[

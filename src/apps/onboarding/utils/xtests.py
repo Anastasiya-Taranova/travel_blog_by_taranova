@@ -6,13 +6,12 @@ from typing import List
 from typing import Optional
 from typing import Text
 
-from django.contrib.auth import get_user_model
-from django.test import Client
-from httpie import status
-
 from apps.onboarding.models import AuthProfile
 from apps.onboarding.models import Profile
 from apps.onboarding.utils.xdatetime import utcnow
+from django.contrib.auth import get_user_model
+from django.test import Client
+from httpie import status
 
 User = get_user_model()
 
@@ -47,7 +46,9 @@ class UserTestMixin:
     @staticmethod
     def create_auth_profile(user: User) -> AuthProfile:
         auth = AuthProfile(
-            user=user, verification_code=user.username, verified_at=utcnow(),
+            user=user,
+            verification_code=user.username,
+            verified_at=utcnow(),
         )
         auth.save()
 
@@ -114,7 +115,9 @@ class TemplateResponseTestMixin:
 
         if expected_status_code in good_resolver_codes:
             self.assertEqual(
-                expected_view_name, resp.resolver_match.view_name, f"bad view name",
+                expected_view_name,
+                resp.resolver_match.view_name,
+                f"bad view name",
             )
             self.assertEqual(
                 expected_view.as_view().__name__,
@@ -124,7 +127,9 @@ class TemplateResponseTestMixin:
 
             if expected_template is not None:
                 self.assertIn(
-                    expected_template, resp.template_name, f"bad template",
+                    expected_template,
+                    resp.template_name,
+                    f"bad template",
                 )
 
         for content_filter in content_filters or []:

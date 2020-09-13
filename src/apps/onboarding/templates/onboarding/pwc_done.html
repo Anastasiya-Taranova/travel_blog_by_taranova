@@ -1,13 +1,32 @@
-{% extends "basic.html" %}
+{% extends "basic1.html" %}
 
 {% block title %}Изменение пароля{% endblock %}
 
 {% block header %}Изменение пароля{% endblock %}
 
 {% block main %}
+<style>
+    .container {
+        padding-left: 100px;
+        padding-top: 20px;
+        padding-bottom: 0;
+
+    }
+    h2 {
+        padding-bottom: 20px;
+    }
+
+</style>
+<div class="wrapper style2">
+    <div class="container">
+        <header id="main" class="special">
 
     <p>Пароль успешно изменен.</p>
-    <p><a href="{% url 'onboarding:sign_out' %}">Выйти</a></p>
-    <p><a href="{% url 'onboarding:index' %}">Вернуться назад</a></p>
+    <button><a href="{% url 'onboarding:sign_out' %}">Выйти</a></button>
+    <button><a href="{% url 'onboarding:index' %}">Вернуться назад</a></button>
+            </header>
+    </div>
+
+</div>
 
 {% endblock %}

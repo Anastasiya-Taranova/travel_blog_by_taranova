@@ -1,11 +1,10 @@
 from typing import Dict
 
+from apps.onboarding.forms.profile_edit import ProfileEditForm
+from apps.onboarding.utils.profile import setup_profile
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
 from django.views.generic import FormView
-
-from apps.onboarding.forms.profile_edit import ProfileEditForm
-from apps.onboarding.utils.profile import setup_profile
 
 User = get_user_model()
 
@@ -44,6 +43,9 @@ class ProfileEditView(FormView):
                 profile = None
 
             initial.update(
-                {"username": user.username, "name": profile.name if profile else "",}
+                {
+                    "username": user.username,
+                    "name": profile.name if profile else "",
+                }
             )
         return initial
