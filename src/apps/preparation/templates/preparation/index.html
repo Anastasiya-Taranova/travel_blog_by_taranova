@@ -2,74 +2,77 @@
 {% load static %}
 {% block header %}Подготовка к путешествию{% endblock %}
 {% block main %}
-<section class="section">
+<style>
 
+
+    h2 {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .group::before,
+    .group::after {
+        content: "";
+        display: table;
+    }
+
+    .group::after {
+        clear: both;
+    }
+
+    .group {
+        clear: both;
+        *zoom: 1;
+    }
+
+    section {
+        float: left;
+        width: 50%;
+    }
+
+    aside {
+        float: right;
+        margin: 0 1.5%;
+        width: 30%;
+    }
+
+    div.right {
+        padding-top: 40px;
+    }
+
+</style>
+<div class="wrapper style2">
     <div class="container">
-        <div class="columns">
-            <div class="column is-offset-4 is-2">
-                <h2>Поиск авиабилета:</h2>
-                <form action="" method="get">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" name="Save" value="Узнать" class="mt-2 btn btn-danger">
-                </form>
+        <header id="main" class="special">
+            <div class="group">
+                <section>
+
+                    <h2>Поиск авиабилета:</h2>
+                    <form action="" method="get">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" name="Save" value="Узнать" class="mt-2 btn btn-danger">
+                    </form>
+                </section>
+                <aside>
+                    {% for info in all_info %}
+                    <div class="right">
+                        <h2>Информация:</h2><br>
+                        <p>Минимальная стоимость билета будет составлять: {{ info.results}} </p>
+                    </div>
+                    {% endfor %}
+                </aside>
+
             </div>
-
-        </div>
-
-        {% for info in all_info %}
-        <div class="col-5 offset-2">
-            <h2>Информация:</h2>
-            <b>Стоимость: </b> {{ info.price}} <br>
-        </div>
-        {% endfor %}
-
-
     </div>
-    </div>
-    </div>
-</section>
 
+    </header>
+</div>
 
+</div>
 
-
-
-
-<section class="section">
-
-    <div class="container">
-        <div class="columns">
-            <div class="column is-offset-4 is-2">
-                <h2>Найти город:</h2>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <label for="city">Город:</label>
-                    {{ form.name_city }}
-                    <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
-                </form>
-            </div>
-
-        </div>
-
-
-        {% for info in all_info %}
-        <div class="col-5 offset-2">
-            <h2>Информация:</h2>
-            <b>Город: </b> {{ info.CountryName}} <br>
-            <b> Температура: </b> {{ info.PlaceId }} <sup>0</sup><br>
-        </div>
-        {% endfor %}
-        {{ form.date }}
-
-<script>
-  $(function () {
-    $("#id_date").datepicker({
-      format:'dd/mm/yyyy',
-    });
-  });
-</script>
-    </div>
-    </div>
-    </div>
-</section>
 {% endblock %}

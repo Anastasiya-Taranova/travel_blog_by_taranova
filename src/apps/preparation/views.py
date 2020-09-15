@@ -1,6 +1,7 @@
 import json
 
 import requests
+from apps.preparation.api_helpers import call_api
 from apps.preparation.forms import CityForm
 from django.views.generic import TemplateView
 
@@ -15,15 +16,23 @@ headers = {
 
 def get_placeID(location):
     apicall = (
-        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/USD/en-GB/?query="
-        + str(location)
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/"
+        "apiservices/"
+        "autosuggest/"
+        "v1.0/"
+        "UK/"
+        "USD/"
+        "en-GB/"
+        "?query={query}"
     )
-    r = requests.get(apicall, headers=headers)
-    body = json.loads(r.text)
-    places = body["Places"]
-    top_place_id = places[0]["PlaceId"]
-    print(top_place_id)
-    return top_place_id
+    places = call_api(
+        apicall.format(query=location),
+        headers=headers,
+        key=lambda p: p["Places"],
+    )
+    for place in places:
+        top_place_id = place["PlaceId"]
+        return top_place_id
 
 
 def get_country_code(country):
@@ -35,30 +44,24 @@ def get_country_code(country):
     country_code = [
         item["Code"] for item in response["Countries"] if item["Name"] == country
     ][0]
-    print(country_code)
     return country_code
 
 
 def create_session(
-    originplace, destinationplace, name_city, outboundpartialdate, inboundpartialdate
+    originplace, destinationplace, country, outboundpartialdate, inboundpartialdate
 ):
-    apicall = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0"
-    querystring = {
-        "country": name_city,
-        "currency": "USD",
-        "locale": "en-US",
-        "originplace": originplace,
-        "destinationplace": destinationplace,
-        "outboundpartialdate": outboundpartialdate,
-        "inboundpartialdate": inboundpartialdate,
-    }
-    r = requests.get(apicall, headers=headers, params=querystring)
-    body = json.loads(r.text)
-    quotes = body["Quotes"]
-    min_price = quotes[0]["MinPrice"]
-    results = []
-    results.append(min_price)
-    return results
+    apicall = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/{country}/USD/en-US/{originplace}/{destinationplace}/{outboundpartialdate}/"
+    querystring = {"inboundpartialdate": inboundpartialdate}
+
+    quotes = call_api(
+        apicall,
+        params=querystring,
+        headers=headers,
+        key=lambda p: p["Quotes"],
+    )
+    for quote in quotes:
+        min_price = quote["MinPrice"]
+        return str(min_price)
 
 
 def search_flights(flight: CityForm):
@@ -66,17 +69,17 @@ def search_flights(flight: CityForm):
         return []
     if not flight.is_valid():
         return []
-    country_code = get_country_code(flight.cleaned_data["name_city"])
+    country_code = get_country_code(flight.cleaned_data["country"])
     origin_id = get_placeID(flight.cleaned_data["originplace"])
     destination_id = get_placeID(flight.cleaned_data["destinationplace"])
-    session_key = create_session(
+    price = create_session(
         origin_id,
         destination_id,
         country_code,
         flight.cleaned_data["outboundpartialdate"],
         flight.cleaned_data["inboundpartialdate"],
     )
-    return session_key
+    return price[1]
 
 
 class IndexView(TemplateView):

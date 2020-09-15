@@ -3,14 +3,15 @@ from django.forms import Form
 
 
 class CityForm(Form):
-    name_city = forms.CharField(
+    country = forms.CharField(
         max_length=30,
         widget=forms.TextInput(
             attrs={
+                "label": "Страна",
                 "class": "form-control",
-                "name": "city",
-                "id": "city",
-                "placeholder": "Введите город",
+                "name": "country",
+                "id": "country",
+                "placeholder": "Введите страну",
             }
         ),
     )
