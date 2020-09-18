@@ -18,4 +18,5 @@ urlpatterns = [
     path("contacts/", include("apps.contacts.urls")),
     path("preparation/", include("apps.preparation.urls")),
     path("account/", include("apps.account.urls")),
+    path("photos/", include("apps.photos.urls")),
 ]
