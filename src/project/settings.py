@@ -155,7 +155,7 @@ LOGIN_REDIRECT_URL = reverse_lazy("onboarding:me")
 SITE_ID = _settings.SITE_ID
 
 AWS_ACCESS_KEY_ID = _settings.AWS_ACCESS_KEY_ID
-AWS_DEFAULT_ACL = "public-read"
+AWS_S3_OBJECT_PARAMETERS = {"ACL": "public-read"}
 AWS_LOCATION = _settings.AWS_LOCATION
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_ADDRESSING_STYLE = "path"

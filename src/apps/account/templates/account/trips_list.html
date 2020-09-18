@@ -6,21 +6,40 @@
 
 {% block main %}
 <style>
-    .grid {
-        padding-left: 20px;
-        padding-right: 0;
-        padding-top: 40px;
-        margin: 0;
-        column-width: 300px;
-        column-count: 3;
-        column-gap: 110px;
-        text-align: center;
 
+    .container a {
+        text-align: left;
+        text-decoration: none;
+        font-size: 25px;
+        margin-left: 40px;
     }
 
     .container p {
-        text-align: center;
-        text-decoration: none;
+        margin-top: 20px;
+    }
+
+    .column {
+        margin-top: 50px;
+        margin-left: 40px;
+
+    column-width: 100px;
+    column-count: 3;
+    column-gap: 100px;
+
+   }
+
+
+
+    button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: 0;
+        border-radius: 0;
+        background: #ccc;
+        font-size: 20px;
+        height: 60px;
+        margin-top: 20px;
     }
 
 </style>
@@ -28,44 +47,54 @@
     <div class="container">
 
 
-<a href="{% url 'preparation:index' %}">
-    <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Узнать стоимость
-        авиабилета
-    </button>
-</a>
-<a href="{% url 'account:create_trip' %}">
-    <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Запланировать поездку
-    </button>
-</a>
-<a href="{% url 'onboarding:me' %}">
-    <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Вернуться в профиль
-    </button>
-</a>
+        <a href="{% url 'preparation:index' %}">
+            <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Узнать стоимость
+                авиабилета
+            </button>
+        </a>
+        <a href="{% url 'account:create_trip' %}">
+            <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Запланировать
+                поездку
+            </button>
+        </a>
+        <a href="{% url 'onboarding:me' %}">
+            <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Вернуться в
+                профиль
+            </button>
+        </a>
 
 
-{% for trip in trips %}
-
-<div class="dropdown card-widgets">
-<div class="grid">
-
-        <a href="{{ trip.slug }}" class="text-dark">{{ trip.name }}</a>
-
-        <p class="text-muted font-13 mb-3">
-            Откуда: {{ trip.user_location }} <br>
-            Куда: {{ trip.destination }} <br>
-            Бюджет: {{ trip.budget }} <br>
-            Участики путешествия: {{ trip.participants_total }}
-        </p>
 
 
-        <b>{{ trip.comments_total }}</b> Комментарии
+                {% for trip in trips %}<div class="column">
+
+
+                <h3><a href="{{ trip.slug }}" class="text-dark">{{ trip.name }}</a></h3>
+
+                <p>
+                    <b>Откуда:</b> {{ trip.user_location }} </p>
+                    <p><b>Куда:</b> {{ trip.destination }} </p>
+                    <p><b>Бюджет:</b> {{ trip.budget }}</p>
+                   <p> <b>Участники путешествия:</b> {{ trip.participants_total }}
+                </p>
+
+
+                <b>Количество комментариев: {{ trip.comments_total }}</b>
+                <form method="post">{% csrf_token %}
+                    <input type="submit" value="Удалить">
+                </form>
+
+                <form method="post">{% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Изменить">
+                </form></div>
+                {% endfor %}
+
+
+
+
 
     </div>
-    </div>
-{% endfor %}
-</div>
 
 
-
-
-        {% endblock %}
+    {% endblock %}

@@ -1,3 +1,4 @@
+import random
 from random import choices
 
 from apps.blog.forms import CommentForm
@@ -27,6 +28,13 @@ class BlogPostView(DetailView):
             )
 
         return ctx
+
+    @property
+    def get_random(self):
+        post_pks = list(Post.objects.values_list("id", flat=True))
+        pk = random.choice(post_pks)
+        post = Post.objects.get(pk=pk)
+        return post
 
 
 class CommentView(LoginRequiredMixin, CreateView):

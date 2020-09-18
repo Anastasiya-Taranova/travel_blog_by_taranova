@@ -2,53 +2,30 @@
 {% load static %}
 {% block header %}Фотографии{% endblock %}
 {% block main %}
-				<div class="wrapper style1">
+<div class="wrapper style1">
 
 
-						<div class="row">
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic08.jpg' %}" alt="" /></a>
-								<header>
-									<h3><a href="#">Вьетнам</a></h3>
-								</header>
-							</article>
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic16.jpg' %}" alt="" /></a>
-								<header>
-									<h3><a href="#">США</a></h3>
-								</header>
-							</article>
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic09.jpg' %}" alt="" /></a>
-								<header>
-									<h3><a href="#">Италия</a></h3>
-								</header>
-							</article>
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
-								<header>
-									<h3><a href="#">Нидерланды</a></h3>
-								</header>
-							</article>
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic17.png' %}" alt="" /></a>
-								<header>
-									<h3><a href="#">Страны Скандинавии</a></h3>
-								</header>
-							</article>
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic18.jpeg' %}" alt="" /></a>
-								<header>
-									<h3><a href="#">Украина</a></h3>
-								</header>
-							</article>
-						</div>
-					</div>
+    <div class="row">
+        {% for photos in object_list %}
+        <article class="col-4 col-12-mobile special">
 
-				</div>
+            <a href="{{ photos.url }}"
+               class="image featured"><img src="{{ photos.photo.url }}" alt="{{ photos.pk }}"/></a>
+            <header>
+                <h3>
+                    <a href="{{ photos.url }}">{{ photos.name_country }}</a>
+                </h3>
+            </header>
 
-				<div id="footer">
-					<div class="container">
-						<div class="row">
 
-{% endblock %}
+
+        </article>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+
+            {% endblock %}
