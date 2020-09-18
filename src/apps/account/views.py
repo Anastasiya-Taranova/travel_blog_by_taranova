@@ -103,8 +103,8 @@ class UpdateTrip(LoginRequiredMixin, UpdateView):
 
 
 class DeleteTrip(LoginRequiredMixin, DeleteView):
-    context_object_name = "update_trip"
-    template_name = "account/create_trip.html"
+    context_object_name = "delete_trip"
+    template_name = "account/trips_list.html"
     model = Trips
     success_url = reverse_lazy("account:trips_list")
 

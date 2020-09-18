@@ -72,14 +72,17 @@ def search_flights(flight: CityForm):
     country_code = get_country_code(flight.cleaned_data["country"])
     origin_id = get_placeID(flight.cleaned_data["originplace"])
     destination_id = get_placeID(flight.cleaned_data["destinationplace"])
-    price = create_session(
-        origin_id,
-        destination_id,
-        country_code,
-        flight.cleaned_data["outboundpartialdate"],
-        flight.cleaned_data["inboundpartialdate"],
-    )
-    return price[1]
+    try:
+        price = create_session(
+            origin_id,
+            destination_id,
+            country_code,
+            flight.cleaned_data["outboundpartialdate"],
+            flight.cleaned_data["inboundpartialdate"],
+        )
+        return price[1]
+    except TypeError:
+        print("ploxo")
 
 
 class IndexView(TemplateView):
