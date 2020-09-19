@@ -6,6 +6,8 @@ from django.db import models
 from django.urls import reverse_lazy
 from storages.backends.s3boto3 import S3Boto3Storage
 
+from apps.index.models import get_random_incides
+
 User = get_user_model()
 
 
@@ -61,3 +63,14 @@ class Photo(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="photos")
     original = models.FileField(storage=S3Boto3Storage())
+
+
+class Random(models.Model):
+    url = models.URLField()
+
+    @property
+    def random_photos(self):
+        photos_all = self.photos.all()
+        indices = get_random_incides(len(photos_all), 4)
+        photos_random = [photos_all[i] for i in indices]
+        return photos_random
