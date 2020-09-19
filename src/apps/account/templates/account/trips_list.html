@@ -69,7 +69,7 @@
                 {% for trip in trips %}<div class="column">
 
 
-                <h3><a href="{{ trip.slug }}" class="text-dark">{{ trip.name }}</a></h3>
+                <h3><a href="{% url 'account:trips_detailed' %}" class="text-dark">{{ trip.name }}</a></h3>
 
                 <p>
                     <b>Откуда:</b> {{ trip.user_location }} </p>

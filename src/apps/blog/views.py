@@ -1,13 +1,11 @@
-
-
 from apps.blog.forms import CommentForm
-from apps.blog.models import Post, Random
+from apps.blog.models import Post
+from apps.blog.models import Random
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic import DetailView
 from django.views.generic import ListView
-
 
 
 class AllBlogPostsView(ListView):
@@ -43,6 +41,6 @@ class PhotosView(DetailView):
     template_name = "index/index.html"
 
     def get_object(self, *_a, **_kw):
-        query = Random.objects.order_by('?')
+        query = Random.objects.order_by("?")
         obj = query.first()
         return obj

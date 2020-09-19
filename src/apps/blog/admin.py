@@ -1,6 +1,7 @@
-from apps.blog.models import Comment, Random
+from apps.blog.models import Comment
 from apps.blog.models import Photo
 from apps.blog.models import Post
+from apps.blog.models import Random
 from django.contrib import admin
 
 
@@ -17,6 +18,7 @@ class CommentModelAdmin(admin.ModelAdmin):
 @admin.register(Photo)
 class PhotoModelAdmin(admin.ModelAdmin):
     pass
+
 
 @admin.register(Random)
 class PhotoModelAdmin(admin.ModelAdmin):

@@ -1,14 +1,15 @@
-from apps.blog.models import Post, Random
+from apps.blog.models import Post
+from apps.blog.models import Random
 from apps.blog.views import PhotosView
 
 
 def random_photos(request):
     return {
-        'photos': PhotosView(),
+        "photos": PhotosView(),
     }
 
 
 def blog(request):
     return {
-        'posts': Post.objects.order_by('?'),
+        "posts": Post.objects.order_by("?"),
     }

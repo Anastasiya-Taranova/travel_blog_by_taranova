@@ -20,6 +20,3 @@ class TripInfo(m.Model):
 
     class Meta:
         verbose_name_plural = "Trip Info"
-
-
-

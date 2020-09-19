@@ -4,7 +4,7 @@ from django.forms import Form
 
 class CityForm(Form):
     country = forms.CharField(
-        error_messages={'required': ''},
+        error_messages={"required": ""},
         label="Введите страну",
         max_length=30,
         widget=forms.TextInput(
@@ -18,23 +18,23 @@ class CityForm(Form):
         ),
     )
     outboundpartialdate = forms.DateField(
-        error_messages={'required': ''},
+        error_messages={"required": ""},
         label="Дата вылета:",
         widget=forms.DateInput(
             format=("%Y-%m-%d"),
             attrs={"class": "outboundpartialdate", "placeholder": "Год-Месяц-День"},
-        )
+        ),
     )
     inboundpartialdate = forms.DateField(
-        error_messages={'required': ''},
+        error_messages={"required": ""},
         label="Дата прилета:",
         widget=forms.DateInput(
             format=("%Y-%m-%d"),
             attrs={"class": "inboundpartialdate", "placeholder": "Год-Месяц-День"},
-        )
+        ),
     )
     originplace = forms.CharField(
-        error_messages={'required': ''},
+        error_messages={"required": ""},
         label="Город вылета:",
         max_length=30,
         widget=forms.TextInput(
@@ -47,7 +47,7 @@ class CityForm(Form):
         ),
     )
     destinationplace = forms.CharField(
-        error_messages={'required': ''},
+        error_messages={"required": ""},
         label="Город прилета:",
         max_length=30,
         widget=forms.TextInput(
