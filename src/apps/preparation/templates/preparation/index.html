@@ -58,18 +58,17 @@
 
                     <h2>Поиск авиабилета:</h2>
                     <form action="" method="get">
-                        {% csrf_token %}
                         {{ form.as_p }}
                         <input class="mt-2 btn btn-danger" name="Save" type="submit" value="Узнать">
                     </form>
                 </section>
                 <aside>
-                    {% for info in all_info %}
+
                     <div class="right">
                         <h2>Информация:</h2><br>
-                        <p>Минимальная стоимость билета будет составлять: {{ info.results }} </p>
+                        <p>Минимальная стоимость билета будет составлять: {{ all_info }} </p>
                     </div>
-                    {% endfor %}
+
                 </aside>
 
             </div>

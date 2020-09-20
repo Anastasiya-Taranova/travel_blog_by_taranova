@@ -18,16 +18,6 @@
         margin-top: 20px;
     }
 
-    .column {
-        margin-top: 50px;
-        margin-left: 40px;
-
-        column-width: 100px;
-        column-count: 3;
-        column-gap: 100px;
-
-    }
-
 
     button {
         -webkit-appearance: none;
@@ -64,7 +54,7 @@
 
 
         {% for trip in trips %}
-        <div class="column">
+        <article class="col-4 col-12-mobile special">
 
 
             <h3><a class="text-dark" href="{% url 'account:trips_detailed' trip.slug %}">{{ trip.name }}</a></h3>
@@ -86,11 +76,11 @@
 
 
             <b>Количество комментариев: {{ trip.comments_total }}</b>
-        </div>
-        {% endfor %}
+    </article>
+    {% endfor %}
 
 
-    </div>
+</div>
 
 
-    {% endblock %}
+{% endblock %}

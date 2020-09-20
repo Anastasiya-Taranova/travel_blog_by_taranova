@@ -65,6 +65,7 @@ def create_session(
 
 
 def search_flights(flight: CityForm):
+
     if not flight:
         return []
     if not flight.is_valid():
@@ -89,9 +90,10 @@ class IndexView(TemplateView):
     template_name = "preparation/index.html"
 
     def get_context_data(self, *args, **kwargs):
+
         form = CityForm(self.request.GET)
         results = search_flights(form)
-        if results == None:
+        if results is None:
             print("ploxo")
         ctx = super().get_context_data(*args, **kwargs)
         ctx.update(

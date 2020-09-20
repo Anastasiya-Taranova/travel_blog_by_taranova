@@ -88,6 +88,10 @@ class UpdateTrip(LoginRequiredMixin, UpdateView):
     fields = "__all__"
     template_name = "account/create_trip.html"
 
+    def get(self, request, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return render(request, self.template_name, context)
+
 
 class DeleteTrip(LoginRequiredMixin, DeleteView):
     http_method_names = ["post"]
