@@ -1,5 +1,5 @@
 from apps.account.models import Trips
-from django.forms import forms
+from django import forms
 
 
 class CreateTripForm(forms.ModelForm):
