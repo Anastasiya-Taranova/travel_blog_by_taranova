@@ -19,7 +19,6 @@ class Trips(models.Model):
     participants_total = models.IntegerField(default=1)
     comments_total = models.IntegerField(default=0)
     public = models.BooleanField(default=False)
-    pins_total = models.IntegerField(default=0)
     packing_list = models.TextField(blank=True, max_length=2000)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
@@ -29,7 +28,7 @@ class Trips(models.Model):
         verbose_name_plural = "trips"
 
     def __str__(self):
-        return str(f"Trip ID: " + str(self.pk) + ' "' + self.name)
+        return str(f"Trip: " + " " + self.name)
 
     def get_absolute_url(self):
         return reverse("account:trips_detailed", kwargs={"slug": self.slug})

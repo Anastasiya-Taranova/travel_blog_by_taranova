@@ -20,15 +20,3 @@ class TripInfo(m.Model):
 
     class Meta:
         verbose_name_plural = "Trip Info"
-
-    @property
-    def random_photos(self):
-        photos_all = self.photos.all()
-        indices = get_random_incides(len(photos_all), 4)
-        photos_random = [photos_all[i] for i in indices]
-        return photos_random
-
-
-class Photo(m.Model):
-    tripinfo = m.ForeignKey(TripInfo, on_delete=m.CASCADE, related_name="photos")
-    url = m.URLField()

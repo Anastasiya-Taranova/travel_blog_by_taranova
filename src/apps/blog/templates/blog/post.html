@@ -37,21 +37,26 @@
 
     p span {
         line-height: 20px;
+
+    }
+
+    a {
+        border-bottom: none;
     }
 
 </style>
 <div class="wrapper style2">
 
     <div class="container">
-        <header id="main" class="special">
+        <header class="special" id="main">
             <section>
                 <article>
                     <h2>{{ object.title }}</h2>
                     <p class="content">{{ object.content | safe }}</p>
                     {% for photo in object.photos.all %}
                     <a href="{{ photo.original.url }}">
-                        <img src="{{ photo.original.url }}"
-                             alt="{{ photo.pk }}"
+                        <img alt="{{ photo.pk }}"
+                             src="{{ photo.original.url }}"
                              style="max-width:550px; margin-left: 40px;">
                     </a>
                     {% endfor %}
@@ -65,10 +70,9 @@
                 <p>0 комментариев</p>
                 {% endif %}
 
-                    {% for comment in object.comments.all %}
-                    <p><span>{{ comment.author.profile.name }}</span>: {{ comment.message }}</p>
-                    {% endfor %}
-
+                {% for comment in object.comments.all %}
+                <p><span>{{ comment.author.profile.name }}</span>: {{ comment.message }}</p>
+                {% endfor %}
 
 
                 {% if not user.is_authenticated %}
@@ -76,7 +80,7 @@
                 {% else %}
                 <form action="{% url 'blog:comment' object.pk %}" method="post">
                     {{ form }}
-                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <input name="csrfmiddlewaretoken" type="hidden" value="{{ csrf_token }}">
                     <button type="submit">Оставить комментарий</button>
                     <button><a href="{% url 'blog:all_posts' %}">Вернуться назад</a></button>
                 </form>

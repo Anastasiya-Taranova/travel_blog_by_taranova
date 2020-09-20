@@ -1,5 +1,6 @@
 import uuid
 
+from apps.index.models import get_random_incides
 from ckeditor.fields import RichTextField
 from django.contrib.auth import get_user_model
 from django.db import models
@@ -61,3 +62,14 @@ class Photo(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="photos")
     original = models.FileField(storage=S3Boto3Storage())
+
+
+class Random(models.Model):
+    url = models.URLField()
+
+    @property
+    def random_photos(self):
+        photos_all = self.photos.all()
+        indices = get_random_incides(len(photos_all), 4)
+        photos_random = [photos_all[i] for i in indices]
+        return photos_random

@@ -17,33 +17,33 @@
 </style>
 <div class="wrapper style2">
     <div class="container">
-        <header id="main" class="special">
-    <article>
-        {% if form.errors %}
-            <p>Проблемы при изменении пароля: {{ form.errors }}</p>
-        {% endif %}
+        <header class="special" id="main">
+            <article>
+                {% if form.errors %}
+                <p>Проблемы при изменении пароля: {{ form.errors }}</p>
+                {% endif %}
 
-        {% if next %}
-            {% if user.is_authenticated %}
+                {% if next %}
+                {% if user.is_authenticated %}
                 <p>Your account doesn't have access to this page. To proceed,
-                   please login with an account that has access.</p>
-            {% else %}
+                    please login with an account that has access.</p>
+                {% else %}
                 <p>Пожалуйста, зарегистрируйтесь, чтоб увидеть эту страницу.</p>
-            {% endif %}
-        {% endif %}
-    </article>
+                {% endif %}
+                {% endif %}
+            </article>
 
-    <article>
-        <form action="{% url 'onboarding:pwc' %}" method="post">
-            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-            {{ form.as_p }}
-            <button class="button" type="submit">Изменить</button>
-            <input name="next" type="hidden" value="{{ next }}">
-        </form>
-    </article>
-             </header>
-        </div>
+            <article>
+                <form action="{% url 'onboarding:pwc' %}" method="post">
+                    <input name="csrfmiddlewaretoken" type="hidden" value="{{ csrf_token }}">
+                    {{ form.as_p }}
+                    <button class="button" type="submit">Изменить</button>
+                    <input name="next" type="hidden" value="{{ next }}">
+                </form>
+            </article>
+        </header>
+    </div>
 
-						</div>
+</div>
 
 {% endblock %}

@@ -18,17 +18,6 @@
         margin-top: 20px;
     }
 
-    .column {
-        margin-top: 50px;
-        margin-left: 40px;
-
-    column-width: 100px;
-    column-count: 3;
-    column-gap: 100px;
-
-   }
-
-
 
     button {
         -webkit-appearance: none;
@@ -48,53 +37,50 @@
 
 
         <a href="{% url 'preparation:index' %}">
-            <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Узнать стоимость
+            <button class="btn btn-danger btn-rounded mb-3" type="submit"><i class="mdi mdi-plus"></i> Узнать стоимость
                 авиабилета
             </button>
         </a>
         <a href="{% url 'account:create_trip' %}">
-            <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Запланировать
+            <button class="btn btn-danger btn-rounded mb-3" type="submit"><i class="mdi mdi-plus"></i> Запланировать
                 поездку
             </button>
         </a>
         <a href="{% url 'onboarding:me' %}">
-            <button type="submit" class="btn btn-danger btn-rounded mb-3"><i class="mdi mdi-plus"></i> Вернуться в
+            <button class="btn btn-danger btn-rounded mb-3" type="submit"><i class="mdi mdi-plus"></i> Вернуться в
                 профиль
             </button>
         </a>
 
 
+        {% for trip in trips %}
+        <article class="col-4 col-12-mobile special">
 
 
-                {% for trip in trips %}<div class="column">
+            <h3><a class="text-dark" href="{% url 'account:trips_detailed' trip.slug %}">{{ trip.name }}</a></h3>
+
+            <p>
+                <b>Откуда:</b> {{ trip.user_location }} </p>
+            <p><b>Куда:</b> {{ trip.destination }} </p>
+            <p><b>Бюджет:</b> {{ trip.budget }}</p>
+            <p><b>Участники путешествия:</b> {{ trip.participants_total }}
+            </p>
+            <form action="{% url 'account:delete_trip' trip.slug %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Удалить</button>
+            </form>
+            <form action="{% url 'account:update_trip' trip.slug %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Обновить</button>
+            </form>
 
 
-                <h3><a href="{{ trip.slug }}" class="text-dark">{{ trip.name }}</a></h3>
-
-                <p>
-                    <b>Откуда:</b> {{ trip.user_location }} </p>
-                    <p><b>Куда:</b> {{ trip.destination }} </p>
-                    <p><b>Бюджет:</b> {{ trip.budget }}</p>
-                   <p> <b>Участники путешествия:</b> {{ trip.participants_total }}
-                </p>
+            <b>Количество комментариев: {{ trip.comments_total }}</b>
+    </article>
+    {% endfor %}
 
 
-                <b>Количество комментариев: {{ trip.comments_total }}</b>
-                <form method="post">{% csrf_token %}
-                    <input type="submit" value="Удалить">
-                </form>
-
-                <form method="post">{% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Изменить">
-                </form></div>
-                {% endfor %}
+</div>
 
 
-
-
-
-    </div>
-
-
-    {% endblock %}
+{% endblock %}

@@ -69,9 +69,9 @@ class CreateTrip(LoginRequiredMixin, CreateView):
     model = Trips
     fields = "__all__"
 
-    def get(self, request, *args, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return render(request, self.template_name, context)
+    # def get(self, request, *args, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     return render(request, self.template_name, context)
 
     def get_object(self, queryset=Trips):
         slug_ = self.kwargs.get("slug")
@@ -83,37 +83,20 @@ class CreateTrip(LoginRequiredMixin, CreateView):
 
 
 class UpdateTrip(LoginRequiredMixin, UpdateView):
-    context_object_name = "update_trip"
-    template_name = "account/create_trip.html"
+    http_method_names = ["post"]
     model = Trips
     fields = "__all__"
+    template_name = "account/create_trip.html"
 
     def get(self, request, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["trips"] = self.get_object()
         return render(request, self.template_name, context)
-
-    def get_object(self, queryset=Trips):
-        slug_ = self.kwargs.get("slug")
-        return get_object_or_404(Trips, slug=slug_)
-
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
 
 
 class DeleteTrip(LoginRequiredMixin, DeleteView):
-    context_object_name = "delete_trip"
-    template_name = "account/trips_list.html"
+    http_method_names = ["post"]
     model = Trips
     success_url = reverse_lazy("account:trips_list")
-
-    def get_object(self, queryset=Trips):
-        slug_ = self.kwargs.get("slug")
-        return get_object_or_404(Trips, slug=slug_)
-
-    def post(self, request, *args, **kwargs):
-        pass
 
 
 class TripsList(LoginRequiredMixin, ListView):

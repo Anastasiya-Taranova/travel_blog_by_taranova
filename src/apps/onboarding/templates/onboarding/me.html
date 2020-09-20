@@ -51,7 +51,7 @@
 </style>
 <div class="wrapper style2">
     <div class="container">
-        <header id="main" class="special">
+        <header class="special" id="main">
 
 
             {% if newbie_alert %}
@@ -76,7 +76,6 @@
             <button class="button1"><a href="{% url 'onboarding:me_edit' %}">Изменить логин/имя</a></button>
             <button class="button1"><a href="{% url 'onboarding:pwc' %}">Изменить пароль</a></button>
             <button class="button"><a href="{% url 'onboarding:sign_out' %}">Выйти из учетной записи</a></button>
-
 
 
         </header>

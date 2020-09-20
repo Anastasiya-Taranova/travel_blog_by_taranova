@@ -34,38 +34,26 @@
         <p>{{ trips.budget }}</p>
 
 
-
-                        <h3>Map of {{ trips.destination }}</h3>
-
+        <h3>Map of {{ trips.destination }}</h3>
 
 
-                <h4 class="mt-0 mb-3">Comments ({{ trips.comments_total }})</h4>
+        <h4 class="mt-0 mb-3">Comments ({{ trips.comments_total }})</h4>
 
-                <textarea class="form-control form-control-light mb-2" placeholder="Write message" id="example-textarea"
-                          rows="3"></textarea>
-                <div class="text-right">
-                    <div class="btn-group mb-2">
-                        <button type="button" class="btn btn-link btn-sm text-muted font-18"><i
-                                class="dripicons-paperclip"></i></button>
-                    </div>
-                    <div class="btn-group mb-2 ml-2">
-                        <button type="button" class="btn btn-primary btn-sm">Submit</button>
-
-
-
-
-            </div> <!-- end card-body-->
+        <textarea class="form-control form-control-light mb-2" id="example-textarea" placeholder="Write message"
+                  rows="3"></textarea>
+        <div class="text-right">
         </div>
-        <!-- end card-->
-    </div> <!-- end col -->
+        <div class="btn-group mb-2 ml-2">
+            <a href="{% url 'account:trips_list' %}">Submit</a>
 
 
+        </div> <!-- end card-body-->
+    </div>
+    <!-- end card-->
+</div> <!-- end col -->
 
 
-
-            </div>
-
-
+</div>
 
 
 {% endblock %}

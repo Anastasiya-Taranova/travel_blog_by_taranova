@@ -9,14 +9,13 @@
         {% for photos in object_list %}
         <article class="col-4 col-12-mobile special">
 
-            <a href="{{ photos.url }}"
-               class="image featured"><img src="{{ photos.photo.url }}" alt="{{ photos.pk }}"/></a>
+            <a class="image featured"
+               href="{{ photos.url }}"><img alt="{{ photos.pk }}" src="{{ photos.photo.url }}"/></a>
             <header>
                 <h3>
                     <a href="{{ photos.url }}">{{ photos.name_country }}</a>
                 </h3>
             </header>
-
 
 
         </article>
@@ -27,5 +26,4 @@
 </div>
 
 
-
-            {% endblock %}
+{% endblock %}

@@ -1,9 +1,5 @@
 from apps.account.models import Trips
-from apps.onboarding.utils.xmodels import a
-from django.forms import DateInput
 from django.forms import forms
-from suit.widgets import EnclosedInput
-from suit.widgets import SuitSplitDateTimeWidget
 
 
 class CreateTripForm(forms.ModelForm):

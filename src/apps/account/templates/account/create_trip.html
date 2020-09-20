@@ -7,8 +7,9 @@
 {% block main %}
 <style>
     input {
-    width: 60%;
-}
+        width: 60%;
+    }
+
     .grid {
         padding-left: 20px;
         padding-right: 0;
@@ -21,8 +22,20 @@
 
     }
 
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 35px;
+    }
+
+
     .container p {
         text-align: center;
+    }
+    p {
+        font-size: 15px;
+        font-style: italic;
+        color: #5b5b5b;
     }
 
 </style>
@@ -31,9 +44,23 @@
         <div class="grid">
 
             <form action="{% url 'account:create_trip' %}" method="post">
+
                 {% csrf_token %}
-                <p>{{ form.as_p }}</p>
-                <input type="submit" name="Save" value="Узнать" class="mt-2 btn btn-danger">
+
+                <label>Выберите юзера:<br><p>{{ form.user_id }} Можете кому-то запланировать, если самому не получается отправиться в отпуск :)</p></label>
+                <label>Уникальный индификатор:<br><p>{{ form.slug }} По нему можно будет найти вашу поездку</p></label>
+                <label>Назовите как-нибудь вашу поездку:<p>{{ form.name }}Например: Алкотур по странам Баварии</p></label>
+                <label>Настоящее местоположение:<br><p>{{ form.user_location }} Настоящее! Не обманывайте, мы вас все равно вычислим по IP!</p></label>
+                <label>Куда хотите отправиться?<br><p>{{ form.destination }} Например: Абхазия</p></label>
+                <label>Дата вылета:<br><p>{{ form.start_date }} Формат: Год-месяц-Дата</p></label>
+                <label>Дата прилета:<br><p>{{ form.end_date }} Формат: Год-месяц-Дата</p></label>
+                <label>Планируемый бюджет:<br><p>{{ form.budget }} <br><br>Например: 100$, планы ведь часто не совпадают с реальностью))</p></label>
+                <label>Количество участников путешествия:<br><p>{{ form.participants_total }}<br><br> Чем больше людей, тем меньше бюджет(ну и веселее чуток)</p></label>
+                <label>Хотите сделать вашу поездку публичной?<br><p>{{ form.public }} <br><br> Зачем скрывать счастье? :) </p></label>
+                <label>Список вещей, которые хотите взять с собой:<br><p>{{ form.packing_list }} Потом начнется квест "Впихнуть "невпихуемое""</p></label>
+
+
+                <button class="mt-2 btn btn-danger" name="Save" type="submit" value="Узнать"></button>
             </form>
         </div>
     </div>

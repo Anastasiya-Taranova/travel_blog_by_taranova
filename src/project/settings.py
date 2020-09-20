@@ -84,6 +84,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "apps.blog.context_processors.blog",
+                "apps.blog.context_processors.random_photos",
             ],
         },
     },
