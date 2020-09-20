@@ -1,5 +1,6 @@
-from apps.index.models import TripInfo
 from django.views.generic import ListView
+
+from apps.index.models import TripInfo
 
 
 class IndexView(ListView):

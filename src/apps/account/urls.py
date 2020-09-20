@@ -1,10 +1,11 @@
+from django.urls import path
+
 from apps.account.apps import AccountConfig
 from apps.account.views import CreateTrip
 from apps.account.views import DeleteTrip
 from apps.account.views import TripsDetailed
 from apps.account.views import TripsList
 from apps.account.views import UpdateTrip
-from django.urls import path
 
 app_name = AccountConfig.label
 

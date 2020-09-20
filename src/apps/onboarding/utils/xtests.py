@@ -6,12 +6,13 @@ from typing import List
 from typing import Optional
 from typing import Text
 
-from apps.onboarding.models import AuthProfile
-from apps.onboarding.models import Profile
-from apps.onboarding.utils.xdatetime import utcnow
 from django.contrib.auth import get_user_model
 from django.test import Client
 from httpie import status
+
+from apps.onboarding.models import AuthProfile
+from apps.onboarding.models import Profile
+from apps.onboarding.utils.xdatetime import utcnow
 
 User = get_user_model()
 

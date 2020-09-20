@@ -1,6 +1,7 @@
+from django.urls import path
+
 from apps.photos.apps import PhotosConfig
 from apps.photos.views import IndexView
-from django.urls import path
 
 app_name = PhotosConfig.label
 

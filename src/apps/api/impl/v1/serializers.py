@@ -1,6 +1,7 @@
+from rest_framework import serializers
+
 from apps.onboarding.models import AuthProfile
 from apps.onboarding.utils.xmodels import a
-from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):

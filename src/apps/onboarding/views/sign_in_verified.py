@@ -1,6 +1,7 @@
-from apps.onboarding.utils.verification import finalize_verification
 from django.urls import reverse_lazy
 from django.views.generic import RedirectView
+
+from apps.onboarding.utils.verification import finalize_verification
 
 
 class SignInVerifiedView(RedirectView):

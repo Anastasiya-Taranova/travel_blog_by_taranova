@@ -1,8 +1,9 @@
 from os import urandom
 
-from apps.onboarding.utils.xmodels import a
 from django import forms
 from django.contrib.auth import get_user_model
+
+from apps.onboarding.utils.xmodels import a
 
 User = get_user_model()
 

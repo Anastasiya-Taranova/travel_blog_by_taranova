@@ -1,8 +1,9 @@
-from apps.onboarding.forms.sign_up import SignUpForm
-from apps.onboarding.utils.verification import start_verification
 from django.db import transaction
 from django.urls import reverse_lazy
 from django.views.generic import FormView
+
+from apps.onboarding.forms.sign_up import SignUpForm
+from apps.onboarding.utils.verification import start_verification
 
 
 class SignUpView(FormView):

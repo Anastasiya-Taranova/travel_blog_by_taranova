@@ -6,11 +6,12 @@ from typing import Union
 
 import pytz
 import requests
-from apps.onboarding.utils.safeguards import safe
 from delorean import Delorean
 from django.conf import settings
 from django.http import HttpRequest
 from ipware import get_client_ip
+
+from apps.onboarding.utils.safeguards import safe
 
 
 def utcnow() -> datetime:

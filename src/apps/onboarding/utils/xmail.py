@@ -1,11 +1,12 @@
 from typing import Dict
 from typing import Optional
 
-from apps.onboarding.utils.safeguards import safe
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpRequest
 from django.template.loader import get_template
+
+from apps.onboarding.utils.safeguards import safe
 
 
 @safe

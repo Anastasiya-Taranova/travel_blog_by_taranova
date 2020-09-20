@@ -1,7 +1,8 @@
-from apps.blog import views
-from apps.blog.apps import BlogConfig
 from django.conf.urls import include
 from django.urls import path
+
+from apps.blog import views
+from apps.blog.apps import BlogConfig
 
 app_name = BlogConfig.label
 
