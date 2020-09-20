@@ -1,4 +1,5 @@
-from apps.blog.models import Post, Random
+from apps.blog.models import Post
+from apps.blog.models import Random
 
 
 def random_photos(request):
