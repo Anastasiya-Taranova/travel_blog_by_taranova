@@ -98,13 +98,9 @@ class DeleteTrip(LoginRequiredMixin, DeleteView):
 
 
 class TripsList(LoginRequiredMixin, ListView):
-    context_object_name = "trips_list"
+    context_object_name = "trips"
     template_name = "account/trips_list.html"
-    object_list = Trips.objects.all()
 
-    def get(self, request, *args, **kwargs):
-        self.object_list = render_user_trips(request)
-        context = super().get_context_data(**kwargs)
-        context["trips"] = render_user_trips(request)
-        context["trips_total"] = len(render_user_trips(request))
-        return render(request, self.template_name, context)
+    def get_queryset(self):
+        qs = Trips.objects.filter(user_id=self.request.user)
+        return qs
