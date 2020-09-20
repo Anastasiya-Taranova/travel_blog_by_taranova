@@ -1,3 +1,5 @@
+from apps.account.forms import CreateTripForm
+from apps.account.models import Trips
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
@@ -8,9 +10,6 @@ from django.views.generic import DeleteView
 from django.views.generic import DetailView
 from django.views.generic import ListView
 from django.views.generic import UpdateView
-
-from apps.account.forms import CreateTripForm
-from apps.account.models import Trips
 
 User = get_user_model()
 
