@@ -1,13 +1,13 @@
-HERE := $(shell pwd)
-VENV := $(shell pipenv --venv)
+include ./Makefile.variables.mk
+
+HERE := $(PROJECT_DIR)
+VENV := $(VENV_DIR)
 PYTHONPATH := ${HERE}/src
 TEST_PARAMS := --verbosity 2 --pythonpath "${PYTHONPATH}"
 PSQL_PARAMS := --host=localhost --username=anastasiataranova --password
+SRC_DIR = $(HERE)/src
+SLS_SRC_DIR = $(HERE)/serverless/src
 
-
-ifeq ($(origin PIPENV_ACTIVE), undefined)
-	RUN := pipenv run
-endif
 
 ifeq ($(ENV_FOR_DYNACONF), travis)
 	RUN :=
@@ -18,27 +18,32 @@ else ifeq ($(ENV_FOR_DYNACONF), heroku)
 endif
 
 
-MANAGE := ${RUN} python src/manage.py
+MANAGE := ${PY} src/manage.py
 
 
 .PHONY: format
 format:
-	${RUN} isort --virtual-env "${VENV}" --recursive --apply "${HERE}"
-	${RUN} black "${HERE}"
+	$(call log, formatting code)
+	${RUN} isort --virtual-env "${VENV}" "${SRC_DIR}"
+	${RUN} isort --virtual-env "${VENV}" "${SLS_SRC_DIR}"
+	${RUN} black "${SRC_DIR}"
+	${RUN} black "${SLS_SRC_DIR}"
 
 
 .PHONY: run
 run: static
+	$(call log, starting local server)
 	${MANAGE} runserver
 
 
 .PHONY: beat
 beat:
+	$(call log, starting beat)
 	PYTHONPATH=${PYTHONPATH} \
 	${RUN} celery worker \
 		--app periodic.app -B \
 		--config periodic.celeryconfig \
-		--workdir "${HERE}/src" \
+		--workdir "${SRC_DIR}" \
 		--loglevel=info
 
 
@@ -54,6 +59,7 @@ docker-run: docker
 
 .PHONY: static
 static:
+	$(call log, collecting static)
 	${MANAGE} collectstatic --noinput --clear -v0
 
 
@@ -79,6 +85,7 @@ lambda-remove:
 
 .PHONY: migrate
 migrate:
+	$(call log, applying migrations)
 	${MANAGE} migrate
 
 
@@ -102,8 +109,10 @@ test:
 			project \
 
 	${RUN} coverage report
-	${RUN} isort --virtual-env "${VENV}" --recursive --check-only "${HERE}"
-	${RUN} black --check "${HERE}"
+	${RUN} isort --virtual-env "${VENV}" --check-only "${SRC_DIR}"
+	${RUN} isort --virtual-env "${VENV}" --check-only "${SLS_SRC_DIR}"
+	${RUN} black --check "${SRC_DIR}"
+	${RUN} black --check "${SLS_SRC_DIR}"
 
 
 .PHONY: report
@@ -114,7 +123,8 @@ report:
 
 .PHONY: venv
 venv:
-	pipenv install --dev
+	$(call log, installing packages for venv)
+	@$(PIPENV_INSTALL) --dev
 
 
 .PHONY: clean

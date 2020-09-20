@@ -1,6 +1,7 @@
+from django import forms
+
 from apps.blog.models import Comment
 from apps.onboarding.utils.xmodels import a
-from django import forms
 
 
 class CommentForm(forms.ModelForm):

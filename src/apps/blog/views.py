@@ -1,11 +1,12 @@
-from apps.blog.forms import CommentForm
-from apps.blog.models import Post
-from apps.blog.models import Random
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic import DetailView
 from django.views.generic import ListView
+
+from apps.blog.forms import CommentForm
+from apps.blog.models import Post
+from apps.blog.models import Random
 
 
 class AllBlogPostsView(ListView):

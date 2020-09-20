@@ -1,10 +1,11 @@
 from typing import Optional
 
-from apps.onboarding.utils.xdatetime import utcnow
 from django.contrib.auth import get_user_model
 from django.contrib.sites.models import Site
 from django.db import models
 from django.urls import reverse_lazy
+
+from apps.onboarding.utils.xdatetime import utcnow
 
 User = get_user_model()
 

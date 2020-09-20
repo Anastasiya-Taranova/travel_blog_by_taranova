@@ -1,11 +1,12 @@
 import uuid
 
-from apps.index.models import get_random_incides
 from ckeditor.fields import RichTextField
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse_lazy
 from storages.backends.s3boto3 import S3Boto3Storage
+
+from apps.index.models import get_random_incides
 
 User = get_user_model()
 

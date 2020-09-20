@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import os
 from os import getenv
 from pathlib import Path
 
@@ -188,3 +188,8 @@ CKEDITOR_CONFIGS = {
         "toolbar": None,
     },
 }
+
+GEOS_LIBRARY_PATH = os.getenv("GEOS_LIBRARY_PATH")
+GDAL_LIBRARY_PATH = os.getenv("GDAL_LIBRARY_PATH")
+print(f"\nXXX\n\n{GEOS_LIBRARY_PATH=}\n\nXXX\n")
+print(f"\nXXX\n\n{GDAL_LIBRARY_PATH=}\n\nXXX\n")

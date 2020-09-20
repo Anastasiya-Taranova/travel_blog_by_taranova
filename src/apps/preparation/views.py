@@ -1,9 +1,10 @@
 import json
 
 import requests
+from django.views.generic import TemplateView
+
 from apps.preparation.api_helpers import call_api
 from apps.preparation.forms import CityForm
-from django.views.generic import TemplateView
 
 API_KEY = "bfea1864abmsha9c55f09e75d6adp116740jsn62b2a0553716"
 rapidapi_host = "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"

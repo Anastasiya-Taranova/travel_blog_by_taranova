@@ -1,13 +1,14 @@
 from os import urandom
 from typing import Union
 
-from apps.onboarding.models import AuthProfile
-from apps.onboarding.utils.profile import setup_profile
 from delorean import Delorean
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
 from django.contrib.sites.models import Site
 from django.http import HttpRequest
+
+from apps.onboarding.models import AuthProfile
+from apps.onboarding.utils.profile import setup_profile
 
 User = get_user_model()
 

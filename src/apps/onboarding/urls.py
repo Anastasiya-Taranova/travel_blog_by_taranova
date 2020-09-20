@@ -1,3 +1,5 @@
+from django.urls import path
+
 from apps.onboarding.apps import OnboardingConfig
 from apps.onboarding.views import IndexView
 from apps.onboarding.views import ProfileEditView
@@ -9,7 +11,6 @@ from apps.onboarding.views import SignInView
 from apps.onboarding.views import SignOutView
 from apps.onboarding.views import SignUpConfirmedView
 from apps.onboarding.views import SignUpView
-from django.urls import path
 
 app_name = OnboardingConfig.label
 

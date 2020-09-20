@@ -53,15 +53,15 @@
                 <li><a href="{% url 'blog:all_posts' %}">Полезные статьи и файлы</a></li>
                 <li><a href="{% url 'preparation:index' %}">Подготовка к путешествию</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'onboarding:me' %}">Мой профиль</a></li>
+                    <li><a href="{% url 'onboarding:me' %}">Мой профиль</a></li>
                 {% else %}
-                <li><a href="{% url 'onboarding:index' %}">Вход/Регистрация</a></li>
+                    <li><a href="{% url 'onboarding:index' %}">Вход/Регистрация</a></li>
                 {% endif %}
             </ul>
         </nav>
 
     </div>
-    {%block main %}
+    {% block main %}
     {% endblock %}
     {% block main_allowed %}
     {% endblock %}
@@ -110,13 +110,13 @@
                     </header>
                     <ul class="divided">
                         {% for post in posts %}
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-                                </header>
-                            </article>
-                        </li>
+                            <li>
+                                <article class="post stub">
+                                    <header>
+                                        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                                    </header>
+                                </article>
+                            </li>
                         {% endfor %}
 
                     </ul>
@@ -129,13 +129,14 @@
                         <h2 class="icon brands fa-instagram circled"><span class="label">Photos</span></h2>
                     </header>
                     <div class="row gtr-25">
-                        {% for photo in object.random_photos %}
-                        <div class="col-6">
-                            <a href="{{ photo.url }}" class="image fit"><img
-                                    src="{{ photo.url }}" alt=""/></a>
+                        {% for photo in random_photos %}
+                            <div class="col-6">
+                                <a href="{{ photo.url }}" class="image fit"><img
+                                        src="{{ photo.url }}" alt=""/></a>
 
-                        </div>
+                            </div>
                         {% endfor %}
+                    </div>
 
                 </section>
 

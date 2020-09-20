@@ -1,5 +1,6 @@
-from apps.account.models import Trips
 from django.contrib import admin
+
+from apps.account.models import Trips
 
 
 @admin.register(Trips)

@@ -1,9 +1,10 @@
+from django.contrib.auth import get_user_model
+from django.test import TestCase
+
 from apps.onboarding.utils.xtests import TemplateResponseTestMixin
 from apps.onboarding.utils.xtests import UserTestMixin
 from apps.onboarding.views import ProfileView
 from apps.onboarding.views import SignInView
-from django.contrib.auth import get_user_model
-from django.test import TestCase
 
 User = get_user_model()
 

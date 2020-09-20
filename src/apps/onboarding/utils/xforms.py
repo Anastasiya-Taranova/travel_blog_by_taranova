@@ -1,9 +1,10 @@
 from typing import Iterable
 from typing import Optional
 
-from apps.onboarding.utils.xmodels import a
 from django import forms
 from django.db import models
+
+from apps.onboarding.utils.xmodels import a
 
 
 def gen_textinput_admin_form(

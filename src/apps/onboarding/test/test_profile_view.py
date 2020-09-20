@@ -1,6 +1,7 @@
+from django.test import TestCase
+
 from apps.onboarding.utils.xtests import TemplateResponseTestMixin
 from apps.onboarding.views import ProfileView
-from django.test import TestCase
 
 
 class Test(TestCase, TemplateResponseTestMixin):

@@ -1,4 +1,3 @@
-from apps.account.models import Trips
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
@@ -9,6 +8,9 @@ from django.views.generic import DeleteView
 from django.views.generic import DetailView
 from django.views.generic import ListView
 from django.views.generic import UpdateView
+
+from apps.account.forms import CreateTripForm
+from apps.account.models import Trips
 
 User = get_user_model()
 
@@ -69,10 +71,6 @@ class CreateTrip(LoginRequiredMixin, CreateView):
     model = Trips
     fields = "__all__"
 
-    # def get(self, request, *args, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     return render(request, self.template_name, context)
-
     def get_object(self, queryset=Trips):
         slug_ = self.kwargs.get("slug")
         return get_object_or_404(Trips, slug=slug_)
@@ -83,14 +81,10 @@ class CreateTrip(LoginRequiredMixin, CreateView):
 
 
 class UpdateTrip(LoginRequiredMixin, UpdateView):
-    http_method_names = ["post"]
+    http_method_names = ["get"]
     model = Trips
-    fields = "__all__"
+    form_class = CreateTripForm
     template_name = "account/create_trip.html"
-
-    def get(self, request, *args, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return render(request, self.template_name, context)
 
 
 class DeleteTrip(LoginRequiredMixin, DeleteView):
@@ -100,13 +94,9 @@ class DeleteTrip(LoginRequiredMixin, DeleteView):
 
 
 class TripsList(LoginRequiredMixin, ListView):
-    context_object_name = "trips_list"
+    context_object_name = "trips"
     template_name = "account/trips_list.html"
-    object_list = Trips.objects.all()
 
-    def get(self, request, *args, **kwargs):
-        self.object_list = render_user_trips(request)
-        context = super().get_context_data(**kwargs)
-        context["trips"] = render_user_trips(request)
-        context["trips_total"] = len(render_user_trips(request))
-        return render(request, self.template_name, context)
+    def get_queryset(self):
+        qs = Trips.objects.filter(user_id=self.request.user)
+        return qs
