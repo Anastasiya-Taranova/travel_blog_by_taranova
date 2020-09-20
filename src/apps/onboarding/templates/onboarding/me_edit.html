@@ -17,30 +17,30 @@
 </style>
 <div class="wrapper style2">
     <div class="container">
-        <header id="main" class="special">
+        <header class="special" id="main">
 
-    <article>
+            <article>
 
-        {% if user.is_anonymous %}
+                {% if user.is_anonymous %}
 
-            <h2>У вас нет доступа к этой странице</h2>
+                <h2>У вас нет доступа к этой странице</h2>
 
-        {% else %}
+                {% else %}
 
-            <form method="post">
-                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                <div class="grid">
-                    {{ form.as_p }}
-                </div>
-                <button class="button" type="submit">Обновить информацию</button>
-            </form>
+                <form method="post">
+                    <input name="csrfmiddlewaretoken" type="hidden" value="{{ csrf_token }}">
+                    <div class="grid">
+                        {{ form.as_p }}
+                    </div>
+                    <button class="button" type="submit">Обновить информацию</button>
+                </form>
 
-        {% endif %}
+                {% endif %}
 
-    </article>
-            </header>
-        </div>
+            </article>
+        </header>
+    </div>
 
-						</div>
+</div>
 
 {% endblock %}

@@ -12,6 +12,7 @@
         padding-bottom: 0;
 
     }
+
     h2 {
         padding-bottom: 20px;
     }
@@ -19,12 +20,12 @@
 </style>
 <div class="wrapper style2">
     <div class="container">
-        <header id="main" class="special">
+        <header class="special" id="main">
 
-    <p>Пароль успешно изменен.</p>
-    <button><a href="{% url 'onboarding:sign_out' %}">Выйти</a></button>
-    <button><a href="{% url 'onboarding:index' %}">Вернуться назад</a></button>
-            </header>
+            <p>Пароль успешно изменен.</p>
+            <button><a href="{% url 'onboarding:sign_out' %}">Выйти</a></button>
+            <button><a href="{% url 'onboarding:index' %}">Вернуться назад</a></button>
+        </header>
     </div>
 
 </div>

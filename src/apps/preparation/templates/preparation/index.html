@@ -52,7 +52,7 @@
 </style>
 <div class="wrapper style2">
     <div class="container">
-        <header id="main" class="special">
+        <header class="special" id="main">
             <div class="group">
                 <section>
 
@@ -60,7 +60,7 @@
                     <form action="" method="get">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <input type="submit" name="Save" value="Узнать" class="mt-2 btn btn-danger">
+                        <input class="mt-2 btn btn-danger" name="Save" type="submit" value="Узнать">
                     </form>
                 </section>
                 <aside>

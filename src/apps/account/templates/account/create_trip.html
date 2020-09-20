@@ -7,8 +7,9 @@
 {% block main %}
 <style>
     input {
-    width: 60%;
-}
+        width: 60%;
+    }
+
     .grid {
         padding-left: 20px;
         padding-right: 0;
@@ -33,7 +34,7 @@
             <form action="{% url 'account:create_trip' %}" method="post">
                 {% csrf_token %}
                 <p>{{ form.as_p }}</p>
-                <input type="submit" name="Save" value="Узнать" class="mt-2 btn btn-danger">
+                <input class="mt-2 btn btn-danger" name="Save" type="submit" value="Узнать">
             </form>
         </div>
     </div>

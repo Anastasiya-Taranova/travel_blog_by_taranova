@@ -17,7 +17,7 @@
 </style>
 <div class="wrapper style2">
     <div class="container">
-        <header id="main" class="special">
+        <header class="special" id="main">
 
             <article>
 
@@ -39,11 +39,11 @@
 
             <article>
                 <form action="{% url 'onboarding:sign_up' %}" method="post">
-                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <input name="csrfmiddlewaretoken" type="hidden" value="{{ csrf_token }}">
                     <div class="grid">
                         {{ form.as_p }}
                     </div>
-                    <button type="submit" class="button">Зарегистрироваться</button>
+                    <button class="button" type="submit">Зарегистрироваться</button>
                     <input name="next" type="hidden" value="{{ next }}">
                 </form>
             </article>

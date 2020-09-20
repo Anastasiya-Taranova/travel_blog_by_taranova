@@ -1,5 +1,4 @@
 from apps.blog.models import Post
-from apps.blog.models import Random
 from apps.blog.views import PhotosView
 
 

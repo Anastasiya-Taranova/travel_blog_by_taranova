@@ -86,7 +86,6 @@ def search_flights(flight: CityForm):
 
 
 class IndexView(TemplateView):
-
     template_name = "preparation/index.html"
 
     def get_context_data(self, *args, **kwargs):

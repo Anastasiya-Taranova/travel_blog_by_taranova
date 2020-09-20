@@ -5,9 +5,9 @@
 {% for vietnam in object_list %}
 <div class="wrapper style1">
     <div class="container">
-		<article id="main" class="special">
+        <article class="special" id="main">
             <header>
-                <h3><a href="#"></a>{{ vietnam.h3 | safe  }}</h3>
+                <h3><a href="#"></a>{{ vietnam.h3 | safe }}</h3>
             </header>
             <section>
                 <header>
@@ -15,25 +15,25 @@
                 </header>
                 <p><strong>{{ vietnam.predescription | safe }}</strong></p>
                 <p>{{ vietnam.description | safe }}</p>
-                </section>
+            </section>
             <div class="row">
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic12.jpg' %}" alt="" /></a>
+                <article class="col-4 col-12-mobile special">
+                    <a class="image featured" href="#"><img alt="" src="{% static 'images/pic12.jpg' %}"/></a>
 
-							</article>
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic02.jpg' %}" alt="" /></a>
+                </article>
+                <article class="col-4 col-12-mobile special">
+                    <a class="image featured" href="#"><img alt="" src="{% static 'images/pic02.jpg' %}"/></a>
 
 
-							</article>
-							<article class="col-4 col-12-mobile special">
-								<a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+                </article>
+                <article class="col-4 col-12-mobile special">
+                    <a class="image featured" href="#"><img alt="" src="{% static 'images/pic01.jpg' %}"/></a>
 
-							</article>
-						</div>
-						</div>
+                </article>
+            </div>
+    </div>
 
 </div>
-            {% endfor %}
+{% endfor %}
 
 {% endblock %}
