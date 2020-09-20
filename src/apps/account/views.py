@@ -70,10 +70,6 @@ class CreateTrip(LoginRequiredMixin, CreateView):
     model = Trips
     fields = "__all__"
 
-    # def get(self, request, *args, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     return render(request, self.template_name, context)
-
     def get_object(self, queryset=Trips):
         slug_ = self.kwargs.get("slug")
         return get_object_or_404(Trips, slug=slug_)
