@@ -10,7 +10,7 @@ def trigger_error(request):
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("apps.index.urls")),
-    path("vietnam/", include("apps.vietnam.urls")),
+    path("trips/", include("apps.trips.urls")),
     path("blog/", include("apps.blog.urls")),
     path("onboarding/", include("apps.onboarding.urls")),
     path("sentry-debug/", trigger_error),

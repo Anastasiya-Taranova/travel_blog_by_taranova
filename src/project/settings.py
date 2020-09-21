@@ -46,13 +46,14 @@ INSTALLED_APPS_ORDERED = {
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.index.apps.IndexConfig",
-    3000: "apps.vietnam.apps.VietnamConfig",
+    3000: "apps.trips.apps.TripsConfig",
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
     6000: "apps.contacts.apps.ContactsConfig",
     7000: "apps.preparation.apps.PreparationConfig",
     8000: "apps.account.apps.AccountConfig",
     9000: "apps.photos.apps.PhotosConfig",
+    10000: "multiselectfield"
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
@@ -86,6 +87,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "apps.blog.context_processors.blog",
                 "apps.blog.context_processors.random_photos",
+                "apps.blog.context_processors.countr",
             ],
         },
     },
