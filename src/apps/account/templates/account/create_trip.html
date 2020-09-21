@@ -37,6 +37,19 @@
         font-style: italic;
         color: #5b5b5b;
     }
+       button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: 0;
+        border-radius: 0;
+        background: #ccc;
+        font-size: 20px;
+        height: 80px;
+        margin-top: 20px;
+        width: 100%;
+
+    }
 
 </style>
 <div class="wrapper style2">
@@ -56,11 +69,9 @@
                 <label>Дата прилета:<br><p>{{ form.end_date }} Формат: Год-месяц-Дата</p></label>
                 <label>Планируемый бюджет:<br><p>{{ form.budget }} <br><br>Например: 100$, планы ведь часто не совпадают с реальностью))</p></label>
                 <label>Количество участников путешествия:<br><p>{{ form.participants_total }}<br><br> Чем больше людей, тем меньше бюджет(ну и веселее чуток)</p></label>
-                <label>Хотите сделать вашу поездку публичной?<br><p>{{ form.public }} <br><br> Зачем скрывать счастье? :) </p></label>
                 <label>Список вещей, которые хотите взять с собой:<br><p>{{ form.packing_list }} Потом начнется квест "Впихнуть "невпихуемое""</p></label>
+                <button type="submit" value="Узнать">Отправить</button>
 
-
-                <button class="mt-2 btn btn-danger" name="Save" type="submit" value="Узнать"></button>
             </form>
         </div>
     </div>

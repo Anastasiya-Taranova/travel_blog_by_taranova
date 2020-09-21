@@ -65,9 +65,8 @@ class TripsDetailed(LoginRequiredMixin, DetailView):
 
 
 class CreateTrip(LoginRequiredMixin, CreateView):
-    context_object_name = "create_trip"
+    http_method_names = ["post"]
     template_name = "account/create_trip.html"
-    object = Trips
     model = Trips
     fields = "__all__"
 

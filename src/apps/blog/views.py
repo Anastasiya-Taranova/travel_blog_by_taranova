@@ -6,7 +6,6 @@ from django.views.generic import ListView
 
 from apps.blog.forms import CommentForm
 from apps.blog.models import Post
-from apps.blog.models import Random
 
 
 class AllBlogPostsView(ListView):
@@ -34,14 +33,4 @@ class CommentView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         url = reverse_lazy("blog:post", kwargs={"pk": self.kwargs["pk"]})
-
         return url
-
-
-class PhotosView(DetailView):
-    template_name = "index/index.html"
-
-    def get_object(self, *_a, **_kw):
-        query = Random.objects.order_by("?")
-        obj = query.first()
-        return obj

@@ -5,55 +5,84 @@
 
 
 {% block body_block %}
-<div class="wrapper style2">
-    <div class="container">
+    <style>
+
+        .container a {
+            text-align: left;
+            text-decoration: none;
+            font-size: 20px;
+            border: none;
 
 
-        <h2>
-            {{ trips.name }}
-        </h2>
+        }
+
+        h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+
+        button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: 0;
+            border-radius: 0;
+            background: #ccc;
+            font-size: 15px;
+            height: 60px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #grid {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2vw;
+        }
+    </style>
+    <div class="wrapper style2">
+        <div class="container">
 
 
-        <h3>Список вещей, которые нужно взять с собой:</h3>
+            <h2>
+                {{ trips.name }}
+            </h2>
+            <div id="grid">
+                <div>
 
-        <p>
-            {{ trips.packing_list }}
-        </p>
-
-
-        <h3>Начало поездки:</h3>
-        <p>{{ trips.start_date }}
-        </p>
-
-
-        <h3>Конец поездки:</h3>
-        <p>{{ trips.end_date }}</p>
+                    <h3>Страна:</h3>
+                    <p>{{ trips.destination }}</p></div>
+                <div><h3>Список вещей, которые нужно взять с собой:</h3>
+                    <p>
+                        {{ trips.packing_list }}
+                    </p></div>
 
 
-        <h3>Бюджет:</h3>
-        <p>{{ trips.budget }}</p>
+                <div><h3>Начало поездки:</h3>
+                    <p>{{ trips.start_date }}
+                    </p></div>
 
 
-        <h3>Map of {{ trips.destination }}</h3>
+                <div><h3>Конец поездки:</h3>
+                    <p>{{ trips.end_date }}</p></div>
+
+                <div><h3>Количество участников поездки:</h3>
+                    <p>{{ trips.participants_total }}</p></div>
+                <div><h3>Поездка создана:</h3>
+                    <p>{{ trips.created_at }}</p></div>
 
 
-        <h4 class="mt-0 mb-3">Comments ({{ trips.comments_total }})</h4>
-
-        <textarea class="form-control form-control-light mb-2" id="example-textarea" placeholder="Write message"
-                  rows="3"></textarea>
-        <div class="text-right">
-        </div>
-        <div class="btn-group mb-2 ml-2">
-            <a href="{% url 'account:trips_list' %}">Submit</a>
+                <div class="btn-group mb-2 ml-2">
+                    <button><a href="{% url 'account:trips_list' %}">К списку путешествий</a></button>
 
 
-        </div> <!-- end card-body-->
+                </div> <!-- end card-body-->
+            </div>
+            <!-- end card-->
+        </div> <!-- end col -->
     </div>
-    <!-- end card-->
-</div> <!-- end col -->
-
-
-</div>
 
 
 {% endblock %}

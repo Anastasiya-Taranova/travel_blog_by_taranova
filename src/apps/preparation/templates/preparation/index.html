@@ -2,81 +2,86 @@
 {% load static %}
 {% block header %}Подготовка к путешествию{% endblock %}
 {% block main %}
-<style>
+    <style>
 
 
-    h2 {
-        font-size: 35px;
-        text-align: center;
-    }
+        h2 {
+            font-size: 35px;
+            text-align: center;
+        }
 
-    p {
-        font-size: 20px;
-    }
+        p {
+            font-size: 20px;
+        }
 
-    .group::before,
-    .group::after {
-        content: "";
-        display: table;
-    }
+        .group::before,
+        .group::after {
+            content: "";
+            display: table;
+        }
 
-    .group::after {
-        clear: both;
-    }
+        .group::after {
+            clear: both;
+        }
 
-    .group {
-        clear: both;
-        *zoom: 1;
-    }
+        .group {
+            clear: both;
+            *zoom: 1;
+        }
 
-    section {
-        float: left;
-        width: 50%;
-    }
+        section {
+            float: left;
+            width: 50%;
+        }
 
-    aside {
-        float: right;
-        margin: 0 1.5%;
-        width: 30%;
-    }
+        aside {
+            float: right;
+            margin: 0 1.5%;
+            width: 30%;
+        }
 
-    div.right {
-        padding-top: 40px;
-    }
+        div.right {
+            padding-top: 40px;
+        }
 
-    .errorlist li {
-        list-style-type: none;
+        .errorlist li {
+            list-style-type: none;
 
-    }
+        }
 
-</style>
-<div class="wrapper style2">
-    <div class="container">
-        <header class="special" id="main">
-            <div class="group">
-                <section>
+    </style>
+    <div class="wrapper style2">
+        <div class="container">
+            <header class="special" id="main">
+                <div class="group">
+                    <section>
 
-                    <h2>Поиск авиабилета:</h2>
-                    <form action="" method="get">
-                        {{ form.as_p }}
-                        <input class="mt-2 btn btn-danger" name="Save" type="submit" value="Узнать">
-                    </form>
-                </section>
-                <aside>
+                        <h2>Поиск авиабилета:</h2>
+                        <form action="" method="get">
+                            {{ form.as_p }}
+                            <input class="mt-2 btn btn-danger" name="Save" type="submit" value="Узнать">
+                        </form>
+                    </section>
+                    <aside>
+                        {% if not all_info %}
+                            <div class="right">
+                                <h2>Информация:</h2><br>
+                                <p>Отсутсвуют билеты на выбранные даты</p>
+                            </div>
+                        {% elif all_info %}
+                            <div class="right">
+                                <h2>Информация:</h2><br>
+                                <p>Минимальная стоимость билета будет составлять: {{ all_info }} $</p>
+                            </div>
+                        {% endif %}
+                    </aside>
 
-                    <div class="right">
-                        <h2>Информация:</h2><br>
-                        <p>Минимальная стоимость билета будет составлять: {{ all_info }} </p>
-                    </div>
+                </div>
 
-                </aside>
 
-            </div>
+        </header>
     </div>
 
-    </header>
-</div>
-
-</div>
+    </div>
 
 {% endblock %}

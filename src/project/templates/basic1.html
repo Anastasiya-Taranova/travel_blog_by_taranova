@@ -120,24 +120,15 @@
                     <header>
                         <h2 class="icon brands fa-instagram circled"><span class="label">Photos</span></h2>
                     </header>
-                    <div class="row gtr-25">
-                        <div class="col-6">
-                            <a href="https://www.instagram.com/p/BwaCQ10gbjs/" class="image fit"><img
-                                    src="{% static 'images/pic10.jpg' %}" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="https://www.instagram.com/p/BwRWxi_AzKs/" class="image fit"><img
-                                    src="{% static 'images/pic11.jpg' %}" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="https://www.instagram.com/p/BtbRvMkgw4z/" class="image fit"><img
-                                    src="{% static 'images/pic12.jpg' %}" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="https://www.instagram.com/p/Bv2RHfdgn3J/" class="image fit"><img
-                                    src="{% static 'images/pic13.jpg' %}" alt=""/></a>
+                     <div class="row gtr-25">
+                        {% for photo in random_photos %}
+                            <div class="col-6">
+                                <a href="{{ photo.url }}" class="image fit"><img
+                                        src="{{ photo.url }}" alt=""/></a>
 
-                        </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </section>
 
             </div>

@@ -67,10 +67,3 @@ class Photo(models.Model):
 
 class Random(models.Model):
     url = models.URLField()
-
-    # @property
-    # def random_photos(self):
-    #     photos_all = self.photos.all()
-    #     indices = get_random_incides(len(photos_all), 4)
-    #     photos_random = [photos_all[i] for i in indices]
-    #     return photos_random

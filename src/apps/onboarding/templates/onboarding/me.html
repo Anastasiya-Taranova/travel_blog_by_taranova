@@ -48,6 +48,13 @@
         margin-bottom: 20px;
 
     }
+    div.but button {
+         width: 100%;
+        height: 60px;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
 </style>
 <div class="wrapper style2">
     <div class="container">
@@ -57,10 +64,13 @@
             {% if newbie_alert %}
             <p><strong>{{ newbie_alert }}</strong></p>
             {% endif %}
-            <button class="button1"><a href="{% url 'account:trips_list' %}">Мои
+        <div class="but">
+            <button type="submit" value="Узнать" class="button1"><a href="{% url 'account:trips_list' %}">Мои
                 путешествия</a></button>
-            <button class="button1"><a href="{% url 'account:create_trip' %}">Запланировать
-                путешествие</a></button>
+            <form action="{% url 'account:create_trip'%}" method="post">
+                                {% csrf_token %}
+                                <button class="but" type="submit">Запланировать путешествие</button>
+                            </form></div>
 
             <div class="grid">
 

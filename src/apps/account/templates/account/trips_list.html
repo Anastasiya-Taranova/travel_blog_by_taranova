@@ -5,82 +5,100 @@
 
 
 {% block main %}
-<style>
+    <style>
 
-    .container a {
-        text-align: left;
-        text-decoration: none;
-        font-size: 25px;
-        margin-left: 40px;
-    }
+        .container a {
+            text-align: left;
+            text-decoration: none;
+            font-size: 25px;
 
-    .container p {
-        margin-top: 20px;
-    }
+        }
 
-
-    button {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border: 0;
-        border-radius: 0;
-        background: #ccc;
-        font-size: 20px;
-        height: 60px;
-        margin-top: 20px;
-    }
-
-</style>
-<div class="wrapper style2">
-    <div class="container">
+        .container p {
+            margin-top: 20px;
+        }
 
 
-        <a href="{% url 'preparation:index' %}">
-            <button class="btn btn-danger btn-rounded mb-3" type="submit"><i class="mdi mdi-plus"></i> Узнать стоимость
-                авиабилета
-            </button>
-        </a>
-        <a href="{% url 'account:create_trip' %}">
-            <button class="btn btn-danger btn-rounded mb-3" type="submit"><i class="mdi mdi-plus"></i> Запланировать
-                поездку
-            </button>
-        </a>
-        <a href="{% url 'onboarding:me' %}">
-            <button class="btn btn-danger btn-rounded mb-3" type="submit"><i class="mdi mdi-plus"></i> Вернуться в
-                профиль
-            </button>
-        </a>
+        button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: 0;
+            border-radius: 0;
+            background: #ccc;
+            font-size: 20px;
+            height: 60px;
+            margin-top: 20px;
+            width: 100%;
+
+        }
+
+        #grid {
+            display: grid;
+            margin-top: 40px;
+            grid-template-rows: 1fr 40px;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin-left: 10px;
+            grid-gap: 120px;
+        }
+
+        h3 {
+            margin-left: 20px;
+        }
+
+        button.but {
+            width: 100%
+        }
+        form button {
+            width: 100%
+        }
 
 
-        {% for trip in trips %}
-        <article class="col-4 col-12-mobile special">
+    </style>
+    <div class="wrapper style2">
+        <div class="container">
 
 
-            <h3><a class="text-dark" href="{% url 'account:trips_detailed' trip.slug %}">{{ trip.name }}</a></h3>
-
-            <p>
-                <b>Откуда:</b> {{ trip.user_location }} </p>
-            <p><b>Куда:</b> {{ trip.destination }} </p>
-            <p><b>Бюджет:</b> {{ trip.budget }}</p>
-            <p><b>Участники путешествия:</b> {{ trip.participants_total }}
-            </p>
-            <form action="{% url 'account:delete_trip' trip.slug %}" method="post">
+            <a href="{% url 'preparation:index' %}">
+                <button class="btn btn-danger btn-rounded mb-3" type="submit"><i class="mdi mdi-plus"></i> Узнать
+                    стоимость
+                    авиабилета
+                </button>
+            </a>
+            <form action="{% url 'account:create_trip' %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Удалить</button>
-            </form>
-            <form action="{% url 'account:update_trip' trip.slug %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Обновить</button>
+                <button class="but" type="submit">Запланировать путешествие</button>
             </form>
 
 
-            <b>Количество комментариев: {{ trip.comments_total }}</b>
-    </article>
-    {% endfor %}
+            <article class="col-4 col-12-mobile special">
+
+                <div id="grid">{% for trip in trips %}
+                    <div>
+                        <h3><a class="text-dark"
+                               href="{% url 'account:trips_detailed' trip.slug %}">{{ trip.name }}</a>
+                        </h3>
+
+                        <p>
+                            <b>Откуда:</b> {{ trip.user_location }} </p>
+                        <p><b>Куда:</b> {{ trip.destination }} </p>
+                        <p><b>Бюджет:</b> {{ trip.budget }}</p>
+                        <p><b>Участники путешествия:</b> {{ trip.participants_total }}
+                        </p>
+                        <form action="{% url 'account:delete_trip' trip.slug %}" method="post">
+                            {% csrf_token %}
+                            <button class="but" type="submit">Удалить</button>
+                        </form>
+                        <form action="{% url 'account:update_trip' trip.slug %}" method="get">
+                            <button class="but" type="submit">Обновить</button>
+                        </form>
+                    </div> {% endfor %}
+                </div>
+            </article>
+        </div>
 
 
-</div>
+    </div>
 
 
 {% endblock %}

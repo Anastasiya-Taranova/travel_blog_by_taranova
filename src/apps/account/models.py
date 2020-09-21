@@ -41,27 +41,3 @@ def pre_save_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_receiver, sender=Trips)
-
-
-class Comments(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    trip = models.ForeignKey(Trips, on_delete=models.CASCADE)
-    message = models.TextField(blank=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = "comment"
-        verbose_name_plural = "comments"
-
-    def __str__(self):
-        return str(
-            f"Comment ID: "
-            + str(self.pk)
-            + ' "'
-            + self.message
-            + '"'
-            + " created by "
-            + str(self.user_id.get_username())
-            + " left on Trip ID: "
-            + self.trip.pk
-        )
