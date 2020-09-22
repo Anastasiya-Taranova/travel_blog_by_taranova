@@ -1,2 +1,3 @@
-# Auteur travel blog by Taranova
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+# Travel blog by Taranova
 https://taranova-travel.herokuapp.com
