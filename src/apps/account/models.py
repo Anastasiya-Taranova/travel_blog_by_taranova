@@ -29,7 +29,7 @@ class Trips(models.Model):
         verbose_name_plural = "Запланированные путешествия"
 
     def __str__(self):
-        return str(f"Trip: " + " " + self.name)
+        return self.name
 
     def get_absolute_url(self):
         return reverse("account:trips_detailed", kwargs={"slug": self.slug})
