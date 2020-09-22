@@ -43,13 +43,12 @@
                 <li>
                     <a href="#">Путешествия</a>
 
-                    <ul>
+{#                        <ul> {% for country in countries %}#}
+{##}
+{#                            <li><a href="{{ country.get_absolute_url }}">{{ country.name }}</a></li>{% endfor %}#}
 
-                            <li><h1>{{ countr }}</h1></li>
-                     
 
-
-                    </ul>
+                        </ul>
                 </li>
                 <li><a href="{% url 'photos:index' %}">Фотографии</a></li>
                 <li><a href="{% url 'blog:all_posts' %}">Полезные статьи и файлы</a></li>

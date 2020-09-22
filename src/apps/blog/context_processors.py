@@ -1,3 +1,5 @@
+from django.views.generic import ListView
+
 from apps.blog.models import Post
 from apps.blog.models import Random
 from apps.trips.models import Countries
@@ -13,6 +15,7 @@ def blog(request):
     return {
         "posts": Post.objects.order_by("?"),
     }
+
 
 def countr(request):
     return {

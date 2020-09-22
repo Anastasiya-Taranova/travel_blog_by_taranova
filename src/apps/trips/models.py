@@ -1,37 +1,25 @@
-import uuid
-
+from ckeditor.fields import RichTextField
 from django.db import models as m
-from storages.backends.s3boto3 import S3Boto3Storage
+from django.urls import reverse_lazy
+from django_2gis_maps import fields as map_fields
+from django_2gis_maps.mixins import DoubleGisMixin
 
 
-class Countries(m.Model):
-    name = m.TextField(max_length=20, null=True,  blank=True)
-
-    class Meta:
-        verbose_name_plural = "Countries"
-
-
-class PointsMap(m.Model):
-    points = m.TextField(max_length=50, null=True,  blank=True)
+class Points(DoubleGisMixin, m.Model):
+    address = map_fields.AddressField(max_length=100)
+    geolocation = map_fields.GeoLocationField()
 
     class Meta:
         verbose_name_plural = "Points"
 
 
-class Content(m.Model):
-    content = m.TextField(null=True, blank=True)
-    country_name = m.ForeignKey(Countries, on_delete=m.CASCADE, related_name="country")
-    points = m.ManyToManyField(PointsMap)
+class Countries(m.Model):
+    name = m.TextField(max_length=20, null=True, blank=True)
+    content = RichTextField(null=True, blank=True)
+    marker_map = m.ManyToManyField(Points)
 
+    def get_absolute_url(self):
+        return reverse_lazy("trips:index", kwargs={"pk": str(self.pk)})
 
     class Meta:
         verbose_name_plural = "Content"
-
-
-class Photo(m.Model):
-    uuid = m.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    post = m.ForeignKey(Content, on_delete=m.CASCADE, related_name="photos")
-    original = m.FileField(storage=S3Boto3Storage())
-
-    class Meta:
-        verbose_name_plural = "Photos"

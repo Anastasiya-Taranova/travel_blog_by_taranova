@@ -1,0 +1,88 @@
+{% extends "basic1.html" %}
+{% load doublegis %}
+{% load static %}
+{% block header %}{% endblock %}
+{% block main %}
+    <style>
+        h2 {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        p.content {
+            padding: 1em 1em;
+
+        }
+
+        .container1 {
+            border: 2px solid #ef8376;
+            background-color: white;
+            border-radius: 4px;
+            padding: 40px;
+            margin: 10px 0;
+        }
+
+        .container1 span {
+            margin-top: 40px;
+            margin-bottom: 2px;
+            display: inline-block;
+            font-size: 1rem;
+            color: #000;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: #000;
+        }
+
+        p span {
+            line-height: 20px;
+
+        }
+
+        a {
+            border-bottom: none;
+        }
+
+    </style>
+    <div class="wrapper style2">
+
+        <div class="container">
+            <header class="special" id="main">
+                <section>
+                    <article>
+
+                        {% render_map instanse %}
+
+                    </article>
+                </section>
+            </header>
+        </div>
+    </div>
+{% render_map instanse %}
+
+    <script src="https://maps.api.2gis.ru/2.0/loader.js"></script>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    <script>
+        DG.then(function () {
+            var map,
+                marker1,
+                group;
+
+            map = DG.map('map', {
+                center: [54.98, 82.89],
+                zoom: 13
+            });
+
+                marker1 = DG.marker([20.9838867158288, 52.22779941363013]).addTo(map);
+
+            group = DG.featureGroup([marker1]);
+            group.addTo(map);
+            group.on('click', function (e) {
+                map.setView([e.latlng.lat, e.latlng.lng]);
+            });
+        });
+    </script>
+
+
+{% endblock %}

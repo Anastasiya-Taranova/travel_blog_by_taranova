@@ -43,6 +43,7 @@ INSTALLED_APPS_ORDERED = {
     90: "storages",
     100: "django.contrib.gis",
     110: "ckeditor",
+    120: "django_2gis_maps",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.index.apps.IndexConfig",
@@ -53,7 +54,7 @@ INSTALLED_APPS_ORDERED = {
     7000: "apps.preparation.apps.PreparationConfig",
     8000: "apps.account.apps.AccountConfig",
     9000: "apps.photos.apps.PhotosConfig",
-    10000: "multiselectfield"
+    10000: "multiselectfield",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
