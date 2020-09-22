@@ -39,3 +39,4 @@ sentry-sdk = "*"
 uvicorn = "*"
 whitenoise = "*"
 django-2gis-maps = "*"
+
