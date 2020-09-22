@@ -11,8 +11,9 @@ You can see it on https://taranova-travel.herokuapp.com
 <li> PostgreSQL</li>
 <li> AWS S3 </li>
 <li> Selery</li>
- <li> Selery</li>
+ <li> Dynaconf</li>
   <li> Rest API</li>
+  <li> 2Gis-Maps</li>
 
 </ul>
 
