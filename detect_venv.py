@@ -35,4 +35,4 @@ def in_virtualenv():
     return get_base_prefix_compat() != sys.prefix
 
 
-print(in_virtualenv())
+

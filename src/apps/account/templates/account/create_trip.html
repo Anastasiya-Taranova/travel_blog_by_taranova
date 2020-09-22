@@ -56,7 +56,7 @@
     <div class="container">
         <div class="grid">
 
-            <form action="{% url 'account:create_trip' %}" method="post">
+            <form action="{% url 'account:create_trip' %}" method="post" id="fo">
 
                 {% csrf_token %}
 
@@ -70,9 +70,10 @@
                 <label>Планируемый бюджет:<br><p>{{ form.budget }} <br><br>Например: 100$, планы ведь часто не совпадают с реальностью))</p></label>
                 <label>Количество участников путешествия:<br><p>{{ form.participants_total }}<br><br> Чем больше людей, тем меньше бюджет(ну и веселее чуток)</p></label>
                 <label>Список вещей, которые хотите взять с собой:<br><p>{{ form.packing_list }} Потом начнется квест "Впихнуть "невпихуемое""</p></label>
-                <button type="submit" value="Узнать">Отправить</button>
 
             </form>
+            <button type="submit" value="Узнать" form="fo">Отправить</button>
+
         </div>
     </div>
 

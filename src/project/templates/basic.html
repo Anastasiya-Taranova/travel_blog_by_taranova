@@ -27,7 +27,8 @@
                 <h1><a href="{% url 'index:index' %}" id="logo">{% block header %}{% endblock %}</a></h1>
                 <video autoplay muted loop id="myVideo">
                     <source src="{% static 'video.mp4' %}" type="video/mp4">
-                    <hr/>
+                </video>
+                <hr/>
 
             </header>
             <footer>
@@ -41,13 +42,13 @@
                 <li><a href="{% url 'index:index' %}">Обо мне</a></li>
                 <li>
                     <a href="#">Путешествия</a>
-                    <ul>
-                        <li><a href="{% url 'vietnam:index' %}">Вьетнам</a></li>
-                        <li><a href="#">Италия</a></li>
-                        <li><a href="#">США</a></li>
-                        <li><a href="#">Украина</a></li>
-                        <li><a href="#">Нидерланды</a></li>
-                    </ul>
+
+                        <ul> {% for country in countr %}
+
+                            <li><a href="{{ country.get_absolute_url }}">{{ country.name }}</a></li>{% endfor %}
+
+
+                        </ul>
                 </li>
                 <li><a href="{% url 'photos:index' %}">Фотографии</a></li>
                 <li><a href="{% url 'blog:all_posts' %}">Полезные статьи и файлы</a></li>
@@ -149,6 +150,7 @@
                     <section class="contact">
                         <header>
                             <h3>Связаться со мной:</h3>
+
                         </header>
 
                         <ul class="icons">
@@ -169,6 +171,7 @@
             </div>
         </div>
     </div>
+
 
 </div>
 

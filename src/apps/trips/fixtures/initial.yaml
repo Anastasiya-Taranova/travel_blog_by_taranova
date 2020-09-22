@@ -1,4 +1,4 @@
-- model: vietnam.viedays
+- model: trips.viedays
   pk: 3
   fields:
     h2: "\u041F\u043E\u0447\u0435\u043C\u0443 \u0438\u043C\u0435\u043D\u043D\u043E\

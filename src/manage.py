@@ -20,7 +20,4 @@ def main():
 if __name__ == "__main__":
     import os
 
-    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-    print(os.system("ls -la /app/.geodjango"))
-    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     main()

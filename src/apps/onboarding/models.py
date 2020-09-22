@@ -53,3 +53,6 @@ class Profile(models.Model):
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__} #{self.pk} for {self.user.email!r}"
+
+    class Meta:
+        verbose_name_plural = "Профили"

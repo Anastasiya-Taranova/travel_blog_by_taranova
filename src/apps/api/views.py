@@ -23,7 +23,6 @@ class TelegramView(View):
                 f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage",
                 json={"chat_id": chat_id, "text": text.upper()},
             )
-            print(f"XXX sendMessage resp: {r}")
         except Exception as err:
             print(err)
         return HttpResponse()
