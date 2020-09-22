@@ -104,7 +104,6 @@ test:
 	ENV_FOR_DYNACONF=test \
 	${RUN} coverage run \
 		src/manage.py test ${TEST_PARAMS} \
-			apps \
 			periodic \
 			project \
 
