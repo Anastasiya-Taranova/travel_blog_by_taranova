@@ -1,7 +1,7 @@
 {% extends "basic1.html" %}
 {% load doublegis %}
 {% load static %}
-{% block header %}{% endblock %}
+{% block header %}{{ object.name }}{% endblock %}
 {% block main %}
     <style>
         h2 {
@@ -52,14 +52,20 @@
                 <section>
                     <article>
 
-                        {% render_map instanse %}
+
+
+                            <p>{{ object.name }}<p>
+                         <p>{{ object.content | safe }}<p>
+                         <p>{{ object.marker_map.geolocation }}<p>
+
+
 
                     </article>
                 </section>
             </header>
         </div>
     </div>
-{% render_map instanse %}
+
 
     <script src="https://maps.api.2gis.ru/2.0/loader.js"></script>
     <div id="map" style="width: 100%; height: 400px;"></div>
@@ -74,7 +80,7 @@
                 zoom: 13
             });
 
-                marker1 = DG.marker([20.9838867158288, 52.22779941363013]).addTo(map);
+            marker1 = DG.marker([20.9838867158288, 52.22779941363013]).addTo(map);
 
             group = DG.featureGroup([marker1]);
             group.addTo(map);

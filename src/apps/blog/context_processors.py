@@ -19,5 +19,5 @@ def blog(request):
 
 def countr(request):
     return {
-        "countries": Countries.objects.all(),
+        "countr": Countries.objects.all(),
     }
