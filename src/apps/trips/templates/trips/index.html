@@ -54,9 +54,8 @@
 
 
 
-                            <p>{{ object.name }}<p>
-                         <p>{{ object.content | safe }}<p>
-                         <p>{{ object.marker_map.geolocation }}<p>
+                         {{ object.content | safe }}
+                         <p>{{ object.marker_map }}<p>
 
 
 
@@ -80,7 +79,7 @@
                 zoom: 13
             });
 
-            marker1 = DG.marker([20.9838867158288, 52.22779941363013]).addTo(map);
+            marker1 = DG.marker([{{ object.geolocation }}]).addTo(map);
 
             group = DG.featureGroup([marker1]);
             group.addTo(map);

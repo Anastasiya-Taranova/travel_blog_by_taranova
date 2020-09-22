@@ -33,6 +33,12 @@ class Post(models.Model):
         self.nr_dislikes += 1
         self.save()
 
+    class Meta:
+        verbose_name_plural = "Посты"
+
+    def __str__(self):
+        return str(f"Пост: " + " " + self.title)
+
 
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -56,12 +62,24 @@ class Comment(models.Model):
         self.nr_dislikes += 1
         self.save()
 
+    class Meta:
+        verbose_name_plural = "Комментарии"
+
+    def __str__(self):
+        return str(f"Комментарий: " + " " + self.message)
+
 
 class Photo(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="photos")
     original = models.FileField(storage=S3Boto3Storage())
 
+    class Meta:
+        verbose_name_plural = "Фотографии"
+
 
 class Random(models.Model):
     url = models.URLField()
+
+    class Meta:
+        verbose_name_plural = "Фотографии на главную страницу"

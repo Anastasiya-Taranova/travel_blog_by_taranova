@@ -50,11 +50,10 @@ INSTALLED_APPS_ORDERED = {
     3000: "apps.trips.apps.TripsConfig",
     4000: "apps.blog.apps.BlogConfig",
     5000: "apps.api.apps.ApiConfig",
-    6000: "apps.contacts.apps.ContactsConfig",
-    7000: "apps.preparation.apps.PreparationConfig",
-    8000: "apps.account.apps.AccountConfig",
-    9000: "apps.photos.apps.PhotosConfig",
-    10000: "multiselectfield",
+    6000: "apps.preparation.apps.PreparationConfig",
+    7000: "apps.account.apps.AccountConfig",
+    8000: "apps.photos.apps.PhotosConfig",
+    9000: "multiselectfield",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]

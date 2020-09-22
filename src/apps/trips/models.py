@@ -10,7 +10,10 @@ class Points(DoubleGisMixin, m.Model):
     geolocation = map_fields.GeoLocationField()
 
     class Meta:
-        verbose_name_plural = "Points"
+        verbose_name_plural = "Точки на карте"
+
+    def __str__(self):
+        return str(f"Точка: " + " " + self.geolocation)
 
 
 class Countries(m.Model):
@@ -22,4 +25,7 @@ class Countries(m.Model):
         return reverse_lazy("trips:index", kwargs={"pk": str(self.pk)})
 
     class Meta:
-        verbose_name_plural = "Content"
+        verbose_name_plural = "Контент"
+
+    def __str__(self):
+        return self.name

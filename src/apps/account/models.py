@@ -26,7 +26,7 @@ class Trips(models.Model):
 
     class Meta:
         verbose_name = "trip"
-        verbose_name_plural = "trips"
+        verbose_name_plural = "Запланированные путешествия"
 
     def __str__(self):
         return str(f"Trip: " + " " + self.name)
