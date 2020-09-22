@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Anastasiya-Taranova/travel_blog_by_taranova.svg?branch=master)](https://travis-ci.org/Anastasiya-Taranova/travel_blog_by_taranova)
 [![codecov](https://codecov.io/gh/Anastasiya-Taranova/travel_blog_by_taranova/branch/master/graph/badge.svg)](https://codecov.io/gh/Anastasiya-Taranova/travel_blog_by_taranova)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
