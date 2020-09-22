@@ -53,7 +53,6 @@ INSTALLED_APPS_ORDERED = {
     6000: "apps.preparation.apps.PreparationConfig",
     7000: "apps.account.apps.AccountConfig",
     8000: "apps.photos.apps.PhotosConfig",
-    9000: "multiselectfield",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
