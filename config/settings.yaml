@@ -23,6 +23,7 @@ default:
   TIME_ZONE: ""
   DEBUG: true
   TELEGRAM_BOT_TOKEN: ""
+  API_KEY: ""
 
 development:
   CELERY_BROKER_URL: "redis://"

@@ -2,10 +2,10 @@ import json
 
 import requests
 from django.views.generic import TemplateView
+from dynaconf import settings as _settings
 
 from apps.preparation.api_helpers import call_api
 from apps.preparation.forms import CityForm
-from dynaconf import settings as _settings
 
 API_KEY = _settings.API_KEY
 rapidapi_host = "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
