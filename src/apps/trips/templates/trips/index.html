@@ -55,8 +55,6 @@
 
 
                          {{ object.content | safe }}
-                         <p>{{ object.marker_map }}<p>
-
 
 
                     </article>
@@ -71,17 +69,21 @@
     <script>
         DG.then(function () {
             var map,
+                marker0,
                 marker1,
                 group;
 
             map = DG.map('map', {
-                center: [54.98, 82.89],
+                center: [{{ object.marker_map.first.geolocation }}],
                 zoom: 13
             });
 
-            marker1 = DG.marker([{{ object.geolocation }}]).addTo(map);
+            {#marker1 = DG.marker([{{ object.marker_map.first.geolocation }}]).addTo(map);#}
+            {##}
+            {#group = DG.featureGroup([marker1]);#}
 
-            group = DG.featureGroup([marker1]);
+            {{  markers_js }}
+
             group.addTo(map);
             group.on('click', function (e) {
                 map.setView([e.latlng.lat, e.latlng.lng]);

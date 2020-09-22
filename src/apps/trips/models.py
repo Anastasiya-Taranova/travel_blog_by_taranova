@@ -13,7 +13,7 @@ class Points(DoubleGisMixin, m.Model):
         verbose_name_plural = "Точки на карте"
 
     def __str__(self):
-        return str(f"Точка: " + " " + self.geolocation)
+        return self.geolocation
 
 
 class Countries(m.Model):
