@@ -66,7 +66,12 @@ You can see it on https://taranova-travel.herokuapp.com
  <img src="https://travel-taranova.s3.amazonaws.com/points_admin.png"/>
 8) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/index"> App – index: </a><br><br>
 <ul> <li>Display of random photos(through context_processors), links to which can be added through the admin panel</li>
-<li> Displaying random posts(through context_processors) that are added to the "Blog" section</li></ul><br>
+<li> Displaying random posts(through context_processors) that are added to the "Blog" section</li></ul><br><br>
+
+Additionally:<br><br>
+Ckeditor<br>
+<img src="https://travel-taranova.s3.amazonaws.com/ckeditor.png" /><br>
+
 
 
 
