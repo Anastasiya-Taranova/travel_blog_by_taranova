@@ -10,10 +10,40 @@ You can see it on https://taranova-travel.herokuapp.com
 <li> Django framework</li>
 <li> PostgreSQL</li>
 <li> AWS S3 </li>
-<li> Selery</li>
+<li> Celery</li>
+ <li> Redis</li>
  <li> Dynaconf</li>
   <li> Rest API</li>
+ <li> Swagger</li>
+ <li> Redoc</li>
   <li> 2Gis-Maps</li>
 
 </ul>
+A quick tour of the functionality in my app: <br>
+1) App – onboarding: <br>
+– Sign in <br>
+– Sign up with help of Celery, Redis <br>
+– Change password, user information <br>
+ <br>
+2) App – account:<br>
+– The ability to plan(Create) your trip <br>
+– Delete, Edit and Rewiew it <br><br>
+3) App – api:<br>
+– Provide your site api with the help of Swagger, Redoc<br>
+4) App – preparation:<br>
+– Connect to API aviasales.com<br>
+– Find the minimum flight price for the specified parameters<br><br>
+5) App – blog:<br>
+– Create, Review, Delete posts <br>
+– Create, Review, Delete comments <br><br>
+6) App – photos:<br>
+– Adding photos of new countries through the admin panel and adding an url to view subsequent ones through tags on instagram<br><br>
+7) App – trips:<br>
+– Dynamically adding new countries<br>
+– Information display depending on the country: content and a map showing points with interesting places (coordinates are added to the map through the admin panel) with the help of 2Gis-Maps<br><br>
+8) App – index:<br>
+– Display of random photos(through context_processors), links to which can be added through the admin panel<br>
+– Displaying random posts(through context_processors) that are added to the "Blog" section<br>
+
+
 
