@@ -25,31 +25,34 @@ You can see it on https://taranova-travel.herokuapp.com
 <li> Sign in </li>
 <li> Sign up with help of Celery, Redis </li>
 <li> Change password, user information </li>
- </ul>
+ </ul><br>
 2) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/account"> App – account: </a><br><br>
 <ul> 
 <li> The ability to plan(Create) your trip </li>
 <li> Delete, Edit and Rewiew it </li>
- </ul>
+ </ul><br>
 3) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/api"> App – api: </a><br><br>
 <ul><li> Provide your site api with the help of Swagger, Redoc </li>
- </ul>
+ </ul><br>
 4) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/preparation"> App – preparation: </a><br><br>
 <ul>
 <li> Connect to API aviasales.com </li>
 <li> Find the minimum flight price for the specified parameters </li>
- </ul>
-5) App – blog:<br>
-– Create, Review, Delete posts <br>
-– Create, Review, Delete comments <br><br>
-6) App – photos:<br>
-– Adding photos of new countries through the admin panel and adding an url to view subsequent ones through tags on instagram<br><br>
-7) App – trips:<br>
-– Dynamically adding new countries<br>
-– Information display depending on the country: content and a map showing points with interesting places (coordinates are added to the map through the admin panel) with the help of 2Gis-Maps<br><br>
-8) App – index:<br>
-– Display of random photos(through context_processors), links to which can be added through the admin panel<br>
-– Displaying random posts(through context_processors) that are added to the "Blog" section<br>
+ </ul><br>
+5) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/blog"> App – blog: </a><br><br>
+<ul>
+<li> Create, Review, Delete posts </li>
+<li> Create, Review, Delete comments </li>
+ </ul><br>
+6) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/photos"> App – photos: </a><br><br>
+<ul>
+<li> Adding photos of new countries through the admin panel and adding an url to view subsequent ones through tags on instagram </li> </ul><br>
+7) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/trips"> App – trips: </a><br><br>
+<ul> Dynamically adding new countries<br>
+<li> Information display depending on the country: content and a map showing points with interesting places (coordinates are added to the map through the admin panel) with the help of 2Gis-Maps</li></ul><br>
+8) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/index"> App – index: </a><br>
+<ul> <li>Display of random photos(through context_processors), links to which can be added through the admin panel</li>
+<li> Displaying random posts(through context_processors) that are added to the "Blog" section</li></ul><br>
 
 
 
