@@ -51,7 +51,7 @@ You can see it on https://taranova-travel.herokuapp.com
 5) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/blog"> App – blog: </a><br><br>
 <ul>
 <li> Create, Review, Delete posts </li><br>
-  <img src="https://travel-taranova.s3.amazonaws.com/blog.png"/><br>
+  <img src="https://travel-taranova.s3.amazonaws.com/blog.png"/><br><br>
 <li> Create, Review, Delete comments </li><br>
   <img src="https://travel-taranova.s3.amazonaws.com/comments.png"/><br>
  </ul><br>
@@ -65,11 +65,11 @@ You can see it on https://taranova-travel.herokuapp.com
 <li> Information display depending on the country: content and a map showing points with interesting places (coordinates are added to the map through the admin panel) with the help of 2Gis-Maps</li></ul><br>
 <img src="https://travel-taranova.s3.amazonaws.com/map.png"/>
  <img src="https://travel-taranova.s3.amazonaws.com/points_admin.png"/><br>
-8) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/index"> App – index: </a><br><br>
-<ul> <li>Display of random photos(through context_processors), links to which can be added through the admin panel</li>
+8) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/index"> App – index: </a><br><br><br>
+<ul> <li>Display of random photos(through context_processors), links to which can be added through the admin panel</li><br><br>
  <img src="https://travel-taranova.s3.amazonaws.com/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA+%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0+2020-09-24+%D0%B2+21.38.46.png">
-<li> Displaying random posts(through context_processors) that are added to the "Blog" section</li></ul><br><br>
-                                                                                     <img src="https://travel-taranova.s3.amazonaws.com/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA+%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0+2020-09-24+%D0%B2+21.38.35.png">
+<li> Displaying random posts(through context_processors) that are added to the "Blog" section</li></ul><br><br><br>
+                                                                                     <img src="https://travel-taranova.s3.amazonaws.com/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA+%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0+2020-09-24+%D0%B2+21.38.35.png"><br>
 
 Additionally:<br><br>
 <ul> <li>Ckeditor<br>
