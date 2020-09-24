@@ -48,9 +48,9 @@ You can see it on https://taranova-travel.herokuapp.com
 <ul>
 <li> Adding photos of new countries through the admin panel and adding an url to view subsequent ones through tags on instagram </li> </ul><br>
 7) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/trips"> App – trips: </a><br><br>
-<ul> Dynamically adding new countries<br>
+<ul> <li> Dynamically adding new countries</li>
 <li> Information display depending on the country: content and a map showing points with interesting places (coordinates are added to the map through the admin panel) with the help of 2Gis-Maps</li></ul><br>
-8) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/index"> App – index: </a><br>
+8) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/index"> App – index: </a><br><br>
 <ul> <li>Display of random photos(through context_processors), links to which can be added through the admin panel</li>
 <li> Displaying random posts(through context_processors) that are added to the "Blog" section</li></ul><br>
 
