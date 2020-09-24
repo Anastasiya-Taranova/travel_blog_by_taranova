@@ -23,7 +23,7 @@ You can see it on https://taranova-travel.herokuapp.com
 1) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/onboarding"> App – onboarding: </a> <br><br>
 <ul> 
 <li> Sign in </li>
-<li> Sign up with help of Celery, Redis </li>
+<li> Sign up with the help of Celery, Redis </li>
 <li> Change password, user information </li>
  </ul><br>
 2) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/account"> App – account: </a><br><br>
