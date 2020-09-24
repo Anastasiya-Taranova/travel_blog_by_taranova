@@ -32,9 +32,9 @@ You can see it on https://taranova-travel.herokuapp.com
  </ul><br>
 2) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/account"> App – account: </a><br><br>
 <ul> 
-<li> The ability to plan(Create) your trip </li>
- <img src="https://travel-taranova.s3.amazonaws.com/new_trip.png"/>
-<li> Delete, Edit and Rewiew it </li>
+<li> The ability to plan(Create) your trip </li><br>
+ <img src="https://travel-taranova.s3.amazonaws.com/new_trip.png"/><br>
+<li> Delete, Edit and Rewiew it </li><br>
  <img src="https://travel-taranova.s3.amazonaws.com/review_trip.png"/>
  <img src="https://travel-taranova.s3.amazonaws.com/all_trips.png"/>
  </ul><br>
@@ -45,22 +45,22 @@ You can see it on https://taranova-travel.herokuapp.com
 <ul>
 <li> Connect to API aviasales.com </li>
 <li> Find the minimum flight price for the specified parameters </li>
- </ul>
+ </ul><br>
   <img src="https://travel-taranova.s3.amazonaws.com/api.png"/><br>
 5) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/blog"> App – blog: </a><br><br>
 <ul>
-<li> Create, Review, Delete posts </li>
-  <img src="https://travel-taranova.s3.amazonaws.com/blog.png"/>
-<li> Create, Review, Delete comments </li>
-  <img src="https://travel-taranova.s3.amazonaws.com/comments.png"/>
+<li> Create, Review, Delete posts </li><br>
+  <img src="https://travel-taranova.s3.amazonaws.com/blog.png"/><br>
+<li> Create, Review, Delete comments </li><br>
+  <img src="https://travel-taranova.s3.amazonaws.com/comments.png"/><br>
  </ul><br>
 6) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/photos"> App – photos: </a><br><br>
-<ul>
- <img src="https://travel-taranova.s3.amazonaws.com/photos.png"/>
+<ul><br>
+ <img src="https://travel-taranova.s3.amazonaws.com/photos.png"/><br>
 <li> Adding photos of new countries through the admin panel and adding an url to view subsequent ones through tags on instagram </li> </ul><br>
 7) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/trips"> App – trips: </a><br><br>
-<ul> <li> Dynamically adding new countries</li>
- <img src="https://travel-taranova.s3.amazonaws.com/added_new_countries.png"/>
+<ul> <li> Dynamically adding new countries</li><br>
+ <img src="https://travel-taranova.s3.amazonaws.com/added_new_countries.png"/><br>
 <li> Information display depending on the country: content and a map showing points with interesting places (coordinates are added to the map through the admin panel) with the help of 2Gis-Maps</li></ul><br>
 <img src="https://travel-taranova.s3.amazonaws.com/map.png"/>
  <img src="https://travel-taranova.s3.amazonaws.com/points_admin.png"/>
