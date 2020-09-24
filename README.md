@@ -23,12 +23,12 @@ You can see it on https://taranova-travel.herokuapp.com
 1) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/onboarding"> App – onboarding: </a> <br><br>
 <ul> 
 <li> Sign in </li><br>
- <img src="https://travel-taranova.s3.amazonaws.com/login.png"/>
+ <img src="https://travel-taranova.s3.amazonaws.com/login.png"/><br>
 <li> Sign up with the help of Celery, Redis </li><br>
  <img src="https://travel-taranova.s3.amazonaws.com/signup.png"><br>
 <li> Change password, user information </li><br>
  <img src="https://travel-taranova.s3.amazonaws.com/change_password.png"/>
- <img src="https://travel-taranova.s3.amazonaws.com/edit_profile.png"/>
+ <img src="https://travel-taranova.s3.amazonaws.com/edit_profile.png"/><br>
  <br>
  </ul><br>
 2) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/account"> App – account: </a><br><br>
@@ -37,7 +37,7 @@ You can see it on https://taranova-travel.herokuapp.com
  <img src="https://travel-taranova.s3.amazonaws.com/new_trip.png"/><br>
 <li> Delete, Edit and Rewiew it </li><br>
  <img src="https://travel-taranova.s3.amazonaws.com/review_trip.png"/>
- <img src="https://travel-taranova.s3.amazonaws.com/all_trips.png"/>
+ <img src="https://travel-taranova.s3.amazonaws.com/all_trips.png"/><br>
  </ul><br>
 3) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/api"> App – api: </a><br><br>
 <ul><li> Provide your site api with the help of Swagger, Redoc </li>
@@ -63,11 +63,11 @@ You can see it on https://taranova-travel.herokuapp.com
 <ul> <li> Dynamically adding new countries</li><br><br>
  <img src="https://travel-taranova.s3.amazonaws.com/added_new_countries.png"/><br><br>
 <li> Information display depending on the country: content and a map showing points with interesting places (coordinates are added to the map through the admin panel) with the help of 2Gis-Maps</li></ul><br>
-<img src="https://travel-taranova.s3.amazonaws.com/map.png"/>
+<img src="https://travel-taranova.s3.amazonaws.com/map.png"/><br>
  <img src="https://travel-taranova.s3.amazonaws.com/points_admin.png"/><br>
 8) <a href="https://github.com/Anastasiya-Taranova/travel_blog_by_taranova/tree/master/src/apps/index"> App – index: </a><br><br><br>
 <ul> <li>Display of random photos(through context_processors), links to which can be added through the admin panel</li><br><br>
- <img src="https://travel-taranova.s3.amazonaws.com/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA+%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0+2020-09-24+%D0%B2+21.38.46.png">
+ <img src="https://travel-taranova.s3.amazonaws.com/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA+%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0+2020-09-24+%D0%B2+21.38.46.png"><br>
 <li> Displaying random posts(through context_processors) that are added to the "Blog" section</li></ul><br><br><br>
                                                                                      <img src="https://travel-taranova.s3.amazonaws.com/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA+%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0+2020-09-24+%D0%B2+21.38.35.png"><br>
 
